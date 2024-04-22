@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://www.w3resource.com/mysql/mysql-storage-engines.php -->
+<html lang="en" xmlns:fb="facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script src="./MySQL storage engines - w3resource_files/ca-pub-2153208817642134.js.download"></script><script async="" src="./MySQL storage engines - w3resource_files/analytics.js.download"></script><script type="text/javascript">
+//<![CDATA[
+window.__cfRocketOptions = {byc:0,p:0,petok:"130255fafdf47b4f6a0f13125b84d45bdc2fd203-1515397387-1800"};
+//]]>
+</script>
+<script type="text/javascript" src="./MySQL storage engines - w3resource_files/rocket.min.js.download"></script>
+<link type="text/css" rel="stylesheet" href="./MySQL storage engines - w3resource_files/material.min.css">
+<link type="text/css" rel="stylesheet" href="./MySQL storage engines - w3resource_files/additional.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="https://www.w3resource.com/images/favicon.png">
+<title>MySQL storage engines - w3resource</title>
+<meta name="Keywords" content="MySQL storage engines tutorials | w3resource">
+<meta name="Description" content="A storage engine is a software which a DataBase management System uses to create, read, update and delete data from a database.">
+<meta property="og:title" content="MySQL storage engines - w3resource">
+<meta property="og:description" content="MySQL storage engines : A storage engine is a software which a DataBase management System uses to create, read, update and delete data from a database. Discuss storage engines of MySQL.">
+<meta property="og:type" content="tutorial">
+<meta property="og:url" content="https://www.w3resource.com/mysql/mysql-storage-engines.php">
+<meta property="og:image" content="//www.w3resource.com/w3r_images/mysql.gif">
+<meta property="og:site_name" content="w3resource">
+<link rel="preload" href="./MySQL storage engines - w3resource_files/integrator.js.download" as="script"><script type="text/javascript" src="./MySQL storage engines - w3resource_files/integrator.js.download"></script><link rel="preload" href="./MySQL storage engines - w3resource_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./MySQL storage engines - w3resource_files/integrator.js(1).download"></script><link rel="preload" href="./MySQL storage engines - w3resource_files/integrator.js.download" as="script"><script type="text/javascript" src="./MySQL storage engines - w3resource_files/integrator.js.download"></script><link rel="preload" href="./MySQL storage engines - w3resource_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./MySQL storage engines - w3resource_files/integrator.js(1).download"></script></head>
+<body>
+<style type="text/css">
+article a {
+text-decoration: none	
+}
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-21234995-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  }
+})});
+</script>
+
+
+<script async="" src="./MySQL storage engines - w3resource_files/adsbygoogle.js.download"></script>
+
+
+<div class="mdl-layout mdl-layout--fixed-header">
+<header class="mdl-layout__header">
+<div class="mdl-layout__header-row">
+<a href="https://www.w3resource.com/" style="text-decoration: none;"><span class="mdl-layout-title" style="margin-left: -50px;margin-top: -5px;color:#fff">w3resource</span></a>
+
+<button id="main-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+<i class="material-icons">menu</i>
+</button>
+<ul class="mdl-menu mdl-cell-mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="main-menu-lower-right" style="width:auto;overflow-x:hidden;height:360px;overflow-y: scroll">
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Front End</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/html/HTML-tutorials.php">HTML</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/css/CSS-tutorials.php">CSS</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/javascript/javascript.php">JavaScript</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/html5/introduction.php">HTML5</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/schema.org/introduction.php">Schema.org</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/phpjs/use-php-functions-in-javascript.php">php.js</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/twitter-bootstrap/tutorial.php">Twitter Bootstrap</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/responsive-web-design/overview.php">Responsive Web Design tutorial</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/zurb-foundation3/introduction.php">Zurb Foundation 3 tutorials</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/pure/">Pure CSS</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/html5-canvas/">HTML5 Canvas</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/course/javascript-course.html" target="_blank">JavaScript Course</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/icon/">Icon</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Back End</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/php/php-home.php">PHP</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/python/python-tutorial.php">Python</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/java-tutorial/">Java</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/node.js/node.js-tutorials.php">Node.js</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/ruby/">Ruby</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/c-programming/programming-in-c.php">C programming</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">SQL &amp; RDBMS</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/sql/tutorials.php">SQL(2003 standard of ANSI)</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/mysql/mysql-tutorials.php">MySQL</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/PostgreSQL/tutorial.php">PostgreSQL</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/sqlite/">SQLite</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">NoSQL &amp; MongoDB</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/mongodb/nosql.php">NoSQL</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/mongodb/nosql.php">MongoDB</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/oracle/index.php">Oracle Tutorial</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/redis/index.php">Redis</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">API</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/API/google-plus/tutorial.php">Google Plus API</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/API/youtube/tutorial.php">Youtube API</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/API/google-maps/index.php">Google Maps API</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/API/flickr/tutorial.php">Flickr API</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/API/last.fm/tutorial.php">Last.fm API</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/API/twitter-rest-api/">Twitter REST API</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Data Interchnage</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/xml/xml.php">XML</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/JSON/introduction.php">JSON</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/ajax/introduction.php">Ajax</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Exercises</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/html-css-exercise/index.php">HTML CSS Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/javascript-exercises/">JavaScript Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/jquery-exercises/">jQuery Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/jquery-ui-exercises/">jQuery-UI Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/coffeescript-exercises/">CoffeeScript Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/php-exercises/">PHP Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/python-exercises/">Python Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/c-programming-exercises/">C Programming Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/csharp-exercises/">C# Sharp Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/java-exercises/">Java Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/sql-exercises/">SQL Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/oracle-exercises/">Oracle Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/mysql-exercises/">MySQL Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/sqlite-exercises/">SQLite Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/postgresql-exercises/">PostgreSQL Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/mongodb-exercises/">MongoDB Exercises</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/twitter-bootstrap/examples.php">Twitter Bootstrap Examples</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/euler-project/">Euler Project</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Linux</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/linux-system-administration/installation.php">Linux Home</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/linux-system-administration/linux-commands-introduction.php">Linux Commands</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/linux-system-administration/installation.php">Linux Server Administration</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">MS Excel</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/excel/">Excel 2013 tutorial</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Videos</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/video-tutorial/php/some-basics-of-php.php">PHP Videos</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/video-tutorial/javascript/list-of-tutorial.php">JavaScript Videos</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Tools</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/web-development-tools/firebug-tutorials.php">Firebug Tutorial</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/web-development-tools/useful-web-development-tools.php">Useful Tools</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Quiz</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/html5-quiz/">HTML5 Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/php-fundamentals/">PHP Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/sql-beginner/">SQL Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/python-beginner-quiz/">Python Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/mysql-basic-quiz/">MySQL Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/javascript-basic-skill-test/">JavaScript I Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/javascript-advanced-quiz/">JavaScript II Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/javascript-quiz-part-iii/">JavaScript III Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://w3resource.com/w3skills/mongodb-basic-quiz/">MongoDB Quiz</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Form Template</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/form-template/">Forms Template</a></li>
+<li class="mdl-menu__item mdl-cell--12-col" style="background-color:#08c;color:#fff;height:24px; line-height: 24px">Slides</li>
+<li class="mdl-menu__item mdl-cell--12-col"><a href="https://www.w3resource.com/slides/">Slides Presentation</a></li>
+</ul>
+<div class="np"></div>
+<div class="mdl-layout-spacer"></div>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+
+<div class="mdl-textfield__expandable-holder">
+<input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+</div>
+</div>
+<nav class="mdl-navigation mdl-layout--large-screen-only">
+
+<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+<i class="material-icons">share</i>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right" style="overflow-y:scroll;">
+<li class="mdl-menu__item"><a href="https://www.w3resource.com/html/HTML-tutorials.php">Facebook</a></li>
+<li class="mdl-menu__item"><a href="https://www.w3resource.com/html/HTML-tutorials.php">Twitter</a></li>
+<li class="mdl-menu__item"><a href="https://in.linkedin.com/in/w3resource">Google Plus</a></li>
+<li class="mdl-menu__item"><a href="https://in.linkedin.com/in/w3resource">Linkedin</a></li>
+<li class="mdl-menu__item"><a href="https://feeds.feedburner.com/W3resource">RSS</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="mdl-layout__content">
+<div class="page-content">
+<div class="mdl-grid">
+<div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone"> <a href="https://www.w3resource.com/"><img src="./MySQL storage engines - w3resource_files/w3resource-logo.png" alt="w3resource logo"></a></div>
+<div class="mdl-cell mdl-cell--9-col mdl-cell--hide-phone">
+<script type="text/javascript" language="javascript" src="./MySQL storage engines - w3resource_files/getads.js.download"></script>
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+/*aax_getad_mpb({
+  "slot_uuid":"0f1f9886-d533-461c-9bb1-b200b3e51a83"
+});*/
+//]]>
+</script>
+
+</div>
+</div>
+<div class="mdl-grid">
+<div class="mdl-cell mdl-cell--12-col  mdl-card mdl-shadow--2dp through mdl-shadow--6dp mdl-cell--hide-phone">
+
+<p> New exercises added to: <a href="https://www.w3resource.com/ruby-exercises/">Ruby, </a><a href="https://www.w3resource.com/java-exercises/">Java, </a><a href="https://www.w3resource.com/php-exercises/">PHP, </a> <a href="https://www.w3resource.com/python-exercises/">Python, </a><a href="https://www.w3resource.com/c-programming-exercises/">C Programming, </a>
+<a href="https://www.w3resource.com/graphics/matplotlib/">Matplotlib, </a><a href="https://www.w3resource.com/python-exercises/numpy/index.php">Python NumPy, </a><a href="https://www.w3resource.com/python-exercises/pandas/index.php">Python Pandas</a></p>
+</div>
+</div>
+<div class="mdl-grid">
+<div class="mdl-cell mdl-card mdl-shadow--2dp through mdl-shadow--6dp mdl-cell--2-col mdl-cell--hide-phone">
+<ul class="nav nav-list"><li><a href="https://www.w3resource.com/index.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement">Home</a></li><li><a href="https://www.w3resource.com/mysql/mysql-tutorials.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement">MySQL Home</a></li><li><a href="https://www.w3resource.com/mysql/mysql-installation-on-linux-and-windows.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Installation</a></li><li><a href="https://www.w3resource.com/mysql/administration-tools/mysql-workbench-tutorial.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Administration Tools</a></li><li><a href="https://www.w3resource.com/mysql/mysql-connectors-and-apis.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Connectors and APIs</a></li><li class="active"><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement">MySQL Storage Engines (table types)</a></li><li><a href="https://www.w3resource.com/mysql/mysql-language-structure.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Language Structure</a></li><li><a href="https://www.w3resource.com/mysql/mysql-data-types.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Data Types</a></li><li><a href="https://www.w3resource.com/mysql/mysql-connection.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> Connecting to and disconnecting from MySQL</a></li><li><a href="https://www.w3resource.com/mysql/creating-using-databases-tables/what-are-database-and-tables.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL CREATE DATABASES, TABLES</a></li><li><a href="https://www.w3resource.com/mysql/creating-table-advance/constraint.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL CONSTRAINT</a></li><li><a href="https://www.w3resource.com/mysql/creating-table-advance/create-index.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL CREATE INDEX</a></li><li><a href="https://www.w3resource.com/mysql/altering-table/altering-table.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL ALTER TABLE</a></li><li><a href="https://www.w3resource.com/mysql/mysql-partition.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Partitioning</a></li><li><a href="https://www.w3resource.com/mysql/inserting-updating-deleting/MySQL-insert-into-statement.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Insert</a></li><li><a href="https://www.w3resource.com/mysql/update-table/update-table.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Update</a></li><li><a href="https://www.w3resource.com/mysql/inserting-updating-deleting/mysql-delete.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Delete</a></li><li><a href="https://www.w3resource.com/mysql/basic-select-statement/mysql-basic-select-statement.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL basic select statement</a></li><li><a href="https://www.w3resource.com/mysql/mysql-union.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL UNION</a></li><li><a href="https://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-in-mysql.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> Aggregate functions and grouping</a></li><li><a href="https://www.w3resource.com/mysql/mysql-functions-and-operators.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL functions and operators</a></li><li><a href="https://www.w3resource.com/mysql/advance-query-in-mysql/find-duplicate-data-mysql.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> Advance queries in MySQL</a></li><li><a href="https://www.w3resource.com/mysql/advance-query-in-mysql/mysql-joins.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL JOINS</a></li><li><a href="https://www.w3resource.com/mysql/subqueries/index.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Subqueries</a></li><li><a href="https://www.w3resource.com/mysql/mysql-procedure.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Procedure</a></li><li><a href="https://www.w3resource.com/mysql/mysql-triggers.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Triggers</a></li><li><a href="https://www.w3resource.com/mysql/mysql-transaction.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Transaction</a></li><li><a href="https://www.w3resource.com/mysql/mysql-views.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Views</a></li><li><a href="https://www.w3resource.com/mysql/mysql-security.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Security</a></li><li><a href="https://www.w3resource.com/mysql/mysql-show.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Show Commands</a></li><li><a href="https://www.w3resource.com/mysql/drop-table/drop-table.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL DROP</a></li><li><a href="https://www.w3resource.com/mysql/exporting-and-importing-data-between-mysql-and-microsoft-excel.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> Exporting and importing data between mysql and microsoft excel</a></li><li><a href="https://www.w3resource.com/mysql/mysql-backup-and-restore.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL backup and restore</a></li><li><a href="https://www.w3resource.com/php/pdo/php-pdo.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> Working with PDO</a></li><li><a href="https://www.w3resource.com/mysql/mysql-cluster-overview.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Cluster Overview</a></li><li><a href="https://www.w3resource.com/mysql/mysql-question-answer.php" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Questions Answers</a></li><li><a href="https://www.w3resource.com/mysql-exercises/" itemscope="" itemtype="http://schema.org/WebPageElement/SiteNavigationElement"> MySQL Exercises</a></li></ul> </div>
+<div class="mdl-cell mdl-card mdl-shadow--2dp through mdl-shadow--6dp mdl-cell--7-col">
+<article itemscope="" itemtype="http://schema.org/TechArticle">
+<img src="./MySQL storage engines - w3resource_files/mysql.gif" alt="MySQL Tutorial">
+<h1 itemscope="" itemtype="http://schema.org/WebPageElement/Heading" class="heading" id="h_one">MySQL Storage Engines </h1>
+<time itemprop="dateModified" datetime="September 09 2017 06:09:06.">Last update on September 09 2017 06:09:06 (UTC/GMT +8 hours)</time>
+<div class="mdl-grid">
+<div class="mdl-cell mdl-cell--12-col mdl-cell--hide-phone mdl-cell--hide-tablet">
+<script async="" src="./MySQL storage engines - w3resource_files/adsbygoogle.js.download"></script>
+
+<ins class="adsbygoogle" style="display: block; height: 60px;" data-ad-client="ca-pub-2153208817642134" data-ad-slot="4535797612" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:540px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:540px;background-color:transparent;"><iframe width="540" height="60" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:540px;height:60px;" src="./MySQL storage engines - w3resource_files/saved_resource.html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="mdl-cell mdl-cell--12-col mdl-cell--hide-desktop">
+<script async="" src="./MySQL storage engines - w3resource_files/adsbygoogle.js.download"></script>
+
+<ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-2153208817642134" data-ad-slot="7685555518" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:100px;margin:0;padding:0;position:relative;visibility:visible;width:320px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:100px;margin:0;padding:0;position:relative;visibility:visible;width:320px;background-color:transparent;"><iframe width="320" height="100" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:320px;height:100px;" src="./MySQL storage engines - w3resource_files/saved_resource(1).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+<h2 itemscope="" itemtype="http://schema.org/WebPageElement/Heading">Storage Engines </h2>
+<p>Storage engines (underlying software component) are MySQL components, that can handle the SQL operations for different table types to store and manage information in a database. InnoDB is mostly used general-purpose storage engine and as of MySQL 5.5 and later it is the default engine. There are many storage engines available in MySQL and they are used for different purposes. </p>
+<p><strong>Version :</strong> MySQL 5.6 </p>
+<p><strong>Storage engines of MySQL</strong></p>
+<style type="text/css">
+.btn-toolbar {display: none}
+</style>
+<div class="table-responsive">
+<table class="table table-small-font table-bordered table-striped">
+<tbody><tr>
+<th>Engines</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#InnoDB">InnoDB</a></td>
+<td><p>This is the default storage engine for MySQL 5.5 and higher. It provides transaction-safe (ACID compliant) tables, supports FOREIGN KEY referential-integrity constraints. It supports commit, rollback, and crash-recovery capabilities to protect data. It also support row-level locking. It's "consistent nonlocking reads" increases performance when used in a multiuser environment. It stores data in clustered indexes which reduces I/O for queries based on primary keys.</p> </td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#MyISAM">MyISAM</a></td>
+<td>This storage engine, manages non transactional tables, provides high-speed storage and retrieval, supports full text searching. </td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#MEMORY">MEMORY</a></td>
+<td>Provides in-memory tables, formerly known as HEAP. It sores all data in RAM for faster access than storing data on disks. Useful for quick looks up of reference and other identical data.</td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#MERGE">MERGE</a></td>
+<td> Groups more than one similar MyISAM tables to be treated as a single table, can handle non transactional tables, included by default. </td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#EXAMPLE">EXAMPLE</a></td>
+<td>You can create tables with this engine, but can not store or fetch data. Purpose of this is to teach developers about how to write a new storage engine. </td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#ARCHIVE">ARCHIVE</a></td>
+<td>Used to store a large amount of data, does not support indexes.</td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#CSV">CSV</a></td>
+<td>Stores data in Comma Separated Value format in a text file. </td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#BLACKHOLE">BLACKHOLE</a></td>
+<td>Accepts data to store but always returns empty. </td>
+</tr>
+<tr>
+<td><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#FEDERATED">FEDERATED</a></td>
+<td> Stores data in a remote database. </td>
+</tr>
+</tbody></table>
+</div>
+<p><strong>Other Topics : </strong></p>
+<p><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#LIST-STORAGE-ENGINE">List of Storage Engines supported by your MySQL installation</a></p>
+<p><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#SETTING-ENGINE">Setting the Storage Engine</a></p>
+<p><a href="https://www.w3resource.com/mysql/mysql-storage-engines.php#DIFF-INNODB-MYISM">Differences between InnoDB and MyISAM</a></p>
+<p id="LIST-STORAGE-ENGINE"><strong>List of Storage Engines supported by your MySQL installation</strong></p>
+<p>The following command display the status information of the server's storage engines.
+</p><pre class="well" style="overflow: scroll">mysql&gt; SHOW ENGINES;
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |
+| MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |
+| MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |
+| BLACKHOLE          | YES     | /dev/null storage engine (anything you write to it disappears) | NO           | NO   | NO         |
+| CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |
+| MEMORY             | YES     | Hash based, stored in memory, useful for temporary tables      | NO           | NO   | NO         |
+| ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |
+| InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |
+| PERFORMANCE_SCHEMA | YES     | Performance Schema                                             | NO           | NO   | NO         |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+9 rows in set (0.28 sec)</pre>
+<p id="SETTING-ENGINE"><strong>Setting the Storage Engine</strong></p>
+<p>In CREATE TABLE STATEMENT you can add ENGINE table option to mention a storage engine. See the following CREATE TABLE statements, where different engines have used :</p>
+<pre class="well">CREATE TABLE t1 (i INT) ENGINE = INNODB;
+CREATE TABLE t2 (i INT) ENGINE = CSV;
+CREATE TABLE t3 (i INT) ENGINE = MEMORY;
+</pre>
+<p>In MySQL 5.6, the default engine is InnoDB. The default storage engine is used if you do not mention the other engine name in ENGINE option. You can specify the default engine by using the --default-storage-engine server startup option (Command-Line Format), or by setting the default-storage-engine option in the my.cnf configuration file.</p>
+<p>You can set the default storage engine for the current session by setting the default_storage_engine variable using set command.</p>
+<pre class="well">SET default_storage_engine=ARCHIVE;</pre>
+<p>If you want to convert a table form one storage engine to another, use an ALTER TABLE statement. See the following statement : </p>
+<pre class="well">ALTER TABLE table1 ENGINE = InnoDB;
+</pre>
+<p>To store the table and column definitions for a new table, MySQL always creates an .frm file. Depending on the storage engine the table's index and data may be stored in one or more other files. The server creates the .frm file above the storage engine level. </p>
+<p id="InnoDB"><strong>MySQL: InnoDB Storage Engine</strong></p>
+<p>InnoDB is a storage engine for MySQL that balances high reliability and high performance. As of MySQL 5.5 and later, it is the default storage engine. </p>
+<p><strong>Feaures of InnoDB storage engine : </strong></p>
+<style type="text/css">
+.btn-toolbar {display: none}
+</style>
+<div class="table-responsive">
+<table class="table table-bordered">
+<tbody><tr>
+<td>Storage limits</td>
+<td>64TB</td>
+<td>Transactions</td>
+<td>Yes</td>
+<td>Locking granularity</td>
+<td>Row</td>
+</tr>
+<tr>
+<td>MVCC (Multiversion concurrency control) </td>
+<td>Yes</td>
+<td>Geospatial data type support</td>
+<td>Yes</td>
+<td>Geospatial indexing support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>B-tree indexes</td>
+<td>Yes</td>
+<td>T-tree indexes</td>
+<td>No</td>
+<td>Hash indexes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Full-text search indexes</td>
+<td>Yes</td>
+<td>Clustered indexes</td>
+<td>Yes</td>
+<td>Data caches</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Index caches</td>
+<td>Yes</td>
+<td>Compressed data</td>
+<td>Yes</td>
+<td>Encrypted data</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cluster database support</td>
+<td>No</td>
+<td>Replication support</td>
+<td>Yes</td>
+<td>Foreign key support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Backup / point-in-time recovery</td>
+<td>Yes</td>
+<td>Query cache support</td>
+<td>Yes</td>
+<td>Update statistics for data dictionary</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+</div>
+<p><strong>Advantages of InnoDB storage engine</strong></p>
+<ul>
+<li>InnoDB has maximum performance when processing large data volumes. </li>
+<li>Its DML operations (add, update and delete data) is ACID (atomic, consistent, isolated and durable) model compatible, with transactions featuring commit, rollback, and crash-recovery capabilities to protect user data.</li>
+<li>Row-level locking (locks are placed on single records (rows)) system increase multi-user concurrency and performance. All InnoDB locks held by a transaction are released when the transaction is committed or aborted.</li>
+<li>InnoDB tables arrange your data on disk to optimize queries based on primary keys.</li>
+<li>InnoDB supports FOREIGN KEY constraints to maintain data integrity. Therefore inserts, updates, and deletes are all checked to ensure they do not result in inconsistencies across different tables.</li>
+<li>It is possible to mix
+InnoDB tables with tables
+from other MySQL storage engines
+within the same statement. For example, you can use a join operation to combine data from
+InnoDB and MEMORY tables in a single query.</li></ul>
+<p> <strong>Creating InnoDB tables : </strong><br>
+Use CREATE TABLE statement to create am InnoDB table without any special clauses. As of MySQL 5.5, it is the default MySQL storage engine. In MySQL 5.6, issuing the CREATE TABLE statement without an ENGINE= clause creates an InnoDB table. Here is an example :</p>
+<pre class="well">mysql&gt; CREATE TABLE table1 (col1 INT, col2 CHAR(30), PRIMARY KEY (col1));
+Query OK, 0 rows affected (1.11 sec)
+
+mysql&gt; DESC table1;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| col1  | int(11)  | NO   | PRI | 0       |       |
+| col2  | char(30) | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+2 rows in set (0.21 sec)
+</pre>
+<p>The following SHOW TABLE STATUS statement shows the properties of the tables (belongs to 'tutorial' database). </p>
+<pre class="well" style="overflow: scroll">mysql&gt; SHOW TABLE STATUS FROM tutorial;
++--------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+
+| Name   | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time         | Update_time | Check_time | Collation       | Checksum | Create_options | Comment |
++--------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+
+| <span class="style1">table1</span> | <span class="style1">InnoDB</span> |      10 | Compact    |    0 |              0 |       16384 |               0 |            0 |         0 |           NULL | 2014-02-14 12:08:34 | NULL        | NULL       | utf8_general_ci |     NULL |                |         |
++--------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+
+1 row in set (0.00 sec)</pre>
+<p><strong> Handling AUTO_INCREMENT in InnoDB</strong> : </p>
+<p>InnoDB provides a method that improves scalability and performance of SQL statements that insert rows into tables with AUTO_INCREMENT columns. To use the AUTO_INCREMENT mechanism with an InnoDB table, an AUTO_INCREMENT column (col1 in the example) must be defined as part of an index. See the following example :</p>
+<pre class="well">mysql&gt; CREATE TABLE table1 (col1 INT(10) NOT NULL AUTO_INCREMENT, 
+col2 CHAR(30), PRIMARY KEY (col1));
+Query OK, 0 rows affected (0.50 sec)
+</pre>
+<p><strong>Handling FOREIGN KEY Constraints in InnoDB</strong> : </p>
+<p>MySQL supports foreign keys, which let you cross-reference related data across tables, and foreign key constraints, which help keep this spread-out data consistent. Foreign key definitions for InnoDB tables are subject to the following conditions :</p>
+<ul class="w3r_list">
+<li>InnoDB permits a foreign key to reference any index column or group of columns. However, in the referenced table, there must be an index where the referenced columns are listed as the first columns in the same order.</li>
+<li>InnoDB does not currently support foreign keys for tables with user-defined partitioning. This means that no user-partitioned InnoDB table may contain foreign key references or columns referenced by foreign keys.</li>
+<li>InnoDB allows a foreign key constraint to reference a non-unique key. This is an InnoDB extension to standard SQL.</li>
+</ul>
+<p><strong>Limitation: InnoDB table</strong> : </p>
+<ul class="w3r_list">
+<li>Maximum 1017 columns are allowed in a table (raised in MySQL 5.6.9 from the earlier limit of 1000).</li>
+<li>Maximum 64 secondary indexes are allowed in a table. Secondary indexes is a type of InnoDB index that represents a subset of table columns.</li>
+<li>By default, an index key for a single-column index can be up to 767 bytes. The same length limit applies to any index key prefix. </li>
+<li>The InnoDB internal maximum key length is 3500 bytes, but MySQL itself restricts this to 3072 bytes (combined index key in a multi-column index). </li>
+<li>The maximum row length except for variable-length columns (VARBINARY, VARCHAR, BLOB and TEXT), is about 8000 bytes for the default page size of 16KB.</li>
+<li>Internally InnoDB supports row sizes larger than 65,535 bytes, but MySQL itself imposes a row-size limit of 65,535 for the combined size of all columns.</li>
+<li>The maximum table space size is four billion database pages (64TB) and the minimum table space size is slightly larger than 10MB.</li>
+</ul>
+<p id="MyISAM"><strong>MySQL: MyISAM Storage Engine</strong></p>
+<p>MyISAM storage engine is based on the older ISAM storage engine (not available now) but has many useful extensions.</p>
+<p><strong>Features of MyISAM storage engine : </strong></p>
+<style type="text/css">
+.btn-toolbar {display: none}
+</style>
+<div class="table-responsive">
+<table class="table table-bordered">
+<tbody><tr>
+<td>Storage limits</td>
+<td>256TB</td>
+<td>Transactions</td>
+<td>No</td>
+<td>Locking granularity</td>
+<td>Table</td>
+</tr>
+<tr>
+<td>MVCC (Multiversion concurrency control) </td>
+<td>No</td>
+<td>Geospatial data type support</td>
+<td>Yes</td>
+<td>Geospatial indexing support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>B-tree indexes</td>
+<td>Yes</td>
+<td>T-tree indexes</td>
+<td>No</td>
+<td>Hash indexes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Full-text search indexes</td>
+<td>Yes</td>
+<td>Clustered indexes</td>
+<td>No</td>
+<td>Data caches</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Index caches</td>
+<td>Yes</td>
+<td>Compressed data</td>
+<td>Yes</td>
+<td>Encrypted data</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cluster database support</td>
+<td>No</td>
+<td>Replication support</td>
+<td>Yes</td>
+<td>Foreign key support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Backup / point-in-time recovery</td>
+<td>Yes</td>
+<td>Query cache support</td>
+<td>Yes</td>
+<td>Update statistics for data dictionary</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+</div>
+<p>Each MyISAM table is stored on disk in three files. </p>
+<ul class="w3r_list">
+<li>An .frm file stores the table format.</li>
+<li>The data file has an .MYD (MYData) extension.</li>
+<li>The index file has an .MYI (MYIndex) extension.</li>
+</ul>
+<p><strong>Creating MyISAM tables : </strong><br>
+Use CREATE TABLE statement to create am MyISAM table with ENGINE clause. As of MySQL 5.6, it is necessary to use ENGINE clause to specify the MyISAM storage engine because InnoDB is the default engine. Here is an example :</p>
+<pre class="well">mysql&gt; CREATE TABLE table2 (col1 INT, col2 CHAR(30)) ENGINE = MYISAM;<br>Query OK, 0 rows affected (0.19 sec)</pre>
+<p>The following SHOW TABLE STATUS statement shows the properties of the tables (belongs to 'tutorial' database). </p>
+<pre class="well" style="overflow: scroll">mysql&gt; SHOW TABLE STATUS FROM tutorial;<br>+--------+--------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+<br>| Name   | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length   | Index_length | Data_free | Auto_increment | Create_time         | Update_time         | Check_time | Collation       | Checksum | Create_options | Comment |<br>+--------+--------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+<br>| table1 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |                 0 |            0 |         0 |              1 | 2014-02-14 13:16:16 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |<br>| table2 | <span class="style1">MyISAM</span> |      10 | Fixed      |    0 |              0 |           0 | 26740122787512319 |         1024 |         0 |           NULL | 2014-02-14 15:29:18 | 2014-02-14 15:29:18 | NULL       | utf8_general_ci |     NULL |                |         |<br>+--------+--------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+<br>2 rows in set (0.07 sec)</pre>
+<p><strong>Main characteristics of MyISAM tables : </strong></p>
+<ul class="w3r_list"><li>Up to 63-bit file length large files are supported on file systems and operating systems that support large files.</li>
+<li> (2<sup>32</sup>)<sup>2</sup>(1.844E+19) rows are allowed in a MyISAM table.</li>
+<li>Maximum 64 number of indexes and 16 number of columns per index are allowed.</li>
+<li>The maximum key length is 1000 bytes.</li>
+<li>Internal handling of one&nbsp;AUTO_INCREMENT&nbsp;column per table is supported.</li>
+<li>You can put the data file and index file in different directories on different physical devices to get more speed with the DATA DIRECTORY and INDEX DIRECTORY table options to CREATE TABLE</li>
+<li>BLOB and TEXT columns can be indexed.</li>
+<li>NULL values are permitted in indexed columns. This takes 0 to 1 bytes per key.</li>
+<li>Each character column can have a different character set.</li>
+<li>Support for a true VARCHAR type; a VARCHAR column starts with a length stored in one or two bytes.</li>
+<li>Tables with VARCHAR columns may have fixed or dynamic row length.</li>
+<li>The sum of the lengths of the VARCHAR and CHAR columns in a table may be up to 64KB.</li>
+<li>Arbitrary length UNIQUE constraints.</li>
+</ul>
+<p><strong>Corrupted MyISAM Tables : </strong></p>
+<p> MyISAM table format is very reliable, but in some occasion you can get corrupted tables if any of the following events occur : </p>
+<ul class="w3r_list">
+<li>The mysqld (Known as MySQL Server) process is killed in the middle of a write.</li>
+<li>Hardware failures.</li>
+<li>An unexpected computer shutdown occurs.</li>
+<li>Using an external program to modify a table</li>
+<li>A software bug in the MySQL or MyISAM code.</li>
+</ul>
+<p id="MEMORY"><strong>MySQL: MEMORY Storage Engine</strong></p>
+<p>The MEMORY storage engine creates tables that are stored in memory. Because the data can be crashed due to hardware or power issues, you can only use these tables as temporary work areas or read-only caches for data pulled from other tables. When the MySQL server halts or restarts, the data in MEMORY tables is lost. </p>
+<p><strong>Features of MEMORY storage engine :</strong></p>
+<style type="text/css">
+.btn-toolbar {display: none}
+</style>
+<div class="table-responsive">
+<table class="table table-bordered">
+<tbody><tr>
+<td>Storage limits</td>
+<td>RAM</td>
+<td>Transactions</td>
+<td>No</td>
+<td>Locking granularity</td>
+<td>Table</td>
+</tr>
+<tr>
+<td>MVCC</td>
+<td>No</td>
+<td>Geospatial data type support</td>
+<td>No</td>
+<td>Geospatial indexing support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>B-tree indexes</td>
+<td>Yes</td>
+<td>T-tree indexes</td>
+<td>No</td>
+<td>Hash indexes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Full-text search indexes</td>
+<td>No</td>
+<td>Clustered indexes</td>
+<td>No</td>
+<td>Data caches</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Index caches</td>
+<td>N/A</td>
+<td>Compressed data</td>
+<td>No</td>
+<td>Encrypted data</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cluster database support</td>
+<td>No</td>
+<td>Replication support</td>
+<td>Yes</td>
+<td>Foreign key support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Backup / point-in-time recover</td>
+<td>Yes</td>
+<td>Query cache support</td>
+<td>Yes</td>
+<td>Update statistics for data dictionary</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+</div>
+<p><strong>Creating MEMORY tables: </strong><br>
+Use CREATE TABLE statement to create am MEMORY table with ENGINE clause. As of MySQL 5.6, it is necessary to use ENGINE clause to specify the MEMORY storage engine because InnoDB is the default engine. The following example shows how to create and use a MEMORY table :</p>
+<pre class="well">mysql&gt; SELECT * FROM hr.departments;
++---------------+----------------------+------------+-------------+
+| DEPARTMENT_ID | DEPARTMENT_NAME      | MANAGER_ID | LOCATION_ID |
++---------------+----------------------+------------+-------------+
+|            10 | Administration       |        200 |        1700 |
+|            20 | Marketing            |        201 |        1800 |
+|            30 | Purchasing           |        114 |        1700 |
+|            40 | Human Resources      |        203 |        2400 |
+|            50 | Shipping             |        121 |        1500 |
+|            60 | IT                   |        103 |        1400 |
+|            70 | Public Relations     |        204 |        2700 |
+|            80 | Sales                |        145 |        2500 |
+|            90 | Executive            |        100 |        1700 |
+|           100 | Finance              |        108 |        1700 |
+|           110 | Accounting           |        205 |        1700 |
+|           120 | Treasury             |          0 |        1700 |
+|- - - - - - - -|- - - - - - - - - - - |- - - - - - |- - - - - - -|
+|- - - - - - - -|- - - - - - - - - - - |- - - - - - |- - - - - - -| 
++---------------+----------------------+------------+-------------+
+27 rows in set (0.01 sec)
+
+mysql&gt; CREATE TABLE test7 ENGINE = MEMORY SELECT * FROM hr.departments;
+Query OK, 27 rows affected (0.06 sec)
+Records: 27  Duplicates: 0  Warnings: 0
+
+mysql&gt; SELECT * FROM test7 WHERE LOCATION_ID&gt;1700;
++---------------+------------------+------------+-------------+
+| DEPARTMENT_ID | DEPARTMENT_NAME  | MANAGER_ID | LOCATION_ID |
++---------------+------------------+------------+-------------+
+|            20 | Marketing        |        201 |        1800 |
+|            40 | Human Resources  |        203 |        2400 |
+|            70 | Public Relations |        204 |        2700 |
+|            80 | Sales            |        145 |        2500 |
++---------------+------------------+------------+-------------+
+4 rows in set (0.00 sec)</pre>
+<p>The following SHOW TABLE STATUS statement shows the properties of the tables (belongs to 'tutorial' database). </p>
+<pre class="well" style="overflow: scroll">mysql&gt; SHOW TABLE STATUS FROM tutorial;
++--------+--------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| Name   | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length   | Index_length | Data_free | Auto_increment | Create_time         | Update_time         | Check_time | Collation       | Checksum | Create_options | Comment |
++--------+--------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| table1 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |                 0 |            0 |         0 |              1 | 2014-02-14 13:16:16 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| table2 | MyISAM |      10 | Fixed      |    0 |              0 |           0 | 26740122787512319 |         1024 |         0 |           NULL | 2014-02-14 15:29:18 | 2014-02-14 15:29:18 | NULL       | utf8_general_ci |     NULL |                |         |
+| test7  | <span class="style1">MEMORY</span> |      10 | Fixed      |   27 |             39 |       59400 |          16357770 |            0 |         0 |           NULL | 2014-02-17 11:06:46 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
++--------+--------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+3 rows in set (0.00 sec)</pre>
+<p>Remove a MEMORY table:</p>
+<pre class="well">mysql&gt; DROP TABLE TEST7;<br>Query OK, 0 rows affected (0.00 sec)</pre>
+<p>Indexes : The MEMORY storage engine supports both HASH and BTREE indexes. Adding a USING clause you can specify one or the other for a given index. See the following examples :</p>
+<pre class="well">CREATE TABLE test
+(id INT, INDEX USING HASH (id))
+ ENGINE = MEMORY;
+ 
+CREATE TABLE test
+(id INT, INDEX USING BTREE (id))
+ ENGINE = MEMORY;
+</pre>
+<p><strong>When to Use MEMORY storage engine: </strong></p>
+<ul class="w3r_list">
+<li>Operations involving transient, non-critical data such as session management or caching.</li>
+<li>In-memory storage for fast access and low latency. Data volume can fit entirely in memory without causing the operating system to swap out virtual memory pages.</li>
+<li>By default, an index key for a single-column index can be up to 767 bytes. The same length limit applies to any index key prefix. </li>
+<li>The InnoDB internal maximum key length is 3500 bytes, but MySQL itself restricts this to 3072 bytes (combined index key in a multi-column index). </li>
+<li>The maximum row length except for variable-length columns (VARBINARY, VARCHAR, BLOB and TEXT), is about 8000 bytes for the default page size of 16KB.</li>
+<li>Internally InnoDB supports row sizes larger than 65,535 bytes, but MySQL itself imposes a row-size limit of 65,535 for the combined size of all columns.</li>
+<li>The maximum tablespace size is four billion database pages (64TB) and the minimum tablespace size is slightly larger than 10MB.</li>
+</ul>
+<p id="MERGE"><strong>MySQL: MERGE Storage Engine</strong>
+</p><p>The MERGE storage engine (also known as MRG_MyISAM) is a collection of identical MyISAM tables (identical column and index information with same order) that can be used as single table. You must have SELECT, DELETE, and UPDATE privileges on the MyISAM tables that you map to a MERGE table.</p>
+<p><strong>Creating MERGE tables : </strong><br>
+To create a MERGE table, you must specify a UNION=(list-of-tables) option (indicates which MyISAM tables to use) in the CREAE TABLE statement. The following example at first we have created three tables with two rows then merge it into one table use MERGE storage engine :</p>
+<pre class="well">mysql&gt; CREATE TABLE tabl1 (rollno INT NOT NULL AUTO_INCREMENT PRIMARY KEY, class CHAR(5), student_name CHAR(40)) ENGINE = MyISAM;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql&gt; CREATE TABLE tabl2 (rollno INT NOT NULL AUTO_INCREMENT PRIMARY KEY, class CHAR(5), student_name CHAR(40)) ENGINE = MyISAM;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql&gt; CREATE TABLE tabl3 (rollno INT NOT NULL AUTO_INCREMENT PRIMARY KEY, class CHAR(5), student_name CHAR(40)) ENGINE = MyISAM;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql&gt; INSERT INTO tabl1 (class, student_name) VALUES ('V','Steven'), ('V', 'Neena');
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql&gt; INSERT INTO tabl2 (class, student_name) VALUES ('VI','Lex'), ('VI', 'Alexander');
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql&gt; INSERT INTO tabl3 (class, student_name) VALUES ('VII','Bruce'), ('VII', 'David');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql&gt; CREATE TABLE allclass (rollno INT NOT NULL, class CHAR(5), student_name CHAR(40)) ENGINE = MERGE UNION = (tabl1, tabl2, tabl3) INSERT_METHOD = LAST;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql&gt; select * from allclass;
++--------+-------+--------------+
+| rollno | class | student_name |
++--------+-------+--------------+
+|      1 | V     | Steven       |
+|      2 | V     | Neena        |
+|      1 | VI    | Lex          |
+|      2 | VI    | Alexander    |
+|      1 | VII   | Bruce        |
+|      2 | VII   | David        |
++--------+-------+--------------+
+6 rows in set (0.00 sec)</pre>
+<p>The following SHOW TABLE STATUS statement shows the properties of the tables (belongs to 'tutorial' database). </p>
+<pre class="well" style="overflow: scroll">mysql&gt; SHOW TABLE STATUS FROM tutorial;
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| Name     | Engine     | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length   | Index_length | Data_free | Auto_increment | Create_time         | Update_time         | Check_time | Collation       | Checksum | Create_options | Comment |
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| allclass | MRG_MYISAM |      10 | Fixed      |    6 |            140 |         840 |                 0 |            0 |         0 |           NULL | NULL                | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl1    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:33:52 | 2014-02-17 14:42:21 | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl2    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:34:01 | 2014-02-17 14:43:09 | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl3    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:34:22 | 2014-02-17 14:43:59 | NULL       | utf8_general_ci |     NULL |                |         |
+| table1   | InnoDB     |      10 | Compact    |    0 |              0 |       16384 |                 0 |            0 |         0 |              1 | 2014-02-14 13:16:16 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| table2   | MyISAM     |      10 | Fixed      |    0 |              0 |           0 | 26740122787512319 |         1024 |         0 |           NULL | 2014-02-14 15:29:18 | 2014-02-14 15:29:18 | NULL       | utf8_general_ci |     NULL |                |         |
+| test7    | MEMORY     |      10 | Fixed      |   27 |             39 |       59400 |          16357770 |            0 |         0 |           NULL | 2014-02-17 11:06:46 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+7 rows in set (0.16 sec)
+</pre>
+<p><strong>Security issue: </strong>If a user has access to MyISAM table, say t1, that user can create a MERGE table m1 that accesses t1. However, if the administrator revokes the user's privileges on t1, the user can continue to access the data of t1 through m1.</p>
+<p id="CSV"><strong>MySQL: CSV Storage Engine</strong></p>
+<p>The CSV storage engine stores data in text files using comma-separated values format and the CSV storage engine is always compiled into the MySQL server. The server creates a table format file (.frm extension) and a data file (.csv extension) in the database directory when you create a CSV table. Both .frm and .csv files name begins with the table name. The data file is a plain text file and the storage engine saves data in comma-separated values format. The following example shows how to create and use a CSV table : </p>
+<p>Sample Output: </p>
+<pre class="output">mysql&gt; CREATE TABLE color (slno INT NOT NULL, cname CHAR(30) NOT NULL,
+ccode CHAR(6) NOT NULL) ENGINE = CSV;
+Query OK, 0 rows affected (0.12 sec)
+
+mysql&gt; INSERT INTO color VALUES(1, 'IndianRed', 'CD5C5C'),
+(2, 'LightCoral', 'F08080'), (3, 'Salmon', 'FA8072');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql&gt; SELECT * from color;
++------+------------+--------+
+| slno | cname      | ccode  |
++------+------------+--------+
+|    1 | IndianRed  | CD5C5C |
+|    2 | LightCoral | F08080 |
+|    3 | Salmon     | FA8072 |
++------+------------+--------+
+3 rows in set (0.00 sec)
+</pre>
+<p>You can can read, modify the 'color.CSV' file by spreadsheet applications such as Microsoft Excel or StarOffice Calc.</p>
+<p><strong>CSV Limitations : </strong></p>
+<ul class="w3r_list">
+<li>Does not support indexing.</li>
+<li>Does not support partitioning.</li>
+<li>All columns must have the NOT NULL attribute in a CSV table. </li>
+</ul>
+<p>The following SHOW TABLE STATUS statement shows the properties of the tables (belongs to 'tutorial' database). </p>
+<pre class="well" style="overflow: scroll">mysql&gt; SHOW TABLE STATUS FROM tutorial;
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| Name     | Engine     | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length   | Index_length | Data_free | Auto_increment | Create_time         | Update_time         | Check_time | Collation       | Checksum | Create_options | Comment |
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| allclass | MRG_MYISAM |      10 | Fixed      |    6 |            140 |         840 |                 0 |            0 |         0 |           NULL | NULL                | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| color    | CSV        |      10 | Fixed      |    3 |              0 |           0 |                 0 |            0 |         0 |           NULL | NULL                | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl1    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:33:52 | 2014-02-17 14:42:21 | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl2    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:34:01 | 2014-02-17 14:43:09 | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl3    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:34:22 | 2014-02-17 14:43:59 | NULL       | utf8_general_ci |     NULL |                |         |
+| table1   | InnoDB     |      10 | Compact    |    0 |              0 |       16384 |                 0 |            0 |         0 |              1 | 2014-02-14 13:16:16 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| table2   | MyISAM     |      10 | Fixed      |    0 |              0 |           0 | 26740122787512319 |         1024 |         0 |           NULL | 2014-02-14 15:29:18 | 2014-02-14 15:29:18 | NULL       | utf8_general_ci |     NULL |                |         |
+| test7    | MEMORY     |      10 | Fixed      |   27 |             39 |       59400 |          16357770 |            0 |         0 |           NULL | 2014-02-17 11:06:46 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+8 rows in set (0.00 sec)</pre>
+<p id="ARCHIVE"><strong>MySQL: ARCHIVE Storage Engine</strong></p>
+<p>The ARCHIVE storage engine is used to store large amounts of unindexed data in a very small footprint. The storage engine is included in MySQL binary distributions. To enable this storage engine (if you build MySQL from source), invoke CMake with the -DWITH_ARCHIVE_STORAGE_ENGINE option. When you create an ARCHIVE table, the server creates a table format file (.frm extension) in the database directory. </p>
+<p><strong>Features of ARCHIVE storage engine: </strong></p>
+<style type="text/css">
+.btn-toolbar {display: none}
+</style>
+<div class="table-responsive">
+<table class="table table-small-font table-bordered table-striped">
+<tbody><tr>
+<td>Storage limits</td>
+<td>None</td>
+<td>Transactions</td>
+<td>No</td>
+<td>Locking granularity</td>
+<td>Table</td>
+</tr>
+<tr>
+<td>MVCC</td>
+<td>No</td>
+<td>Geospatial data type support</td>
+<td>Yes</td>
+<td>Geospatial indexing support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>B-tree indexes</td>
+<td>No</td>
+<td>T-tree indexes</td>
+<td>No</td>
+<td>Hash indexes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Full-text search indexes</td>
+<td>No</td>
+<td>Clustered indexes</td>
+<td>No</td>
+<td>Data caches</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Index caches</td>
+<td>No</td>
+<td>Compressed data</td>
+<td>Yes</td>
+<td>Encrypted data</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cluster database support</td>
+<td>No</td>
+<td>Replication support</td>
+<td>Yes</td>
+<td>Foreign key support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Backup / point-in-time recovery</td>
+<td>Yes</td>
+<td>Query cache support</td>
+<td>Yes</td>
+<td>Update statistics for data dictionary</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+</div>
+<p><strong>ARCHIVE storage engine supports </strong></p>
+<ul class="w3r_list">
+<li> INSERT and SELECT.</li>
+<li>ORDER BY operations</li>
+<li>BLOB columns</li>
+<li>AUTO_INCREMENT&nbsp;column attribute. The&nbsp;AUTO_INCREMENT&nbsp;column can have either a unique or nonunique index. </li>
+<li>AUTO_INCREMENT&nbsp;table option in&nbsp;CREATE TABLE&nbsp;statements</li>
+</ul>
+<p><strong>ARCHIVE storage engine does not support </strong></p>
+<ul class="w3r_list">
+<li> DELETE, REPLACE, or UPDATE</li>
+<li>Inserting a value into an&nbsp;AUTO_INCREMENT&nbsp;column less than the current maximum column value. </li>
+</ul>
+<p><strong>ARCHIVE storage engine: Storage &amp; Retrieval</strong></p>
+<ul class="w3r_list">
+<li>The ARCHIVE engine uses zlib lossless data compression (see http://www.zlib.net/).</li>
+<li>Rows are compressed as they are inserted.</li>
+<li>On retrieval, rows are uncompressed on demand; there is no row cache.</li>
+</ul>
+<p id="EXAMPLE"><strong>MySQL: EXAMPLE Storage Engine</strong></p>
+<p>The EXAMPLE storage engine is a stub engine that does nothing and serve as an example in the MySQL source code that clarify how to begin writing new storage engines. To examine the source for the EXAMPLE engine, look in the storage/example directory of a MySQL source distribution. When you create an EXAMPLE table : </p>
+<ul class="w3r_list">
+<li> The server creates a table format file (.frm extension) in the database directory. </li>
+<li>No other files are created</li>
+<li>No data can be stored into the table.</li>
+<li>Retrievals return an empty result.</li>
+<li>Does not support indexing.</li>
+</ul>
+<p>To enable the EXAMPLE storage engine if you build MySQL from source, invoke CMake with the -DWITH_EXAMPLE_STORAGE_ENGINE option.</p>
+<p id="BLACKHOLE"><strong>MySQL: BLACKHOLE Storage Engine</strong></p>
+<p>The BLACKHOLE storage engine acts as a "black hole" that accepts data but returns an empty result. To enable the BLACKHOLE storage engine (in case of MySQL build from source), invoke CMake with the -DWITH_BLACKHOLE_STORAGE_ENGINE option. When you create a&nbsp;BLACKHOLE&nbsp;table, the server creates a table format file (.frm) in the database directory. The&nbsp;BLACKHOLE&nbsp;storage engine supports all kinds of indexes. Here is an example : </p>
+<pre class="well">mysql&gt; CREATE TABLE test10 (slno INT, message CHAR(40)) ENGINE = BLACKHOLE;
+Query OK, 0 rows affected (0.16 sec)
+
+mysql&gt; INSERT INTO test10 VALUES(1, 'message1'), (2, 'message2');
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql&gt; SELECT * FROM test10;
+Empty set (0.03 sec)
+</pre>
+<p>The following SHOW TABLE STATUS statement shows the properties of the tables (belongs to 'tutorial' database). </p>
+<pre class="well" style="overflow: scroll">mysql&gt; SHOW TABLE STATUS FROM tutorial;
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| Name     | Engine     | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length   | Index_length | Data_free | Auto_increment | Create_time         | Update_time         | Check_time | Collation       | Checksum | Create_options | Comment |
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+| allclass | MRG_MYISAM |      10 | Fixed      |    6 |            140 |         840 |                 0 |            0 |         0 |           NULL | NULL                | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| color    | CSV        |      10 | Fixed      |    2 |              0 |           0 |                 0 |            0 |         0 |           NULL | NULL                | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl1    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:33:52 | 2014-02-17 14:42:21 | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl2    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:34:01 | 2014-02-17 14:43:09 | NULL       | utf8_general_ci |     NULL |                |         |
+| tabl3    | MyISAM     |      10 | Fixed      |    2 |            140 |         280 | 39406496739491839 |         2048 |         0 |              3 | 2014-02-17 14:34:22 | 2014-02-17 14:43:59 | NULL       | utf8_general_ci |     NULL |                |         |
+| table1   | InnoDB     |      10 | Compact    |    0 |              0 |       16384 |                 0 |            0 |         0 |              1 | 2014-02-14 13:16:16 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| table2   | MyISAM     |      10 | Fixed      |    0 |              0 |           0 | 26740122787512319 |         1024 |         0 |           NULL | 2014-02-14 15:29:18 | 2014-02-14 15:29:18 | NULL       | utf8_general_ci |     NULL |                |         |
+| test10   | BLACKHOLE  |      10 | Fixed      |    0 |              0 |           0 |                 0 |            0 |         0 |           NULL | NULL                | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
+| test7    | MEMORY     |      10 | Fixed      |    0 |             39 |           0 |          16357770 |            0 |         0 |           NULL | 2014-02-19 11:42:17 | NULL                | NULL       | utf8_general_ci |     NULL |                |         |
++----------+------------+---------+------------+------+----------------+-------------+-------------------+--------------+-----------+----------------+---------------------+---------------------+------------+-----------------+----------+----------------+---------+
+9 rows in set (1.05 sec)
+</pre>
+<p id="FEDERATED"><strong>MySQL: FEDERATED Storage Engine</strong></p>
+<p>The FEDERATED storage engine is used to access data from a remote MySQL database without using replication or cluster technology. Querying a local FEDERATED table automatically pulls the data from the remote (federated) tables. No data is stored on the local tables. To include the FEDERATED storage engine (in case of MySQL build from source), invoke CMake with the -DWITH_FEDERATED_STORAGE_ ENGINE option.<br>
+To enable FEDERATED (not enabled by default in the running server), you must start the MySQL server binary using the --federated option. To check the source for the FEDERATED engine, look in the storage/ federated directory of a MySQL source distribution.</p>
+<p><strong>Create a FEDERATED table </strong></p>
+<p>You can create a FEDERATED table in the following ways :</p>
+<ul class="w3r_list">
+<li> Using CONNECTION</li>
+<li> Using CREATE SERVER</li>
+</ul>
+<p><strong><span class="sp-list">Using CONNECTION</span> : </strong> To use this method, you must specify the CONNECTION string after the engine type in a CREATE TABLE statement. Seethe following example : </p>
+<pre class="well">CREATE TABLE federated_table (
+    roll_no     INT(3) NOT NULL AUTO_INCREMENT,
+    stu_name   VARCHAR(42) NOT NULL DEFAULT '',
+    total_marks  INT(5) NOT NULL DEFAULT '0',
+    PRIMARY KEY  (roll_no),
+    INDEX stu_name (stu_name),
+    INDEX total_marks (total_marks)
+)
+ENGINE=FEDERATED
+DEFAULT CHARSET=latin1
+CONNECTION='mysql://feduser@remote_host:9306/federated/test10_table';
+</pre>
+<p>The format of the connection string is as follows :</p>
+<pre class="line-numbers"><code class="language-sql">scheme://user_name[:password]@host_name[:port_num]/db_name/tbl_name
+</code>
+</pre>
+<p>Where:</p>
+<ul class="w3r_list">
+<li> scheme : A recognized connection protocol. Only mysql is supported as the scheme value at this point.</li>
+<li> The user name for the connection, must have been created on the remote server, and have suitable privileges to perform the required actions like SELECT, INSERT, UPDATE, and so forth on the remote table.</li>
+<li> The password for user_name. (Optional)</li>
+<li>host_name: The host name or IP address of the remote server.</li>
+<li>port_num: The port number (default : 3306) for the remote server. (Optional)</li>
+<li>db_name: The name of the database holding the remote table.</li>
+<li>tbl_name: The name of the remote table.</li>
+</ul>
+<p><strong>Using CREATE SERVER: </strong> To use this method, you must specify the CONNECTION string after the engine type in a CREATE TABLE statement. See the following example:</p>
+<pre class="well">CREATE SERVER
+server_name
+FOREIGN DATA WRAPPER wrapper_name
+OPTIONS (option [, option] ...)
+</pre>
+<p>The server_name is used in the connection string when creating a new FEDERATED table.</p>
+<p id="DIFF-INNODB-MYISM"><strong>Differences between InnoDB and MyISAM</strong></p>
+<style type="text/css">
+.btn-toolbar {display: none}
+</style>
+<div class="table-responsive">
+<table class="table table-bordered">
+<tbody><tr>
+<th scope="col">Feature</th>
+<th scope="col">InnoDB</th>
+<th scope="col">MyISAM</th>
+</tr>
+<tr>
+<td>Storage limits</td>
+<td>64TB</td>
+<td>256TB</td>
+</tr>
+<tr>
+<td>Transactions</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Locking granularity</td>
+<td>Row</td>
+<td>Table</td>
+</tr>
+<tr>
+<td>MVCC</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Geospatial data type support</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Geospatial indexing support</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>B-tree indexes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>T-tree indexes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Hash indexes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Full-text search indexes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Clustered indexes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Data caches</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Index caches</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Compressed data</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Encrypted data</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cluster database support</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Replication support</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Foreign key support</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Backup / point-in-time recovery</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Query cache support</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Update statistics for data dictionary</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+</div>
+</article>
+﻿
+<hr class="w3r_hr">
+<div class="mdl-grid">
+
+<div id="bottom_ad_zero_google" class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone">
+
+
+<script data-cfasync="false" src="./MySQL storage engines - w3resource_files/email-decode.min.js.download"></script><script async="" src="./MySQL storage engines - w3resource_files/adsbygoogle.js.download"></script>
+
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2153208817642134" data-ad-slot="4616214717" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./MySQL storage engines - w3resource_files/saved_resource(2).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+<div id="bottom_ad_one_amazon-cpm" class="mdl-cell mdl-cell--6-col mdl-cell--hide-phone">
+<script type="text/javascript" language="javascript" src="./MySQL storage engines - w3resource_files/getads.js.download"></script>
+<script type="text/javascript" language="javascript">
+  //<![CDATA[
+    aax_getad_mpb({
+      "slot_uuid":"e0a1a470-d3e8-45e4-a0fa-fdf2a8cac69e"
+    });
+  //]]>
+</script><script src="./MySQL storage engines - w3resource_files/getad"></script><script async="" src="./MySQL storage engines - w3resource_files/adsbygoogle.js.download"></script>
+<!-- 300X250_bellow_content -->
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2153208817642134" data-ad-slot="4616214717" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./MySQL storage engines - w3resource_files/saved_resource(3).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+
+<div id="bottom_ad_zero_amazon" class="mdl-cell mdl-cell--hide-desktop">
+<script type="text/javascript" language="javascript" src="./MySQL storage engines - w3resource_files/getads.js.download"></script>
+<script type="text/javascript" language="javascript">
+  //<![CDATA[
+   aax_getad_mpb({
+      "slot_uuid":"6a527ea5-0510-4a70-af94-358c7bda61b8"
+    });
+  //]]>
+</script><script src="./MySQL storage engines - w3resource_files/getad(1)"></script></div></div></div></div></main></div></body></html>

@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>performance - Complexity Comparisons Between Data Structures - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures">
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+        <meta name="twitter:title" property="og:title" itemprop="title name" content="Complexity Comparisons Between Data Structures">
+        <meta name="twitter:description" property="og:description" itemprop="description" content="Hi does anyone know where I can find a table which shows the Big O of operations (insert, delete, search) for common data structures?">
+        <script src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/osd.js.download"></script><script src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/pubads_impl_rendering_170.js.download"></script><script src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/rules-p-c1rF4kxgLUzNc.js.download" async=""></script><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/quant.js.download"></script><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/beacon.js.download"></script><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/analytics.js.download"></script><script src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/jquery.min.js.download"></script>
+        <script src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/stub.en.js.download"></script>
+    
+        <link rel="stylesheet" type="text/css" href="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/all.css">
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Complexity Comparisons Between Data Structures&#39;" href="https://stackoverflow.com/feeds/question/5908671">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({votesCast:[],autoShowCommentHelp:true,showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:5908671});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '5908671');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+             
+        
+        
+        
+                <script>
+        StackExchange.init({"locale":"en","serverTime":1515397672,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"bf28f6d7b6153fa897088bd8f0081a7a","tid":"a7e8bfa9-dcaf-6fc6-828b-86561df1655b","rep":1,"isRegistered":true,"userType":3,"userId":8801814,"accountId":12031812,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://lh3.googleusercontent.com/-QF0nuJGfm70/AAAAAAAAAAI/AAAAAAAAAEk/8bzQA1wXV-w/photo.jpg?sz=32\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"https://stackoverflow.com/users/8801814/aishwarya-redkar","canSeeDeletedPosts":false,"canSeeNewHeaderDesign":true,"ab":{"job_search_status":{"v":"required_job_status_no_default_2","g":2}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"topBar":{"showNewFeatureNotice":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"06d860b51399","js/moderator.en.js":"a1d3bfd01d68","js/full-anon.en.js":"71413d3e09c5","js/full.en.js":"d5ee53ed46b8","js/wmd.en.js":"8e37b8008eb4","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"fe642116051e","js/help.en.js":"a56fdf9b9ff2","js/tageditor.en.js":"6e6175bda460","js/tageditornew.en.js":"a08940fbb110","js/inline-tag-editing.en.js":"15fcf2f20003","js/revisions.en.js":"d059a98114ef","js/review.en.js":"ad5e7a7e4f80","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"54c49de76e69","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"ee0695589374","js/keyboard-shortcuts.en.js":"f910dec74217","js/external-editor.en.js":"1a34c5bf72a3","js/adops.en.js":"22a9bd59b1e9","js/external-editor.en.js":"1a34c5bf72a3","js/snippet-javascript.en.js":"4ceca4bd1d0a","js/snippet-javascript-codemirror.en.js":"ef744415cda2"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css">&lt;style&gt;body,.top-bar{margin-top:1.9em}&lt;/style&gt;</noscript>
+    <script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/full.en.js.download"></script><link rel="stylesheet" href="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/clc.min.css" type="text/css"><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/snippet-javascript.en.js.download"></script><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/external-editor.en.js.download"></script><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/wmd.en.js.download"></script><style type="text/css"> .wmd-snippet-button span { background-position: 0 0; } .wmd-snippet-button:hover span { background-position: 0 -40px; }</style><link rel="preload" href="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/integrator.js.download" as="script"><script type="text/javascript" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/integrator.js.download"></script><link rel="preload" href="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/integrator.js(1).download"></script><script src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/pubads_impl_170.js.download" async=""></script></head>
+    <body class="question-page new-topbar">
+        <script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/185901-159836282584097.js.download"></script>
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar _fixed">
+    <div class="-container">
+        <div class="-main">
+            
+                <a href="https://stackoverflow.com/" class="-logo js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                   <span class="-img _glyph">Stack Overflow</span>
+                </a>
+
+
+                <nav class="navigation" role="navigation" aria-label="site navigation">
+                    <ol class="-list">
+    <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Developer Jobs</a>
+    </li>
+    <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+    <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+                    </ol>
+                </nav>
+
+        </div>
+        
+            <form id="search" action="https://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                <input name="q" type="text" placeholder="Search…" value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                <button type="submit" aria-label="Search..." class="btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg></button>
+            </form>
+
+        
+
+
+    
+
+<div class="-actions">
+        <a href="https://stackoverflow.com/users/8801814/aishwarya-redkar" class="my-profile js-gps-track" data-gps-track="profile_summary.click()">
+        <div class="gravatar-wrapper-24" title="aishwarya redkar"><img src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/photo.jpg" alt="" width="24" height="24" class="-avatar js-avatar-me"></div>
+            <div class="-rep js-header-rep" title="your reputation: 1">1</div>
+                <div class="-badges">
+                    
+                </div>
+        </a>
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="https://stackoverflow.com/users/logout" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:8 })">log out</a>
+    </div>
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+                    <a href="https://stackexchange.com/users/12031812/?tab=accounts">your communities</a>
+            </h3>
+
+                <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" id="edit-pinned-sites">edit</a>
+                <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <ul class="my-sites">
+                        <li>
+                                <a href="https://stackoverflow.com/" class="site-link js-gps-track" data-id="1" data-gps-track="site.switch({ target_site:1, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-stackoverflow site-icon" title="Stack Overflow"></div>
+        Stack Overflow
+            <span class="rep-score">1</span>
+    </a>
+
+                        </li>
+                </ul>
+                    <div class="pinned-site-editor-container" style="display: none;">
+                        <input id="js-site-search-txt" type="text" class="site-filter-input" value="" placeholder="Add a Stack Exchange community">
+                        <input type="submit" id="pin-site-btn" value="Add" disabled="disabled">
+                        <ul class="js-found-sites found-sites"></ul>
+                        <ul class="pinned-site-list sortable" data-custom-list="False">
+                        </ul>
+                        <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled">
+                        <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" id="reset-pinned-sites">reset to default list</a>
+                    </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+        </div>
+        <ol class="-list">
+    <li class="-item">
+        <a href="https://stackexchange.com/users/12031812?tab=inbox" class="-link js-inbox-button" title="You have unread inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"></path></svg>
+            <span class="indicator-badge js-unread-count _important">1</span>
+        </a>
+    </li>
+    <li class="-item">
+        <a href="https://stackexchange.com/users/12031812?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"></path></svg>
+            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
+        </a>
+    </li>
+
+
+                <li class="-item"><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"></path></svg>
+    </a></li>
+
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 171 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+        </ol>
+    </nav>
+</div>
+
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+        StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+
+
+    <div class="container _full ">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <div class="inner-content clearfix">
+            <div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures" class="question-hyperlink">Complexity Comparisons Between Data Structures</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+        <a href="https://stackoverflow.com/questions/ask" class="btn">Ask Question</a>
+
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="5908671" id="question">
+
+    <div id="dfp-tlb" class="everyonelovesstackoverflow" data-clc-prefilled="true" data-clc-ready="true"><div id="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/container.html" id="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0" title="3rd party ad content" name="1-0-14;14858;&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;script&gt;var google_casm=[&quot;&quot;,0,null,0,0,null,1];&lt;/script&gt;&lt;script&gt;(function(){(function(){function c(a){this.t={};this.tick=function(a,b,c){this.t[a]=[void 0!=c?c:(new Date).getTime(),b]};this.tick(&quot;start&quot;,null,a)}var a,b;window.performance&amp;&amp;(b=(a=window.performance.timing)&amp;&amp;a.responseStart);var d=0&lt;b?new c(b):new c;window.jstiming={Timer:c,load:d};a&amp;&amp;(a=a.navigationStart,0&lt;a&amp;&amp;b&gt;=a&amp;&amp;(window.jstiming.srt=b-a))})();}).call(this);&lt;/script&gt;&lt;script&gt;(function(){if(window.jstiming){window.jstiming.a={};window.jstiming.b=1;var e=function(b,a,c){var f=b.t[a],d=b.t.start;if(f&amp;&amp;(d||c))return f=b.t[a][0],d=void 0!=c?c:d[0],Math.round(f-d)},l=function(b,a,c){var f=&quot;&quot;;window.jstiming.srt&amp;&amp;(f+=&quot;&amp;srt=&quot;+window.jstiming.srt,delete window.jstiming.srt);var d=document.getElementById(&quot;csi&quot;);if(d){var g;void 0!=window.jstiming._bfr?g=window.jstiming._bfr:(g=d.value,window.jstiming._bfr=g,d.value=1);if(g)return&quot;&quot;}var h=b.t,r=h.start,d=[];g=[];for(var k in h)if(&quot;start&quot;!=k&amp;&amp;0!=k.indexOf(&quot;_&quot;)){var n=h[k][1];n?h[n]&amp;&amp;g.push(k+&quot;.&quot;+e(b,k,h[n][0])):r&amp;&amp;d.push(k+&quot;.&quot;+e(b,k))}delete h.start;if(a)for(var p in a)f+=&quot;&amp;&quot;+p+&quot;=&quot;+a[p];(a=c)||(a=&quot;https://googleads.g.doubleclick.net/pagead/gen_204&quot;);return[a,&quot;?v=3&quot;,&quot;&amp;s=&quot;+(window.jstiming.sn||&quot;pagead&quot;)+&quot;&amp;action=&quot;,b.name,g.length?&quot;&amp;it=&quot;+g.join(&quot;,&quot;):&quot;&quot;,f,&quot;&amp;rt=&quot;,d.join(&quot;,&quot;)].join(&quot;&quot;)},m=function(b,a,c){b=l(b,a,c);if(!b)return&quot;&quot;;a=new Image;var f=window.jstiming.b++;window.jstiming.a[f]=a;a.onload=a.onerror=function(){window.jstiming&amp;&amp;delete window.jstiming.a[f]};a.src=b;a=null;return b};window.jstiming.report=function(b,a,c){return m(b,a,c)}};var q=window.jstiming.load,t=function(b,a){b=parseInt(b,10);return 0&lt;=b?a+b:0},u=function(b,a){a=a||{};a.id=&quot;csi_pagead&quot;;a.gqid=&quot;LCJTWtGQC8Ky3gPC07KAAw&quot;;a.qqid=&quot;CKOxu6Hwx9gCFQyVdwod-ccCMw&quot;;window.jstiming.report(b,a)};window.rptcsi=function(b){q.tick(&quot;ol&quot;);var a={};try{a=JSON.parse(&#39;{&quot;override&quot;:false}&#39;)}catch(h){}var c=parseInt(a.dt||&quot;1515397955065&quot;,10),f=e(q,&quot;start&quot;,0);if(!(!c||0&gt;=c||c&gt;f)){q.tick(&quot;_t0&quot;,null,c);var d=t(a.bdt||&quot;-1&quot;,c);d&amp;&amp;q.tick(&quot;bdt&quot;,&quot;_t0&quot;,d);(d=t(a.dtd||&quot;-1&quot;,c))&amp;&amp;q.tick(&quot;req&quot;,&quot;_t0&quot;,d);var g=t(a.bpp||&quot;-1&quot;,c);(g||d)&amp;&amp;q.tick(&quot;bpp&quot;,&quot;_t0&quot;,g||d);(d=t(&quot;-1&quot;,c))&amp;&amp;q.tick(&quot;redir&quot;,&quot;_t0&quot;,d);q.tick(&quot;fb&quot;,&quot;_t0&quot;,f);q.tick(&quot;e2e&quot;,&quot;_t0&quot;,e(q,&quot;ol&quot;,0));(f=t(a.zct,c))&amp;&amp;q.tick(&quot;zct&quot;,&quot;_t0&quot;,f);(a=t(a.zst,c))&amp;&amp;q.tick(&quot;zst&quot;,&quot;_t0&quot;,a);if(a=window.performance&amp;&amp;window.performance.timing)q.tick(&quot;fs&quot;,&quot;_t0&quot;,a.fetchStart),q.tick(&quot;reqs&quot;,&quot;_t0&quot;,a.requestStart),q.tick(&quot;ress&quot;,&quot;_t0&quot;,a.responseStart),q.tick(&quot;rese&quot;,&quot;_t0&quot;,a.responseEnd)}q.name=b||&quot;&quot;;u(q,{e:&quot;3313274&quot;})};window.rptcsiqid=u;window.tick=function(b,a){q.t[b]||q.tick(b,a)};}).call(this);&lt;/script&gt;&lt;/head&gt;&lt;body onload=rptcsi(&#39;load3pas&#39;) leftMargin=&quot;0&quot; topMargin=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;&lt;input type=hidden id=csi&gt;&lt;script&gt;var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace(&quot;&amp;amp;&quot;,&quot;&amp;&quot;);viewReq.push(i);}&lt;/script&gt;&lt;script&gt;vu(&quot;https://securepubads.g.doubleclick.net/pagead/adview?ai\x3dCGVVJLCJTWqPrC4yq3gP5j4uYA4Od2uNPrpvlsNgGjffd_coLEAEg-NrFV2CRBMgBCakClDURj10xtD6oAwGqBNMBT9DqdGk8Qv139xAzNeBmTNBiPb3aCMuwwSM5mgQ_rbrTrf3hzBBfonCfykLh5a12yjyitRNiP39sTNRcvPJTCcIiox8FWtGO7zhlN14GXK6MSz832W8OWlBq25dVHTIPz9gh0SWjlQevuML-kMDtfOIfMLGyRzGx1jFrX6ZnlUofEaNxYN6sOicpNzQQ3KwNLwC1whPzVJOhPAMprOCbr6oaWAsis3NVgth3Lpk3iqJBal348GF0g9sdF2-ZZx7NmtAtXD74WyHzS6cBMjH3RK-IBsAEuP_62cUB4AQDiAWqiOboA5IFBggdEAQYAZIFBggdEAEYAZIFBggeEAEYAZAGAaAGTYAHnIqXYqgHpr4b2AcA8gcHEPzUigIgAdIIBwiAIRABGAGACgOwE6CV6wPIE9CDrQLQEwDYEwM\x26sigh\x3d4kMHAbBCCwo\x26cid\x3dCAASEuRoEakKQJNn6rIwOqbgDtboqQ\x26adurl\x3dhttps://securepubads.g.doubleclick.net/pcs/view%3Fxai%3DAKAOjsvKjjTtyFkm9PworQxLyWAwga2FK91I4FAq7XQeATjxbEoP2V2EZMMX7c5GmlHGdjcL0u_BoGiRsNpURqYQ_8pqE1aL_jm2HZF7zD0Pgn_zdPVMrwUXP53Krg-16gyrjCoi08YYcc4jDv1RFuHB8pk5-nJs9EjSq5_HVu03v3nFBkbyHxS341w6AjMpY06OgRwcAiv1aE35B0cmirUodbIHoed_FJIgK_nOzLno8DbBRXQy9sgTRAv5jKxI9wph5JR2bkZozJ6m5TioR657pHDRrJVQfFhqMw%26sig%3DCg0ArKJSzIC5p4cLXs4GEAE%26urlfix%3D1%26adurl%3D&quot;)&lt;/script&gt;&lt;DIV STYLE=&quot;position: absolute; left: 0px; top: 0px; visibility: hidden;&quot;&gt;&lt;IMG SRC=&quot;https://pagead2.googlesyndication.com/pagead/gen_204?id=xbid&amp;dbm_b=AKAmf-B8QGq5RcVVx3lQ7Hj0LbYXPvXBvTCc4AOfpWC1OcP7SN5JtRRfHd-GUc_-cOWXF1Y_cSDvooIg-Cu_RdK8fnZ9tUPi6MGffdoMk_x_HK-Jy2IE0gs&quot; BORDER=0 WIDTH=1 HEIGHT=1 ALT=&quot;&quot; STYLE=&quot;display:none&quot;&gt;&lt;/DIV&gt;&lt;iframe src=&quot;https://googleads.g.doubleclick.net/xbbe/pixel?d=CNXcRBDzx1UYmY_fKjAB&amp;v=APEucNW_TUtW07P9toVtGx1gboVbDWoKoIdIGeShY3dDfL0RHDhUcAMNj2bVJBJgjPrPJXkShNRh&quot; style=&quot;display:none&quot;&gt;&lt;/iframe&gt;&lt;div&gt;&lt;div style=&quot;position:relative; display:inline-block;&quot;&gt;&lt;div class=&quot;GoogleActiveViewClass&quot; id=&quot;DfaVisibilityIdentifier_1326294576&quot;&gt;&lt;script&gt;(function(){var h=this,k=function(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}};var l=Array.prototype.forEach?function(a,b){Array.prototype.forEach.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=&quot;string&quot;==typeof a?a.split(&quot;&quot;):a,e=0;e&lt;c;e++)e in d&amp;&amp;b.call(void 0,d[e],e,a)},m=Array.prototype.map?function(a,b){return Array.prototype.map.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=Array(c),e=&quot;string&quot;==typeof a?a.split(&quot;&quot;):a,f=0;f&lt;c;f++)f in e&amp;&amp;(d[f]=b.call(void 0,e[f],f,a));return d},p=Array.prototype.reduce?function(a,b,c){return Array.prototype.reduce.call(a,b,c)}:function(a,b,c){var d=c;l(a,function(c,f){d=b.call(void 0,d,c,f,a)});return d},q=function(a){for(var b=[],c=0;c&lt;a;c++)b[c]=&quot;&quot;;return b};var r=function(a){r[&quot; &quot;](a);return a};r[&quot; &quot;]=function(){};var t=function(a,b){if(a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&amp;&amp;b.call(void 0,a[c],c,a)},u=/https?:\/\/[^\/]+/,v=function(a){return(a=u.exec(a))&amp;&amp;a[0]||&quot;&quot;};var w=/^https?:\/\/(\w|-)+\.cdn\.ampproject\.(net|org)(\?|\/|$)/,x=function(a,b,c){this.i=a;this.j=b;this.g=c},y=function(a,b){this.url=a;this.h=!!b;this.depth=null},A=function(a){a=a||z();for(var b=new y(h.location.href,!1),c=null,d=a.length-1,e=d;0&lt;=e;--e){var f=a[e];!c&amp;&amp;w.test(f.url)&amp;&amp;(c=f);if(f.url&amp;&amp;!f.h){b=f;break}}e=null;f=a.length&amp;&amp;a[d].url;0!=b.depth&amp;&amp;f&amp;&amp;(e=a[d]);return new x(b,e,c)},z=function(){var a=h,b=[],c=null;do{var d=a;try{var e;if(e=!!d&amp;&amp;null!=d.location.href)b:{try{r(d.foo);e=!0;break b}catch(n){}e=!1}var f=e}catch(n){f=!1}if(f){var g=d.location.href;c=d.document&amp;&amp;d.document.referrer||null}else g=c,c=null;b.push(new y(g||&quot;&quot;));try{a=d.parent}catch(n){a=null}}while(a&amp;&amp;d!=a);a=0;for(d=b.length-1;a&lt;=d;++a)b[a].depth=d-a;d=h;if(d.location&amp;&amp;d.location.ancestorOrigins&amp;&amp;d.location.ancestorOrigins.length==b.length-1)for(a=1;a&lt;b.length;++a)g=b[a],g.url||(g.url=d.location.ancestorOrigins[a-1]||&quot;&quot;,g.h=!0);return b};var C=function(a,b,c,d,e){var f=[];t(a,function(a,n){(a=B(a,b,c,d,e))&amp;&amp;f.push(n+&quot;=&quot;+a)});return f.join(b)},B=function(a,b,c,d,e){if(null==a)return&quot;&quot;;b=b||&quot;&amp;&quot;;c=c||&quot;,$&quot;;&quot;string&quot;==typeof c&amp;&amp;(c=c.split(&quot;&quot;));if(a instanceof Array){if(d=d||0,d&lt;c.length){for(var f=[],g=0;g&lt;a.length;g++)f.push(B(a[g],b,c,d+1,e));return f.join(c[d])}}else if(&quot;object&quot;==typeof a)return e=e||0,2&gt;e?encodeURIComponent(C(a,b,c,d,e+1)):&quot;...&quot;;return encodeURIComponent(String(a))};var D=function(a,b){this.g=a;this.depth=b},F=function(){var a=z(),b=Math.max(a.length-1,0),c=A(a);a=c.i;var d=c.j,e=c.g,f=[];c=function(a,b){return null==a?b:a};e&amp;&amp;f.push(new D([e.url,e.h?2:0],c(e.depth,1)));d&amp;&amp;d!=e&amp;&amp;f.push(new D([d.url,2],0));a.url&amp;&amp;a!=e&amp;&amp;f.push(new D([a.url,0],c(a.depth,b)));var g=m(f,function(a,b){return f.slice(0,f.length-b)});!a.url||(e||d)&amp;&amp;a!=e||(d=v(a.url))&amp;&amp;g.push([new D([d,1],c(a.depth,b))]);g.push([]);return m(g,k(E,b))},E=function(a,b){var c=p(b,function(a,b){return Math.max(a,b.depth)},-1),d=q(c+2);d[0]=a;l(b,function(a){return d[a.depth+1]=a.g});return d},G=function(){var a=F();return m(a,function(a){return B(a)})};var H=function(a){try{var b=G();b.pop();for(var c=2083-a.length-5,d=0;d&lt;b.length;d++){var e=encodeURIComponent(b[d]);if(e.length&lt;=c)return a+&quot;&amp;rfl=&quot;+e}return 0&lt;b.length?a+&quot;&amp;rfl=&quot;+encodeURIComponent(b[0]):a}catch(f){}return a},I=[&quot;rfl&quot;],J=h;I[0]in J||!J.execScript||J.execScript(&quot;var &quot;+I[0]);for(var K;I.length&amp;&amp;(K=I.shift());){var L;if(L=!I.length)L=void 0!==H;L?J[K]=H:J[K]&amp;&amp;J[K]!==Object.prototype[K]?J=J[K]:J=J[K]={}};}).call(this);&lt;/script&gt;&lt;script&gt;var url = &#39;https://googleads.g.doubleclick.net/dbm/ad?dbm_c=AKAmf-Abzo8f9B3_j8jIN9ZKyEL5xSc5hUWsAIplh73FCJBa6BYyH1-VQRl0v1NVrspi3QaNwWH5&amp;dbm_d=AKAmf-BvWzRlj-XuLFSnSMu9lEZyLTPh8p8Zchip3cRcddqtmiYqQ1jpF0InW_HHvrlChVK6gd1yhRqSUfWnoFLGXxS8aEsVenlz1O2vf6tcrXV4NYHgPxIpzl0I7OnvVyaDNtWL9irp29tipUvpGUU34I9V3SgSoXVY5lHkoGUK8tRxigJorBLdt0OJZExjFQ1QZqitPVUTq4ijfeUK4UHjFMyRJzJOZr95ERUmwMRt4TAqpeer5-ABqMZsIkVZGPkcGcah-TOSjBNv93twtGh_ALIyFNGrNVuoE6o9WHTYtU6VfU5V3Gpe3ucKS9iiv13rlJGTN0n8rmLyBgb30ymO8JuZo9aqOnXQ5s0t-MMLju5tJluHgiVTokJlZJMbU2pZd3i85hu9SNDkIgaZlde81qTcV-qg2QJLQH-bgK5tw6LSc1qfu2UYRsXgCXv-cOLxhN0qFibUkvSiWaR3BJI21Ac9PZ6FrFePXG5u97bMAgMhfdlxGx0iXjfk3gYRa-xOrZ7ncljb8CvRyRT3dmZ5REF_avRmhWwW2rijLJcwGW9WJm6v2ZJdwi-5R6ZFINakQ7Fne8tnCCxfRVw4f5GpyLijPoYT5toGsoGy4jXKK47ftWggI3nofFC_ShTe7CEIPjwM1ZFdgs_X3QDL5n4UF0FkWR9ykfYeEp_CQa-MD4b2gVhvIt5V5pCyaxY4bEmENX5GrF6Qp5KxontMJL5JEgvAIMWTdxFYSGRcL7dPWJPmc3DXUz6wxlcIKoNjSFqqM0N0E_kGKxtHmm-wCSSPzc9ko86Arc9nXw8e4hqJ1rTRrdBHHy-mRIaQlHiYi9JIaWeazblq3G-_0jSZ9fNr1t71saH7v3HTA-yzYZuAjBa1-OvqXf_V1Y_urhcy4GPvVLPNpr5A6gM7aTQoGlvVaL7ic8DyP6jjPu9j-r56KkLptOtHqcSuvemoVLt-yG1fo7H5eeNw1Pb3ds7S_9DFjyZTA4w6P3zfsUQ-MpPk55hSrm14KL1f5WWMCOhvbAZs3KJLqp_0OOGQsJNpykoe37OJEX6qJOCxUksLHSPXepn5tpalbwihK3ob_rllqmFBdyw-gGkuVQV3RDflmdsPk50nhYpBZ3ZfW4fi58IR7VLFrE_sarUMazhCDOuPJZGwxtDO4hLvI8kcbIFRoiTjzIALKcoD5vudBoKLPll0fbsYcJ9OB4_BsbwM46Ql57EiuZ42iGfuWiUZWjlU7Oaq25ymGL3QWb6BbqWmGtgbahBorDNiG3wqcNhJf-BKweW1F8Zrgj7PSD1tgaAuQZxYmSNYPbs2wWouOjXf4AI7to8ZP-ikhjkKJezA6hpii97aogOZbWMZWD4pEsFv-y3whbj0l2YGEREO4u8LaUplHSp0iEiaEJ8-j8ZdMKtrWJBXkGFxnkljqkGvGKAgSafC33Gin0C9CG4IONDZpsTSrrsOlZjzZZ7HqhRbFIOfDaYOmXbo8VunXHiZ4ThYnsPEBw6LYU2h1SRD8PDkPhWwCNiORvhAssjZ90QbvjcbNG3wX6kfRF4NGx3Zuvv2go61uj03jqGtNMrdwrnh4HAxzvs37lgdOHwEKfRFhpSOi5Cnj0dInIqLghZePBLVU-eQwlpZ1kATcA4ely5XjZ-7bnvKwMGY7XR-3RUui9VpK7GGn_niERTbYrk10ZoxClIZ7ReyoUH9TB1k-G3mF7GXVpY3R2JYuALlj-mSngsPTk06U7p1sH-f8f47_WTvWd8wJitWp5olibMxB_aLd9Sg7RYozQaApNkqpCHPcz61hPLg42aNOTL4OYgeH1tGXrD8HatpEpvhXLP9QsJcEJuugJ-7ve1yPYXmngjCYmYJ-TuqdxsvijkPYsuJQW2f1kemkpOqFe53ai17Rp5UZgSbMQDbVjC8uWVcAJ63-AXv1GuwPi8pV9H9exu4mPSs09w53AmwsKlX3BFWKj-S32P5RDSiNYcxI0Q4TyPzmZ39qtCEyLjMwSZr&amp;cid=CAASEuRoEakKQJNn6rIwOqbgDtboqQ&#39;;document.write(&#39;&lt;script src=&quot;&#39; + (window.rfl ? window.rfl(url) : url) + &#39;&quot;&gt;&lt;/s&#39; + &#39;cript&gt;&#39;);&lt;/script&gt;&lt;ins class=&#39;dcmads&#39; style=&#39;display:inline-block;width:728px;height:90px&#39;
+    data-dcm-placement=&#39;N572608.3144922AMNET-MEDIAMATH-S/B20570909.211970893&#39;
+    data-dcm-rendering-mode=&#39;script&#39;
+    data-dcm-https-only
+    data-dcm-resettable-device-id=&#39;&#39;
+    data-dcm-click-tracker=&#39;https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsuYO_lQ7hdevjEPiXh_FdpV9GCBD9jbQye0JyD4NZ9wU3OF0Ln5bNJOSr0-6Ibc19aoR9OS58MWz8vfKtrZCqH12fJ_fZnDubN87C5Zj05i4cefWlxz4PSErG1gCbKCm2splocGRfsMbcXYiTCjKHE0W8oPpbjCk_oSVwJ-yt2NRm3VWNAing3z9ImdarH9dkd0WnUJKCzZ80-YGqSVNe43e9xY2mBhQsijCgL7ZaLYgIexhZ0mQXEUigy9TRyNqK6mueVXJtu4dCstX2Lh0IE0zYdCeg&amp;sig=Cg0ArKJSzChZpcXEfz9bEAE&amp;urlfix=1&amp;adurl=https://googleads.g.doubleclick.net/dbm/clk%3Fsa%3DL%26ai%3DCDx48LCJTWqPrC4yq3gP5j4uYA4Od2uNPrpvlsNgGjffd_coLEAEg-NrFV2CRBMgBCakClDURj10xtD6oAwGqBNYBT9DqdGk8Qv139xAzNeBmTNBiPb3aCMuwwSM5mgQ_rbrTrf3hzBBfonCfykLh5a12yjyitRNiP39sTNRcvPJTCcIiox8FWtGO7zhlN14GXK6MSz832W8OWlBq25dVHTIPz9gh0SWjlQevuML-kMDtfOIfMLGyRzGx1jFrX6ZnlUofEaNxYN6sOicpNzQQ3KwNLwC1whPzVJOhPAMprOCbr6oaWAsis3NVgth3Lpk3iqJBal348GF0g9sdF2-ZZx7NmtAtXD74WyHzS6cBMjH3RK-IBqruZeAEA5AGAaAGTYAHnIqXYqgHpr4b2AcA0ggHCIAhEAEYAYAKA8gT0IOtAtATANgTAw%26num%3D1%26cid%3DCAASEuRoEakKQJNn6rIwOqbgDtboqQ%26sig%3DAOD64_1MCeAxb1_Kqg0QC65p9f-sPMlIBw%26client%3Dca-pub-6605123123518520%26dbm_c%3DAKAmf-BhkdkH2fHVqJuTdw0EXdkSmRfDjlndFw8Q-ZNtUk7048g20dcy2YnVudYhO2wZhl3RvZAC%26dbm_d%3DAKAmf-CFReSqqVqFl1nkKSxtkUJrgxzBO9J-PMfKi4_nI6l8MGCurfEUacx1tueO_zAS6iDRHkOOQNNu1WmpsaJNmksRC76h-jRpDs7Xz8sn4uvhgoQi1kudwCskWGFIM75srfAS_PJUSBsy7pKKs3IexDaifDoovP3t_ExHHWa6vBaWuD3LcDVRnoHiQ_Dr7LRjXhknsjW4ja4eo-s1QciqJiEmw1j_H4ctJgU9-oLoajgNr6d7_S1iB4E4yM8ZoZtQEhiLnsqv%26adurl%3D&#39;
+    data-dcm-app-id=&#39;&#39;&gt;
+  &lt;script src=&#39;https://fw.adsafeprotected.com/rjss/www.googletagservices.com/134718/21201780/dcm/dcmads.js?adsafe_preview=${IS_PREVIEW}&#39;&gt;&lt;/script&gt;
+&lt;/ins&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20180102/r20110914/client/ext/m_window_focus_non_hydra.js&quot; async&gt;&lt;/script&gt;&lt;script&gt;function initWindowFocus() {window[&#39;window_focus_for_click&#39;] =wfocusnhinit(&quot;https://googleads.g.doubleclick.net/pagead/conversion/?ai\x3dCDx48LCJTWqPrC4yq3gP5j4uYA4Od2uNPrpvlsNgGjffd_coLEAEg-NrFV2CRBMgBCakClDURj10xtD6oAwGqBNYBT9DqdGk8Qv139xAzNeBmTNBiPb3aCMuwwSM5mgQ_rbrTrf3hzBBfonCfykLh5a12yjyitRNiP39sTNRcvPJTCcIiox8FWtGO7zhlN14GXK6MSz832W8OWlBq25dVHTIPz9gh0SWjlQevuML-kMDtfOIfMLGyRzGx1jFrX6ZnlUofEaNxYN6sOicpNzQQ3KwNLwC1whPzVJOhPAMprOCbr6oaWAsis3NVgth3Lpk3iqJBal348GF0g9sdF2-ZZx7NmtAtXD74WyHzS6cBMjH3RK-IBqruZeAEA5AGAaAGTYAHnIqXYqgHpr4b2AcA0ggHCIAhEAEYAYAKA8gT0IOtAtATANgTAw\x26sigh\x3dsvZ8iiKu8_c&quot;,&quot;LCJTWtGQC8Ky3gPC07KAAw&quot;,&quot;CKOxu6Hwx9gCFQyVdwod-ccCMw&quot;,true,false,false,0);}if (window.wfocusnhinit) {initWindowFocus();} else {window[&#39;google_wf_async&#39;] = initWindowFocus;}&lt;/script&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20180102/r20180102/activeview/osd_listener.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;osdlfm(-1,&#39;&#39;,&#39;BiJPZLCJTWqPrC4yq3gP5j4uYAwCum-Ww2AYAABABOAHIAQngBAOgBk3SCAUIgCEQAQ,BjLmJLCJTWv-BCdGogAfF4ZXQBuyS6JNFAAAAEAEgic7ISTgAWJjVhPWCBGCRBLIBEXN0YWNrb3ZlcmZsb3cuY29tugEJZ2ZwX2ltYWdlyAEJ2gFaaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTkwODY3MS9jb21wbGV4aXR5LWNvbXBhcmlzb25zLWJldHdlZW4tZGF0YS1zdHJ1Y3R1cmVzmAKSIsACAuACAOoCLi8yNDg0MjQxNzcvc3RhY2tvdmVyZmxvdy5jb20vbGIvcXVlc3Rpb24tcGFnZXP4AvTRHpADmgiYA6QDqAMB0ASQTuAEAdIFBhCMud_vEJAGAaAGO9gHAOAHC_IHAiAB0ggHCIAhEAEYAQ&#39;,&#39;&#39;,58773763,true,&#39;ud\x3d1\x26la\x3d0\x26alp\x3dai\x26alh\x3d4162988468\x26&#39;,3,&#39;CAASEuRoEakKQJNn6rIwOqbgDtboqQ&#39;,&#39;//pagead2.googlesyndication.com/activeview?avi\x3dBiJPZLCJTWqPrC4yq3gP5j4uYAwCum-Ww2AYAABABOAHIAQngBAOgBk3SCAUIgCEQAQ,BjLmJLCJTWv-BCdGogAfF4ZXQBuyS6JNFAAAAEAEgic7ISTgAWJjVhPWCBGCRBLIBEXN0YWNrb3ZlcmZsb3cuY29tugEJZ2ZwX2ltYWdlyAEJ2gFaaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTkwODY3MS9jb21wbGV4aXR5LWNvbXBhcmlzb25zLWJldHdlZW4tZGF0YS1zdHJ1Y3R1cmVzmAKSIsACAuACAOoCLi8yNDg0MjQxNzcvc3RhY2tvdmVyZmxvdy5jb20vbGIvcXVlc3Rpb24tcGFnZXP4AvTRHpADmgiYA6QDqAMB0ASQTuAEAdIFBhCMud_vEJAGAaAGO9gHAOAHC_IHAiAB0ggHCIAhEAEYAQ\x26cid\x3dCAASEuRoEakKQJNn6rIwOqbgDtboqQ&#39;);&lt;/script&gt;&lt;img src=&quot;//www.google.com/ads/measurement/l?ebcid=ALh7CaSU9w6FGN2atsndACpMcEoNceJ60fkd8UgtT38RhYmEKhNMCOV-F-RfkmNF7A9PSTuyNR33k2UJaHMoC_ISH8Z6KpheNw&quot; style=&quot;display:none;&quot;&gt;&lt;/img&gt;&lt;script&gt;if (window.top &amp;&amp; window.top.postMessage) {window.top.postMessage(&#39;{&quot;googMsgType&quot;:&quot;adpnt&quot;}&#39;,&#39;*&#39;);}&lt;/script&gt;&lt;script&gt;tick(&#39;lb&#39;)&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;{&quot;uid&quot;:1,&quot;hostPeerName&quot;:&quot;https://stackoverflow.com&quot;,&quot;initialGeometry&quot;:&quot;{\&quot;windowCoords_t\&quot;:0,\&quot;windowCoords_r\&quot;:1366,\&quot;windowCoords_b\&quot;:728,\&quot;windowCoords_l\&quot;:0,\&quot;frameCoords_t\&quot;:132,\&quot;frameCoords_r\&quot;:872.5,\&quot;frameCoords_b\&quot;:222,\&quot;frameCoords_l\&quot;:144.5,\&quot;styleZIndex\&quot;:\&quot;auto\&quot;,\&quot;allowedExpansion_t\&quot;:132,\&quot;allowedExpansion_r\&quot;:476.5,\&quot;allowedExpansion_b\&quot;:391,\&quot;allowedExpansion_l\&quot;:144.5,\&quot;xInView\&quot;:1,\&quot;yInView\&quot;:1}&quot;,&quot;permissions&quot;:&quot;{\&quot;expandByOverlay\&quot;:true,\&quot;expandByPush\&quot;:false,\&quot;readCookie\&quot;:false,\&quot;writeCookie\&quot;:false}&quot;,&quot;metadata&quot;:&quot;{\&quot;shared\&quot;:{\&quot;sf_ver\&quot;:\&quot;1-0-14\&quot;,\&quot;ck_on\&quot;:1,\&quot;flash_ver\&quot;:\&quot;0\&quot;}}&quot;,&quot;reportCreativeGeometry&quot;:false,&quot;isDifferentSourceWindow&quot;:false,&quot;goog_safeframe_hlt&quot;:{}}" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5908671">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">11</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" title="Click to mark as favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>3</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>Hi does anyone know where I can find a table which shows the Big O of operations (insert, delete, search) for common data structures? </p>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/performance" class="post-tag js-gps-track" title="show questions tagged &#39;performance&#39;" rel="tag">performance</a> <a href="https://stackoverflow.com/questions/tagged/data-structures" class="post-tag js-gps-track" title="show questions tagged &#39;data-structures&#39;" rel="tag">data-structures</a> <a href="https://stackoverflow.com/questions/tagged/comparison" class="post-tag js-gps-track" title="show questions tagged &#39;comparison&#39;" rel="tag">comparison</a> <a href="https://stackoverflow.com/questions/tagged/big-o" class="post-tag js-gps-track" title="show questions tagged &#39;big-o&#39;" rel="tag">big-o</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/5908671/8801814" title="short permalink to this question" class="short-link" id="link-post-5908671">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/5908671/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2011-05-06 08:18:15Z" class="relativetime">May 6 '11 at 8:18</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/559142/user559142"><div class="gravatar-wrapper-32"><img src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/b8c723ec31b11dea90ae493b99dd0c40" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/559142/user559142">user559142</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,374</span><span title="38 gold badges"><span class="badge1"></span><span class="badgecount">38</span></span><span title="96 silver badges"><span class="badge2"></span><span class="badgecount">96</span></span><span title="164 bronze badges"><span class="badge3"></span><span class="badgecount">164</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5908671" class="comments js-comments-container  dno">
+		        <table>
+                    <tbody class="js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                            <tr><td></td><td></td></tr>
+                    </tbody>
+		        </table>
+	    </div>
+
+        <div id="comments-link-5908671" data-rep="50" data-reg="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+            <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="2">
+                                2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+                        </h2>
+                        <div>
+                            <div id="tabs">
+        <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere " href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="5908773"></a>
+<div id="answer-5908773" class="answer accepted-answer" data-answerid="5908773" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5908773">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><a href="http://simplenotions.wordpress.com/2009/05/13/java-standard-data-structures-big-o-notation/" rel="noreferrer">This Page</a> gives an overview of Java's standard data structures and the complexity of actions performed on them. I think these complexities might also hold for other programming languages.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/5908773/8801814" title="short permalink to this answer" class="short-link" id="link-post-5908773">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/5908773/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-05-06 08:29:56Z" class="relativetime">May 6 '11 at 8:29</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/716457/phuibers"><div class="gravatar-wrapper-32"><img src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/40bcc802477ca3df6af7fef4de43104d" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/716457/phuibers">phuibers</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">783</span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5908773" class="comments js-comments-container  dno">
+		        <table>
+                    <tbody class="js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                            <tr><td></td><td></td></tr>
+                    </tbody>
+		        </table>
+	    </div>
+
+        <div id="comments-link-5908773" data-rep="50" data-reg="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<div id="dfp-mlb" class="everyonelovesstackoverflow" data-clc-prefilled="true" data-clc-ready="true"><div id="google_ads_iframe_/248424177/stackoverflow.com/mlb/question-pages_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/container(1).html" id="google_ads_iframe_/248424177/stackoverflow.com/mlb/question-pages_0" title="3rd party ad content" name="1-0-14;14865;&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;script&gt;var google_casm=[&quot;&quot;,0,null,0,0,null,1];&lt;/script&gt;&lt;script&gt;(function(){(function(){function c(a){this.t={};this.tick=function(a,b,c){this.t[a]=[void 0!=c?c:(new Date).getTime(),b]};this.tick(&quot;start&quot;,null,a)}var a,b;window.performance&amp;&amp;(b=(a=window.performance.timing)&amp;&amp;a.responseStart);var d=0&lt;b?new c(b):new c;window.jstiming={Timer:c,load:d};a&amp;&amp;(a=a.navigationStart,0&lt;a&amp;&amp;b&gt;=a&amp;&amp;(window.jstiming.srt=b-a))})();}).call(this);&lt;/script&gt;&lt;script&gt;(function(){if(window.jstiming){window.jstiming.a={};window.jstiming.b=1;var e=function(b,a,c){var f=b.t[a],d=b.t.start;if(f&amp;&amp;(d||c))return f=b.t[a][0],d=void 0!=c?c:d[0],Math.round(f-d)},l=function(b,a,c){var f=&quot;&quot;;window.jstiming.srt&amp;&amp;(f+=&quot;&amp;srt=&quot;+window.jstiming.srt,delete window.jstiming.srt);var d=document.getElementById(&quot;csi&quot;);if(d){var g;void 0!=window.jstiming._bfr?g=window.jstiming._bfr:(g=d.value,window.jstiming._bfr=g,d.value=1);if(g)return&quot;&quot;}var h=b.t,r=h.start,d=[];g=[];for(var k in h)if(&quot;start&quot;!=k&amp;&amp;0!=k.indexOf(&quot;_&quot;)){var n=h[k][1];n?h[n]&amp;&amp;g.push(k+&quot;.&quot;+e(b,k,h[n][0])):r&amp;&amp;d.push(k+&quot;.&quot;+e(b,k))}delete h.start;if(a)for(var p in a)f+=&quot;&amp;&quot;+p+&quot;=&quot;+a[p];(a=c)||(a=&quot;https://googleads.g.doubleclick.net/pagead/gen_204&quot;);return[a,&quot;?v=3&quot;,&quot;&amp;s=&quot;+(window.jstiming.sn||&quot;pagead&quot;)+&quot;&amp;action=&quot;,b.name,g.length?&quot;&amp;it=&quot;+g.join(&quot;,&quot;):&quot;&quot;,f,&quot;&amp;rt=&quot;,d.join(&quot;,&quot;)].join(&quot;&quot;)},m=function(b,a,c){b=l(b,a,c);if(!b)return&quot;&quot;;a=new Image;var f=window.jstiming.b++;window.jstiming.a[f]=a;a.onload=a.onerror=function(){window.jstiming&amp;&amp;delete window.jstiming.a[f]};a.src=b;a=null;return b};window.jstiming.report=function(b,a,c){return m(b,a,c)}};var q=window.jstiming.load,t=function(b,a){b=parseInt(b,10);return 0&lt;=b?a+b:0},u=function(b,a){a=a||{};a.id=&quot;csi_pagead&quot;;a.gqid=&quot;LCJTWrKbC8LxgAfu9YzgBA&quot;;a.qqid=&quot;CJ7kvKHwx9gCFZor4AodA9wNDA&quot;;window.jstiming.report(b,a)};window.rptcsi=function(b){q.tick(&quot;ol&quot;);var a={};try{a=JSON.parse(&#39;{&quot;override&quot;:false}&#39;)}catch(h){}var c=parseInt(a.dt||&quot;1515397955065&quot;,10),f=e(q,&quot;start&quot;,0);if(!(!c||0&gt;=c||c&gt;f)){q.tick(&quot;_t0&quot;,null,c);var d=t(a.bdt||&quot;-1&quot;,c);d&amp;&amp;q.tick(&quot;bdt&quot;,&quot;_t0&quot;,d);(d=t(a.dtd||&quot;-1&quot;,c))&amp;&amp;q.tick(&quot;req&quot;,&quot;_t0&quot;,d);var g=t(a.bpp||&quot;-1&quot;,c);(g||d)&amp;&amp;q.tick(&quot;bpp&quot;,&quot;_t0&quot;,g||d);(d=t(&quot;-1&quot;,c))&amp;&amp;q.tick(&quot;redir&quot;,&quot;_t0&quot;,d);q.tick(&quot;fb&quot;,&quot;_t0&quot;,f);q.tick(&quot;e2e&quot;,&quot;_t0&quot;,e(q,&quot;ol&quot;,0));(f=t(a.zct,c))&amp;&amp;q.tick(&quot;zct&quot;,&quot;_t0&quot;,f);(a=t(a.zst,c))&amp;&amp;q.tick(&quot;zst&quot;,&quot;_t0&quot;,a);if(a=window.performance&amp;&amp;window.performance.timing)q.tick(&quot;fs&quot;,&quot;_t0&quot;,a.fetchStart),q.tick(&quot;reqs&quot;,&quot;_t0&quot;,a.requestStart),q.tick(&quot;ress&quot;,&quot;_t0&quot;,a.responseStart),q.tick(&quot;rese&quot;,&quot;_t0&quot;,a.responseEnd)}q.name=b||&quot;&quot;;u(q,{e:&quot;3313274&quot;})};window.rptcsiqid=u;window.tick=function(b,a){q.t[b]||q.tick(b,a)};}).call(this);&lt;/script&gt;&lt;/head&gt;&lt;body onload=rptcsi(&#39;load3pas&#39;) leftMargin=&quot;0&quot; topMargin=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;&lt;input type=hidden id=csi&gt;&lt;script&gt;var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace(&quot;&amp;amp;&quot;,&quot;&amp;&quot;);viewReq.push(i);}&lt;/script&gt;&lt;script&gt;vu(&quot;https://securepubads.g.doubleclick.net/pagead/adview?ai\x3dCEDSYLCJTWp6eDZrXgAeDuLdghp3a40_bjprL5QbB192A0QsQASD42sVXYJEEyAEJqQIL3ZUUHzC0PqgDAaoE1gFP0Ntjd-HoTrMTG8Vpv9UmCPQbSgNDngxU9an07VDmD98iTjJjJNUR-DUk0N8muJnK0O-0Hg8JmNZO-CCCgEFK6V4fUTYp7nwSwJPETIMxw3JlWHz6EARgw6ePPyCZW8xZPBGEX3gnKupm_QugT_sje7kcI1-ubOlSra6iPBhX9DaTw5rXnwtYKXVwm4KLlDH54emeIAose0bf_siJhR6G4wisUuCF1X87C_F6C5Lm4VFgRpnudpqEhgRUxDAxtbVy5QMKGA7B_IhxtXudngdZ4Jb2YowWwATMyobg2wHgBAOIBd3RnukDkgUGCB0QBBgBkgUGCB0QARgBkgUGCB4QARgBkAYBoAZNgAecipdiqAemvhvYBwDyBwcQ7-WFASAB0ggHCIAhEAEYAYAKA7AToJXrA8gT0IOtAtATANgTAw\x26sigh\x3d4C3G-7CssVo\x26cid\x3dCAASEuRoTAqL7ruWaGCDfEotm73vTw\x26adurl\x3dhttps://securepubads.g.doubleclick.net/pcs/view%3Fxai%3DAKAOjsu9kGEi1DE2s5x4lOCcMnf4jWQEDUEkkBXJ1JRZuBhDFqhviBMvHpXq42vjdx6uXVj5pxK9oeCat_O6HmTtnh-ETtoWm2FvSG_vpfqdR-FkOTLa5qw7MhoEUUuF5VJbtwTGRC4JUaesoKD2-XcU5OslTHs1ziPaE4vbNm0H-7bJJnzhguAKsuqYRrWoJtJZSG3yN-nOcB0atKd_QZJIwMHprOZzwSPR9DOAlGikKPuCWO-ctr-LLQGllXeXSGa5jZ30LKi9msErhClwVBromut5panGyFZMipc%26sig%3DCg0ArKJSzCsidPPH1OLQEAE%26urlfix%3D1%26adurl%3D&quot;)&lt;/script&gt;&lt;DIV STYLE=&quot;position: absolute; left: 0px; top: 0px; visibility: hidden;&quot;&gt;&lt;IMG SRC=&quot;https://pagead2.googlesyndication.com/pagead/gen_204?id=xbid&amp;dbm_b=AKAmf-BJVUGYO8aW9z2MPOZhDV2VxFhhGWMsO3brR2TXVALRlD9DEkinuzi1mH6x_dEWkpyVPZBqByC6JvA5vPX_7qDbB8DdPZYot8S0r2LrzfmQ_DrMqFs&quot; BORDER=0 WIDTH=1 HEIGHT=1 ALT=&quot;&quot; STYLE=&quot;display:none&quot;&gt;&lt;/DIV&gt;&lt;iframe src=&quot;https://googleads.g.doubleclick.net/xbbe/pixel?d=CNXcRBDzx1UYmY_fKjAB&amp;v=APEucNUjWICkmVAPV_MvMkjL1oRZO8aWV8XFFaqePimBag9hR-ZnTFDDYWj2Jgycdx4ojiuvpc19&quot; style=&quot;display:none&quot;&gt;&lt;/iframe&gt;&lt;div&gt;&lt;div style=&quot;position:relative; display:inline-block;&quot;&gt;&lt;div class=&quot;GoogleActiveViewClass&quot; id=&quot;DfaVisibilityIdentifier_1384048457&quot;&gt;&lt;script&gt;(function(){var h=this,k=function(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}};var l=Array.prototype.forEach?function(a,b){Array.prototype.forEach.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=&quot;string&quot;==typeof a?a.split(&quot;&quot;):a,e=0;e&lt;c;e++)e in d&amp;&amp;b.call(void 0,d[e],e,a)},m=Array.prototype.map?function(a,b){return Array.prototype.map.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=Array(c),e=&quot;string&quot;==typeof a?a.split(&quot;&quot;):a,f=0;f&lt;c;f++)f in e&amp;&amp;(d[f]=b.call(void 0,e[f],f,a));return d},p=Array.prototype.reduce?function(a,b,c){return Array.prototype.reduce.call(a,b,c)}:function(a,b,c){var d=c;l(a,function(c,f){d=b.call(void 0,d,c,f,a)});return d},q=function(a){for(var b=[],c=0;c&lt;a;c++)b[c]=&quot;&quot;;return b};var r=function(a){r[&quot; &quot;](a);return a};r[&quot; &quot;]=function(){};var t=function(a,b){if(a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&amp;&amp;b.call(void 0,a[c],c,a)},u=/https?:\/\/[^\/]+/,v=function(a){return(a=u.exec(a))&amp;&amp;a[0]||&quot;&quot;};var w=/^https?:\/\/(\w|-)+\.cdn\.ampproject\.(net|org)(\?|\/|$)/,x=function(a,b,c){this.i=a;this.j=b;this.g=c},y=function(a,b){this.url=a;this.h=!!b;this.depth=null},A=function(a){a=a||z();for(var b=new y(h.location.href,!1),c=null,d=a.length-1,e=d;0&lt;=e;--e){var f=a[e];!c&amp;&amp;w.test(f.url)&amp;&amp;(c=f);if(f.url&amp;&amp;!f.h){b=f;break}}e=null;f=a.length&amp;&amp;a[d].url;0!=b.depth&amp;&amp;f&amp;&amp;(e=a[d]);return new x(b,e,c)},z=function(){var a=h,b=[],c=null;do{var d=a;try{var e;if(e=!!d&amp;&amp;null!=d.location.href)b:{try{r(d.foo);e=!0;break b}catch(n){}e=!1}var f=e}catch(n){f=!1}if(f){var g=d.location.href;c=d.document&amp;&amp;d.document.referrer||null}else g=c,c=null;b.push(new y(g||&quot;&quot;));try{a=d.parent}catch(n){a=null}}while(a&amp;&amp;d!=a);a=0;for(d=b.length-1;a&lt;=d;++a)b[a].depth=d-a;d=h;if(d.location&amp;&amp;d.location.ancestorOrigins&amp;&amp;d.location.ancestorOrigins.length==b.length-1)for(a=1;a&lt;b.length;++a)g=b[a],g.url||(g.url=d.location.ancestorOrigins[a-1]||&quot;&quot;,g.h=!0);return b};var C=function(a,b,c,d,e){var f=[];t(a,function(a,n){(a=B(a,b,c,d,e))&amp;&amp;f.push(n+&quot;=&quot;+a)});return f.join(b)},B=function(a,b,c,d,e){if(null==a)return&quot;&quot;;b=b||&quot;&amp;&quot;;c=c||&quot;,$&quot;;&quot;string&quot;==typeof c&amp;&amp;(c=c.split(&quot;&quot;));if(a instanceof Array){if(d=d||0,d&lt;c.length){for(var f=[],g=0;g&lt;a.length;g++)f.push(B(a[g],b,c,d+1,e));return f.join(c[d])}}else if(&quot;object&quot;==typeof a)return e=e||0,2&gt;e?encodeURIComponent(C(a,b,c,d,e+1)):&quot;...&quot;;return encodeURIComponent(String(a))};var D=function(a,b){this.g=a;this.depth=b},F=function(){var a=z(),b=Math.max(a.length-1,0),c=A(a);a=c.i;var d=c.j,e=c.g,f=[];c=function(a,b){return null==a?b:a};e&amp;&amp;f.push(new D([e.url,e.h?2:0],c(e.depth,1)));d&amp;&amp;d!=e&amp;&amp;f.push(new D([d.url,2],0));a.url&amp;&amp;a!=e&amp;&amp;f.push(new D([a.url,0],c(a.depth,b)));var g=m(f,function(a,b){return f.slice(0,f.length-b)});!a.url||(e||d)&amp;&amp;a!=e||(d=v(a.url))&amp;&amp;g.push([new D([d,1],c(a.depth,b))]);g.push([]);return m(g,k(E,b))},E=function(a,b){var c=p(b,function(a,b){return Math.max(a,b.depth)},-1),d=q(c+2);d[0]=a;l(b,function(a){return d[a.depth+1]=a.g});return d},G=function(){var a=F();return m(a,function(a){return B(a)})};var H=function(a){try{var b=G();b.pop();for(var c=2083-a.length-5,d=0;d&lt;b.length;d++){var e=encodeURIComponent(b[d]);if(e.length&lt;=c)return a+&quot;&amp;rfl=&quot;+e}return 0&lt;b.length?a+&quot;&amp;rfl=&quot;+encodeURIComponent(b[0]):a}catch(f){}return a},I=[&quot;rfl&quot;],J=h;I[0]in J||!J.execScript||J.execScript(&quot;var &quot;+I[0]);for(var K;I.length&amp;&amp;(K=I.shift());){var L;if(L=!I.length)L=void 0!==H;L?J[K]=H:J[K]&amp;&amp;J[K]!==Object.prototype[K]?J=J[K]:J=J[K]={}};}).call(this);&lt;/script&gt;&lt;script&gt;var url = &#39;https://googleads.g.doubleclick.net/dbm/ad?dbm_c=AKAmf-A-37rqOJz6d7cqJ4cZI-dWNH_knBw6IqBq1hIHut_KXru2YWgq3t4WOLit25CtLj4ymUQh&amp;dbm_d=AKAmf-ASJimi0_bXzxN_W5KhbiTQYU4LXh8NB75EObYtKTb47um42JBm5zvZVKW2t74IsiTHMLOd1uTicj2AWUu-AyBoZqG7FJ7ZZkC7D6AIPXtx-trmb6fe1ObH--NqnrlqDCTaoxhPJKNFK0jBzv2eoUOthFdXf-eo52no0-ZZgwxlvppcJzTNCoPOKqVO6m_m5o-XD7NJPE49rIKhUy75fcI65VeGyJBYq1a6BGzjWy-daVQChTUkxtP8bXrIpIkXRqZH2HxoQ6onnxRkYC_TKR4QGygOcWM49aun8DS-wvU_tTZRNKTjTD-PASDWVsZUo7NRu7fNaxEljKZ8hfnb5h-N94ItbAvyNdVvHrzDDS9YAe8A3HY_QTUDrmpW7__LWhww7m2jJAnbFt_5PRKxJTYZGqJSEe08CZLPHprXFzydmM-FlS460LyZJgXHnHsVNBxeOAaBhpFajYXBI9rm6UdzkMYxj_f5RzsK0uO1vClxptA7OtJNQD1O2SRGH9JuwZ0XMnNlzIhBsgto0Nq2YMqrCtbF4RP0s4HxSlwt4Z5eo6OXgtb5XSf8he5gKgO2Z7BN67uBQXckD_6XQUNpudpWv9Wl77XOwa3O_Ez2YURa5Zfxhf-hHDjlFgmBaM7HP77Sd22L2C__JxADbEOA5HqzWuyUQltJ60Wxqi4FtyNvsloienR12WQOz-sy81ALkPaj5wDZa1eVCue172nc3QckMgT-s0ad4z48jvOyYRCNhIGBhsqsrENc85dwebXQCQH0Or4gkIotWxpDnBdOAJArv8OhaSYKSOQb-tcPGwDdk3yzAMYV9mWNKlw23I91yR3_vZiu4ua4psZx-w57h0DOnW_6Ce-8q7qNOwhL3APt603gw93I1z2TOEyXk9h6KGLQqg8rqKuwIQrYmnhvvBXvAPN0iyF25ppFunf30puZudEDZGQ1BdG1RO58RYRQBHhIyFU0XDS2fjzxT0frhG6TiHjeVzJ0zHhdPu-B9mtv8WnlibguqFwlHxiHjQ88nPphyJ5yqG8rt5MowGMzPr20T0WpQdgumy4Rrt8SBCx1cKAldo2fnme1Yiu40bfgNDje_lOuNxQDNaCWqVxy7bJgSfQEIzBGaaBpyQ0URVHsorIO78mo87swqPe9oegXhW4Ik2lAFNyd5JM_ca6h-2QRdnpd8WQMpcQoZK0H5r4ezE_18vcUcoHoNyekSOo3Mlbr8X6yZmkXPr-8nrtyhcr2D_vV3PynD9ZY9hvCCAi0zNUQcbbGq-hAVLl65M2pbd8et7Jx7ivOLZ0-X8jXSy0AgZD8DE0yiEb4yp-X86XSmTXxc_cRrkvMMdWMCl7vAe1sEStuTBi20aLL7y0bHno6XqrdyGWcTw4zWWAqRZ7gjCCBTK82EsAh_YnZY_Kz36r2PZkLpYjNm13JeDyHjLe39CzTZ3BPGEQLhs9c1mj0-MFqWg1B_cfLgcTO6lSzvgZlgjTmYx5viZQyzNSCvIw7F2xnIO1Y5PmUEmjEcHm3aeFu2PfDtmBGRpIrd_AaTiqcSdFB26BKwZF3K2nJUi3hc5nwgm2doHCkK3Ms63BgsGQiXVFbZxLqPorAQqjSSsrGYNUOamFMaif6KDn5S9sdNMmqN-lUFu6RmVCP4K7A57WTs1RLOziMDdwZnsMKtFrDbLRD3W4rRGEsogmr0ohdvH-Ovinq5gVN1Rwuo5lM9WTQhxEXz-v0NHQ8No7p5Z1MwCRE3VbqvOU0Km2TMuNb6eujd70-kMpFKXwQfqNvRJmkJo8DvhN66P5_5Duq3Fe5m_xjx4ZpbfPzn5jJF8rRUOuEOi9rHfyip-sqvVp5npgR1LXpMoAkS6mK1GPK8KQOlh-kTAh_NN6Ekonu6VsuMY_Tk2Zd_9gHxY6a8-zpoLihE2WKQ-kRjVaxffLdVIcrMrqVwUMv-UFxqP9VluQtYrTGe99GIU_iAaI_uryxwNuoRjCKK61-GakMy08NJhQwh_Xx&amp;cid=CAASEuRoTAqL7ruWaGCDfEotm73vTw&#39;;document.write(&#39;&lt;script src=&quot;&#39; + (window.rfl ? window.rfl(url) : url) + &#39;&quot;&gt;&lt;/s&#39; + &#39;cript&gt;&#39;);&lt;/script&gt;&lt;ins class=&#39;dcmads&#39; style=&#39;display:inline-block;width:728px;height:90px&#39;
+    data-dcm-placement=&#39;N572608.3144922AMNET-MEDIAMATH-S/B20570909.211970893&#39;
+    data-dcm-rendering-mode=&#39;script&#39;
+    data-dcm-https-only
+    data-dcm-resettable-device-id=&#39;&#39;
+    data-dcm-click-tracker=&#39;https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsvZz8f8qtK7Wr9OIg5_dPz05hzWHuiS7Pl13YSMOMIKTtfNLn_VOITQOH5O0yG1CcC-df-wnV-t9wM7sBivHX3SASmQXuS5-wfTrOScaeSM2quI9f8FERLLOa4OPMZZPS20Vs67knsYPm4Wvjfxn3aA1WO9OMBGO06W1VjNLJNCpOv5rMmH6jVFRjP6OHhpxQrbtGbKPWQq5wNHqRbol7BQjYK-O6cBojeuZR2fmaaznyH_VMRsP12dTKt-i0RlbwQUy0u6Fio4PfBnM7rXcVFQlvMtIoY&amp;sig=Cg0ArKJSzAZGjj1APShGEAE&amp;urlfix=1&amp;adurl=https://googleads.g.doubleclick.net/dbm/clk%3Fsa%3DL%26ai%3DCgelbLCJTWp6eDZrXgAeDuLdghp3a40_bjprL5QbB192A0QsQASD42sVXYJEEyAEJqQIL3ZUUHzC0PqgDAaoE2QFP0Ntjd-HoTrMTG8Vpv9UmCPQbSgNDngxU9an07VDmD98iTjJjJNUR-DUk0N8muJnK0O-0Hg8JmNZO-CCCgEFK6V4fUTYp7nwSwJPETIMxw3JlWHz6EARgw6ePPyCZW8xZPBGEX3gnKupm_QugT_sje7kcI1-ubOlSra6iPBhX9DaTw5rXnwtYKXVwm4KLlDH54emeIAose0bf_siJhR6G4wisUuCF1X87C_F6C5Lm4VFgRpnudpqEhgRUxDAxtbVy5QMKGA7B_IhxtXudngdZ4Jb2YowWnZrV4AQDkAYBoAZNgAecipdiqAemvhvYBwDSCAcIgCEQARgBgAoDyBPQg60C0BMA2BMD%26num%3D1%26cid%3DCAASEuRoTAqL7ruWaGCDfEotm73vTw%26sig%3DAOD64_0nDfOse9sAStRHN1N3P84k-atjpA%26client%3Dca-pub-6605123123518520%26dbm_c%3DAKAmf-An7LtGEpUDbeyoJp8rvbn1OoEyIDqDH_B8EUkuXiPPRt6QH3f3Iij5Diy77za3402JJ-ss%26dbm_d%3DAKAmf-Dzd7Qmk6PgMTGybuM6OM7e8ThR29f9PUP7Vpj7sveH1I1Zd0zThqp8GN1BjNOl-s3P978reNcN9as9gQsjRtTu0Kvg2jUBwD4mGG-GspHKw-82lXlQR9kl46x83sIBTmcj5rZ7t2HSRgkNLvsAwCK3Z43_EQyt00ixm9KotX9zElQuuF8fqn4f2yS2IVpqARXGfrUj0gG97kuGPdT8qsUgDCzAeJam86a3dPMlVZL6szxyd4e3lqbbANVGdXzinFffZJF5%26adurl%3D&#39;
+    data-dcm-app-id=&#39;&#39;&gt;
+  &lt;script src=&#39;https://fw.adsafeprotected.com/rjss/www.googletagservices.com/134718/21201780/dcm/dcmads.js?adsafe_preview=${IS_PREVIEW}&#39;&gt;&lt;/script&gt;
+&lt;/ins&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20180102/r20110914/client/ext/m_window_focus_non_hydra.js&quot; async&gt;&lt;/script&gt;&lt;script&gt;function initWindowFocus() {window[&#39;window_focus_for_click&#39;] =wfocusnhinit(&quot;https://googleads.g.doubleclick.net/pagead/conversion/?ai\x3dCgelbLCJTWp6eDZrXgAeDuLdghp3a40_bjprL5QbB192A0QsQASD42sVXYJEEyAEJqQIL3ZUUHzC0PqgDAaoE2QFP0Ntjd-HoTrMTG8Vpv9UmCPQbSgNDngxU9an07VDmD98iTjJjJNUR-DUk0N8muJnK0O-0Hg8JmNZO-CCCgEFK6V4fUTYp7nwSwJPETIMxw3JlWHz6EARgw6ePPyCZW8xZPBGEX3gnKupm_QugT_sje7kcI1-ubOlSra6iPBhX9DaTw5rXnwtYKXVwm4KLlDH54emeIAose0bf_siJhR6G4wisUuCF1X87C_F6C5Lm4VFgRpnudpqEhgRUxDAxtbVy5QMKGA7B_IhxtXudngdZ4Jb2YowWnZrV4AQDkAYBoAZNgAecipdiqAemvhvYBwDSCAcIgCEQARgBgAoDyBPQg60C0BMA2BMD\x26sigh\x3dR6SozIftvZI&quot;,&quot;LCJTWrKbC8LxgAfu9YzgBA&quot;,&quot;CJ7kvKHwx9gCFZor4AodA9wNDA&quot;,true,false,false,0);}if (window.wfocusnhinit) {initWindowFocus();} else {window[&#39;google_wf_async&#39;] = initWindowFocus;}&lt;/script&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20180102/r20180102/activeview/osd_listener.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;osdlfm(-1,&#39;&#39;,&#39;BhGpvLCJTWp6eDZrXgAeDuLdgANuOmsvlBgAAEAE4AcgBCeAEA6AGTdIIBQiAIRAB,B_oU6LCJTWoCCCdGogAfF4ZXQBvWS6JNFAAAAEAEgic7ISTgAWKHVhPWCBGCRBLIBEXN0YWNrb3ZlcmZsb3cuY29tugEJZ2ZwX2ltYWdlyAEJ2gFaaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTkwODY3MS9jb21wbGV4aXR5LWNvbXBhcmlzb25zLWJldHdlZW4tZGF0YS1zdHJ1Y3R1cmVzmAKYEcACAuACAOoCLy8yNDg0MjQxNzcvc3RhY2tvdmVyZmxvdy5jb20vbWxiL3F1ZXN0aW9uLXBhZ2Vz-AL00R6QA5oImAOkA6gDAdAEkE7gBAHSBQYQkrnf7xCQBgGgBjvYBwDgBwvyBwIgAdIIBwiAIRABGAE&#39;,&#39;&#39;,1779052596,true,&#39;ud\x3d1\x26la\x3d0\x26alp\x3dai\x26alh\x3d17734751\x26&#39;,3,&#39;CAASEuRoTAqL7ruWaGCDfEotm73vTw&#39;,&#39;//pagead2.googlesyndication.com/activeview?avi\x3dBhGpvLCJTWp6eDZrXgAeDuLdgANuOmsvlBgAAEAE4AcgBCeAEA6AGTdIIBQiAIRAB,B_oU6LCJTWoCCCdGogAfF4ZXQBvWS6JNFAAAAEAEgic7ISTgAWKHVhPWCBGCRBLIBEXN0YWNrb3ZlcmZsb3cuY29tugEJZ2ZwX2ltYWdlyAEJ2gFaaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTkwODY3MS9jb21wbGV4aXR5LWNvbXBhcmlzb25zLWJldHdlZW4tZGF0YS1zdHJ1Y3R1cmVzmAKYEcACAuACAOoCLy8yNDg0MjQxNzcvc3RhY2tvdmVyZmxvdy5jb20vbWxiL3F1ZXN0aW9uLXBhZ2Vz-AL00R6QA5oImAOkA6gDAdAEkE7gBAHSBQYQkrnf7xCQBgGgBjvYBwDgBwvyBwIgAdIIBwiAIRABGAE\x26cid\x3dCAASEuRoTAqL7ruWaGCDfEotm73vTw&#39;);&lt;/script&gt;&lt;img src=&quot;//www.google.com/ads/measurement/l?ebcid=ALh7CaQj43uqCnvV-iKgWysHYO8rtFbqD4QNNmnr6v3zpJuKoKaCJbqc-SPku8yKaBhNbMa9OrLXlCfPW6qwrcfPXO83yRniUg&quot; style=&quot;display:none;&quot;&gt;&lt;/img&gt;&lt;script&gt;if (window.top &amp;&amp; window.top.postMessage) {window.top.postMessage(&#39;{&quot;googMsgType&quot;:&quot;adpnt&quot;}&#39;,&#39;*&#39;);}&lt;/script&gt;&lt;script&gt;tick(&#39;lb&#39;)&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;{&quot;uid&quot;:2,&quot;hostPeerName&quot;:&quot;https://stackoverflow.com&quot;,&quot;initialGeometry&quot;:&quot;{\&quot;windowCoords_t\&quot;:0,\&quot;windowCoords_r\&quot;:1366,\&quot;windowCoords_b\&quot;:728,\&quot;windowCoords_l\&quot;:0,\&quot;frameCoords_t\&quot;:681,\&quot;frameCoords_r\&quot;:872.5,\&quot;frameCoords_b\&quot;:771,\&quot;frameCoords_l\&quot;:144.5,\&quot;styleZIndex\&quot;:\&quot;auto\&quot;,\&quot;allowedExpansion_t\&quot;:0,\&quot;allowedExpansion_r\&quot;:0,\&quot;allowedExpansion_b\&quot;:0,\&quot;allowedExpansion_l\&quot;:0,\&quot;xInView\&quot;:0,\&quot;yInView\&quot;:0}&quot;,&quot;permissions&quot;:&quot;{\&quot;expandByOverlay\&quot;:true,\&quot;expandByPush\&quot;:false,\&quot;readCookie\&quot;:false,\&quot;writeCookie\&quot;:false}&quot;,&quot;metadata&quot;:&quot;{\&quot;shared\&quot;:{\&quot;sf_ver\&quot;:\&quot;1-0-14\&quot;,\&quot;ck_on\&quot;:1,\&quot;flash_ver\&quot;:\&quot;0\&quot;}}&quot;,&quot;reportCreativeGeometry&quot;:false,&quot;isDifferentSourceWindow&quot;:false,&quot;goog_safeframe_hlt&quot;:{}}" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+  
+<a name="16177092"></a>
+<div id="answer-16177092" class="answer" data-answerid="16177092" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16177092">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">23</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>This one is nice and clean and language-agnostic:</p>
+
+<p><a href="http://bigocheatsheet.com/" rel="noreferrer">Big-O Cheat Sheet</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/16177092/8801814" title="short permalink to this answer" class="short-link" id="link-post-16177092">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/16177092/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-04-23 18:55:16Z" class="relativetime">Apr 23 '13 at 18:55</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/878969/funroll"><div class="gravatar-wrapper-32"><img src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/dd647b569f9a867cf905b1698e78dff8" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/878969/funroll">funroll</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 20,028" dir="ltr">20k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="39 silver badges"><span class="badge2"></span><span class="badgecount">39</span></span><span title="49 bronze badges"><span class="badge3"></span><span class="badgecount">49</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-16177092" class="comments js-comments-container ">
+		        <table>
+                    <tbody class="js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-26565697" class="comment js-comment ">
+        <td class="js-comment-actions comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text js-comment-text-and-form">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">+1  I realize the accepted answer was posted a while ago, but this answer is infinitely more useful.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/353094/leetnightshade" title="1,816 reputation" class="comment-user">leetNightshade</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#comment26565697_16177092"><span title="2013-08-09 02:28:39Z" class="relativetime-clean">Aug 9 '13 at 2:28</span></a></span>
+                                                                            </div>
+        </td>
+    </tr>
+                    </tbody>
+		        </table>
+	    </div>
+
+        <div id="comments-link-16177092" data-rep="50" data-reg="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+                                    <a name="new-answer"></a>
+                        <form id="post-form" action="https://stackoverflow.com/questions/5908671/answer/submit" method="post" class="post-form">
+                            <input type="hidden" id="post-id" value="5908671">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.nl/">
+                            <h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: false,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;"> 
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li class="wmd-button" id="wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B" style="left: 0px;"><span style="background-position: 0px 0px;"></span></li><li class="wmd-button" id="wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I" style="left: 25px;"><span style="background-position: -20px 0px;"></span></li><li class="wmd-spacer wmd-spacer1" id="wmd-spacer1"></li><li class="wmd-button" id="wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L" style="left: 75px;"><span style="background-position: -40px 0px;"></span></li><li class="wmd-button" id="wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q" style="left: 100px;"><span style="background-position: -60px 0px;"></span></li><li class="wmd-button" id="wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" style="left: 125px;"><span style="background-position: -80px 0px;"></span></li><li class="wmd-button" id="wmd-image-button" title="Image &lt;img&gt; Ctrl+G" style="left: 150px;"><span style="background-position: -100px 0px;"></span></li><li class="wmd-button wmd-snippet-button" style="left:175px" id="wmd-snippet-button" title="JavaScript/HTML/CSS snippet Ctrl-M"><span style="background-image: url(&quot;/content/Shared/balsamiq/wmd-mockup-button.png&quot;);"></span></li><li class="wmd-spacer wmd-spacer2" id="wmd-spacer2" style="left: 220px;"></li><li class="wmd-button" id="wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O" style="left: 225px;"><span style="background-position: -120px 0px;"></span></li><li class="wmd-button" id="wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U" style="left: 250px;"><span style="background-position: -140px 0px;"></span></li><li class="wmd-button" id="wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" style="left: 275px;"><span style="background-position: -160px 0px;"></span></li><li class="wmd-button" id="wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R" style="left: 300px;"><span style="background-position: -180px 0px;"></span></li><li class="wmd-spacer wmd-spacer3" id="wmd-spacer3" style="left: 346px;"></li><li class="wmd-button" id="wmd-undo-button" title="Undo - Ctrl+Z" style="left: 350px;"><span style="background-position: -200px -20px;"></span></li><li class="wmd-button" id="wmd-redo-button" title="Redo - Ctrl+Y" style="left: 375px;"><span style="background-position: -220px -20px;"></span></li><li class="wmd-button wmd-help-button active-help" id="wmd-help-button" title="Markdown Editing Help" style="right: 0px;"><span style="background-position: -240px 0px;"></span></li><div id="mdhelp" class="mdhelp" style="right: -13px; width: 660px; top: 41px;">
+    <ul id="mdhelp-tabs" class="mdhelp-tabs">
+        <li data-tab="mdhelp-links" data-buttons="link">Links</li>
+        <li data-tab="mdhelp-images" data-buttons="image">Images</li>
+        <li data-tab="mdhelp-styles" data-buttons="bold,italic,heading">Styling/Headers</li>
+        <li data-tab="mdhelp-lists" data-buttons="olist,ulist">Lists</li>
+        <li data-tab="mdhelp-blockquotes" data-buttons="quote">Blockquotes</li>
+        <li data-tab="mdhelp-code" data-buttons="code">Code</li>
+        <li data-tab="mdhelp-html"> HTML </li>
+        <li style="float:right"><a href="https://stackoverflow.com/editing-help" target="_blank">advanced help »</a></li>
+    </ul>
+    
+    <div class="mdhelp-tab" id="mdhelp-links">
+            <p>
+                In most cases, a plain URL will be recognized as such and automatically linked:
+            </p>
+            <pre>Visit https://area51.stackexchange.com/ regularly!
+Use angle brackets to force linking: Have you seen &lt;https://superuser.com&gt;?
+</pre>
+            <p>
+                To create fancier links, use Markdown:
+            </p>
+                <pre>Here's [a link](http://www.example.com/)! And a reference-style link to [a panda][1].
+References don't have to be [numbers][question].
+
+ [1]: https://notfound.stackexchange.com/
+ [question]: https://english.stackexchange.com/questions/11481
+</pre>
+                <p>You can add tooltips to links:</p>
+<pre>Click [here](https://diy.stackexchange.com<span class="spaces">&nbsp;</span>"this text appears when you mouse over")!
+This works with [reference links][blog] as well.
+
+ [blog]: https://stackoverflow.blog/<span class="spaces">&nbsp;</span>"click here for updates"
+</pre>
+    </div>
+
+    <div class="mdhelp-tab" id="mdhelp-images">
+        <p>Images are exactly like links, but they have an exclamation point in front of them:</p>
+        <pre>![a busy cat](https://cdn.sstatic.net/Sites/stackoverflow/img/error-lolcat-problemz.jpg)
+![two muppets][1]
+
+ [1]: https://i.imgur.com/I5DFV.jpg "tooltip"
+</pre>
+        <p>
+            The word in square brackets is the alt text, which gets displayed if the browser
+ can't show the image. Be sure to include meaningful alt text for screen-reading
+ software.
+        </p>
+   
+    </div>
+    <div class="mdhelp-tab" id="mdhelp-styles">
+        <div class="col1">
+            <p>Be sure to use text styling sparingly; only where it helps readability.</p>
+                <pre>*This is italicized*, and so
+is _this_.
+
+**This is bold**, just like __this__.
+
+You can ***combine*** them
+if you ___really have to___.
+</pre>
+        
+        </div>
+        <div class="col2">
+            <p>
+                To break your text into sections, you can use headers:
+            </p>
+                <pre>A Large Header
+==============
+
+Smaller Subheader
+-----------------
+</pre>
+            <p>
+                Use hash marks if you need several levels of headers:</p>
+    <pre># Header 1 #
+## Header 2 ##
+### Header 3 ###
+</pre>
+
+            
+        </div>
+
+    </div>
+    <div class="mdhelp-tab" id="mdhelp-lists">
+        <p>Both bulleted and numbered lists are possible:</p>
+        <div class="col1">
+<pre>-<span class="spaces">&nbsp;</span>Use a minus sign for a bullet
++<span class="spaces">&nbsp;</span>Or plus sign
+*<span class="spaces">&nbsp;</span>Or an asterisk
+
+1.<span class="spaces">&nbsp;</span>Numbered lists are easy
+2.<span class="spaces">&nbsp;</span>Markdown keeps track of
+ the numbers for you
+7.<span class="spaces">&nbsp;</span>So this will be item 3.
+</pre>
+        </div>
+        <div class="col2">
+<pre>1.<span class="spaces">&nbsp;</span>Lists in a list item:
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span class="spaces">&nbsp;</span>Indented four spaces.
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>*<span class="spaces">&nbsp;</span>indented eight spaces.
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span class="spaces">&nbsp;</span>Four spaces again.
+2.<span class="spaces">&nbsp;&nbsp;</span>You can have multiple
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>paragraphs in a list items.
+<span class="spaces">&nbsp;</span>
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>Just be sure to indent.
+</pre>        
+        </div>
+    </div>
+
+    <div class="mdhelp-tab" id="mdhelp-blockquotes">
+        <div class="col1">
+            <pre>&gt; Create a blockquote by
+&gt; prepending “&gt;” to each line.
+&gt;
+&gt; Other formatting also works here, e.g.
+&gt;
+&gt; 1. Lists or
+&gt; 2. Headings:
+&gt;
+&gt; ## Quoted Heading ##
+</pre>
+        </div>
+        <div class="col2">
+                <p>
+                    You can even put blockquotes in blockquotes:
+                </p>
+                <pre>&gt; A standard blockquote is indented
+&gt; &gt; A nested blockquote is indented more
+&gt; &gt; &gt; &gt; You can nest to any depth.
+</pre>
+        </div>
+    </div>
+
+    <div class="mdhelp-tab" id="mdhelp-code">
+        <p>
+            To create code blocks or other preformatted text, indent by four spaces:
+        </p>
+        <pre><span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>This will be displayed in a monospaced font. The first four spaces
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>will be stripped off, but all other whitespace will be preserved.
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>Markdown and HTML are turned off in code blocks:
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;i&gt;This is not italic&lt;/i&gt;, and [this is not a link](http://example.com)
+</pre>
+        <p>
+            To create not a block, but an inline code span, use backticks:
+        </p>
+        <pre>The `$` character is just a shortcut for `window.jQuery`.
+</pre>
+        <p>
+            If you want to have a preformatted block within a list, indent by eight spaces:
+        </p>
+        <pre>1. This is normal text.
+2. So is this, but now follows a code block:
+<span class="spaces">&nbsp;</span>
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Skip a line and indent eight spaces.
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>That's four spaces for the list
+<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>and four to trigger the code block.
+</pre>
+    </div>
+
+    <div class="mdhelp-tab" id="mdhelp-html">
+        <p>
+            If you need to do something that Markdown can't handle, use HTML. Note that <a href="https://meta.stackexchange.com/questions/1777/what-html-tags-are-allowed" target="_blank">we only support a very strict subset of HTML!</a>
+        </p>
+        <pre>Strikethrough humor is &lt;strike&gt;funny&lt;/strike&gt;.
+</pre>
+        <p>
+            Markdown is smart enough not to mangle your span-level HTML:
+        </p>
+        <pre>&lt;b&gt;Markdown works *fine* in here.&lt;/b&gt;
+</pre>
+        <p>
+            Block-level HTML elements have a few restrictions:
+        </p>
+        <ol>
+            <li>They must be separated from surrounding text by blank lines.</li>
+            <li>The begin and end tags of the outermost block element must not be indented.</li>
+            <li>Markdown can't be used within HTML blocks.</li>
+        </ol>
+        <br>
+        <pre>&lt;pre&gt;
+ You can &lt;em&gt;not&lt;/em&gt; use Markdown in here.
+&lt;/pre&gt;
+</pre>
+    </div>
+
+    <div class="cbt"></div>
+</div></ul></div>
+            <div style="clear: both; height: 28px;"></div><textarea id="wmd-input" class="wmd-input processed" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        <div class="grippie" style="margin-right: 0px;"></div></div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="bf28f6d7b6153fa897088bd8f0081a7a">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+                            <div style="position: relative;">
+                                
+                                
+                            </div>
+
+                                                            <div class="form-submit cbt">
+                                        <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+                                    <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="btn-clear discard-answer dno">discard</a>
+                                </div>
+                        </form>
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?                            Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/performance" class="post-tag" title="show questions tagged &#39;performance&#39;" rel="tag">performance</a> <a href="https://stackoverflow.com/questions/tagged/data-structures" class="post-tag" title="show questions tagged &#39;data-structures&#39;" rel="tag">data-structures</a> <a href="https://stackoverflow.com/questions/tagged/comparison" class="post-tag" title="show questions tagged &#39;comparison&#39;" rel="tag">comparison</a> <a href="https://stackoverflow.com/questions/tagged/big-o" class="post-tag" title="show questions tagged &#39;big-o&#39;" rel="tag">big-o</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+
+<script>
+    window.showNewUser = false;
+
+</script>
+
+<div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+    <h4>Hello World!</h4>
+    <div>
+        <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free.</p><p>Got a question about the site itself? <a href="https://meta.stackoverflow.com/">meta</a> is the place to talk about things like what questions are appropriate, what tags we should use, etc.</p>
+        <p class="ar">
+                <a href="https://stackoverflow.com/tour?mnu=1">about »</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://stackoverflow.com/help?mnu=1">help »</a>
+                &nbsp; <a href="https://meta.stackoverflow.com/">meta »</a>
+        </p>
+    </div>
+</div>
+    <script>
+    if (showNewUser) {
+        document.getElementById('newuser-box').style.display = '';
+    }
+    </script>                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tbody><tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2011-05-06 08:18:15Z"><b>6 years, 8 months ago</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>14,960 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures?lastactivity" class="lastactivity-link" title="2013-04-23 18:55:16Z">4 years, 8 months ago</a></b></p>
+                                </td>
+                            </tr>
+                    </tbody></table>
+                </div>
+            <div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Hot Meta Posts
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">9</span>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://meta.stackoverflow.com/questions/361550/mistakenly-clicked-leave-closed-while-reviewing-reopen-votes-question?cb=1" class="question-hyperlink">Mistakenly clicked “Leave Closed” while reviewing “Reopen Votes” question</a>
+                </div>
+                <br class="cbt">
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">11</span>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://meta.stackoverflow.com/questions/361528/why-is-this-users-reputation-inconsistent?cb=1" class="question-hyperlink">Why is this user's reputation inconsistent?</a>
+                </div>
+                <br class="cbt">
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">9</span>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://meta.stackoverflow.com/questions/361518/commenting-on-q-or-a-someone-comments-on-mine-q-a-is-changed-my-comment-obsol?cb=1" title="Commenting on Q or A, someone comments on mine, Q/A is changed, my comment obsoletie, if deleted other comment makes no sense" class="question-hyperlink">Commenting on Q or A, someone comments on mine, Q/A is changed, my comment…</a>
+                </div>
+                <br class="cbt">
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">47</span>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="https://meta.stackoverflow.com/questions/361501/sorry-the-shop-is-closed?cb=1" class="question-hyperlink">Sorry, the [shop] is closed</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>            
+<div id="dfp-tsb" class="everyonelovesstackoverflow" data-clc-stalled="true" style=""><div id="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe frameborder="0" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/container(2).html" id="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0" title="3rd party ad content" name="1-0-14;14960;&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;script&gt;var google_casm=[&quot;&quot;,0,null,0,0,null,1];&lt;/script&gt;&lt;script&gt;(function(){(function(){function c(a){this.t={};this.tick=function(a,b,c){this.t[a]=[void 0!=c?c:(new Date).getTime(),b]};this.tick(&quot;start&quot;,null,a)}var a,b;window.performance&amp;&amp;(b=(a=window.performance.timing)&amp;&amp;a.responseStart);var d=0&lt;b?new c(b):new c;window.jstiming={Timer:c,load:d};a&amp;&amp;(a=a.navigationStart,0&lt;a&amp;&amp;b&gt;=a&amp;&amp;(window.jstiming.srt=b-a))})();}).call(this);&lt;/script&gt;&lt;script&gt;(function(){if(window.jstiming){window.jstiming.a={};window.jstiming.b=1;var e=function(b,a,c){var f=b.t[a],d=b.t.start;if(f&amp;&amp;(d||c))return f=b.t[a][0],d=void 0!=c?c:d[0],Math.round(f-d)},l=function(b,a,c){var f=&quot;&quot;;window.jstiming.srt&amp;&amp;(f+=&quot;&amp;srt=&quot;+window.jstiming.srt,delete window.jstiming.srt);var d=document.getElementById(&quot;csi&quot;);if(d){var g;void 0!=window.jstiming._bfr?g=window.jstiming._bfr:(g=d.value,window.jstiming._bfr=g,d.value=1);if(g)return&quot;&quot;}var h=b.t,r=h.start,d=[];g=[];for(var k in h)if(&quot;start&quot;!=k&amp;&amp;0!=k.indexOf(&quot;_&quot;)){var n=h[k][1];n?h[n]&amp;&amp;g.push(k+&quot;.&quot;+e(b,k,h[n][0])):r&amp;&amp;d.push(k+&quot;.&quot;+e(b,k))}delete h.start;if(a)for(var p in a)f+=&quot;&amp;&quot;+p+&quot;=&quot;+a[p];(a=c)||(a=&quot;https://googleads.g.doubleclick.net/pagead/gen_204&quot;);return[a,&quot;?v=3&quot;,&quot;&amp;s=&quot;+(window.jstiming.sn||&quot;pagead&quot;)+&quot;&amp;action=&quot;,b.name,g.length?&quot;&amp;it=&quot;+g.join(&quot;,&quot;):&quot;&quot;,f,&quot;&amp;rt=&quot;,d.join(&quot;,&quot;)].join(&quot;&quot;)},m=function(b,a,c){b=l(b,a,c);if(!b)return&quot;&quot;;a=new Image;var f=window.jstiming.b++;window.jstiming.a[f]=a;a.onload=a.onerror=function(){window.jstiming&amp;&amp;delete window.jstiming.a[f]};a.src=b;a=null;return b};window.jstiming.report=function(b,a,c){return m(b,a,c)}};var q=window.jstiming.load,t=function(b,a){b=parseInt(b,10);return 0&lt;=b?a+b:0},u=function(b,a){a=a||{};a.id=&quot;csi_pagead&quot;;a.gqid=&quot;LCJTWueYC8zV3gPQ57WYBw&quot;;a.qqid=&quot;CLrnu6Hwx9gCFcGXdwody0EP6Q&quot;;window.jstiming.report(b,a)};window.rptcsi=function(b){q.tick(&quot;ol&quot;);var a={};try{a=JSON.parse(&#39;{&quot;override&quot;:false}&#39;)}catch(h){}var c=parseInt(a.dt||&quot;1515397955065&quot;,10),f=e(q,&quot;start&quot;,0);if(!(!c||0&gt;=c||c&gt;f)){q.tick(&quot;_t0&quot;,null,c);var d=t(a.bdt||&quot;-1&quot;,c);d&amp;&amp;q.tick(&quot;bdt&quot;,&quot;_t0&quot;,d);(d=t(a.dtd||&quot;-1&quot;,c))&amp;&amp;q.tick(&quot;req&quot;,&quot;_t0&quot;,d);var g=t(a.bpp||&quot;-1&quot;,c);(g||d)&amp;&amp;q.tick(&quot;bpp&quot;,&quot;_t0&quot;,g||d);(d=t(&quot;-1&quot;,c))&amp;&amp;q.tick(&quot;redir&quot;,&quot;_t0&quot;,d);q.tick(&quot;fb&quot;,&quot;_t0&quot;,f);q.tick(&quot;e2e&quot;,&quot;_t0&quot;,e(q,&quot;ol&quot;,0));(f=t(a.zct,c))&amp;&amp;q.tick(&quot;zct&quot;,&quot;_t0&quot;,f);(a=t(a.zst,c))&amp;&amp;q.tick(&quot;zst&quot;,&quot;_t0&quot;,a);if(a=window.performance&amp;&amp;window.performance.timing)q.tick(&quot;fs&quot;,&quot;_t0&quot;,a.fetchStart),q.tick(&quot;reqs&quot;,&quot;_t0&quot;,a.requestStart),q.tick(&quot;ress&quot;,&quot;_t0&quot;,a.responseStart),q.tick(&quot;rese&quot;,&quot;_t0&quot;,a.responseEnd)}q.name=b||&quot;&quot;;u(q,{e:&quot;3313274&quot;})};window.rptcsiqid=u;window.tick=function(b,a){q.t[b]||q.tick(b,a)};}).call(this);&lt;/script&gt;&lt;/head&gt;&lt;body onload=rptcsi(&#39;load3pas&#39;) leftMargin=&quot;0&quot; topMargin=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;&lt;input type=hidden id=csi&gt;&lt;script&gt;var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace(&quot;&amp;amp;&quot;,&quot;&amp;&quot;);viewReq.push(i);}&lt;/script&gt;&lt;script&gt;vu(&quot;https://securepubads.g.doubleclick.net/pagead/adview?ai\x3dCoNbrLCJTWrqhDMGv3gPLg73IDoOp2ONP86Pk1c8Gu6iMgcgLEAEg-NrFV2CRBMgBCakCC92VFB8wtD6oAwGqBNcBT9BSajq_jonU3ElveUbgzwEJ3ORfFvtZt44jqBxRqxa_OFHGLm0lPahsDhq_-E6Ci4c2ytvuDcgYrn5BIYoid4vy3if5t0wEZz8C54LqJsJwXTUVmdLdBsYSMepmZM0GMfEGnh8Fj6B5bKlFELQymuuFXUfVENcpuI2kC7Bai6JxZX-XaEY820NLyPjIJl6XZg-_QnxmUzlAC3bgi_zuPdTR3ndJhCNNX3U3tUZcSL8XTvEwtA3uWE1HKl0VyN3-wVboi0-fUz-xjEiHDbfDvOt57R7S8S_ABPTKhuDbAeAEA4gFsIjm6AOSBQYIHRAEGAGSBQYIHRABGAGSBQYIHhABGAGQBgGgBk2AB5yKl2KoB6a-G9gHAPIHBxDgzIoCIAHSCAcIgCEQARgBgAoDsBOglesDyBPQg60C0BMA2BMD\x26sigh\x3drLRsJAPhNxc\x26cid\x3dCAASEuRoh96g0RHAnzVBCDocfkTPuw\x26adurl\x3dhttps://securepubads.g.doubleclick.net/pcs/view%3Fxai%3DAKAOjstWqHxzsfxVfwWE1UZKr-3keQO2FiiGedufzSLOLmK21b86jvDg8Q5yxdPMpiGHZQlLQerFL091an3y5T8n-IOK-A8H3D9vKO7TuuMXotEf_SjQq7dpKvWka-kq1zhRgS59o3uG5YG-SzDAp4iiH57QsCdbivEKbIDUP54CkmhEFDyIfS_ORvB7jMCUBEJ_m1RaDiaQdgum665NmU4ec1QOX_ZXy26BM0bfg7PPkUUUylYAWr5re3TkUDmabeajH7lNLnqV9GkrJLVkyrhpmZAw2IEx4LhGig%26sig%3DCg0ArKJSzIXfOyiBxO-aEAE%26urlfix%3D1%26adurl%3D&quot;)&lt;/script&gt;&lt;DIV STYLE=&quot;position: absolute; left: 0px; top: 0px; visibility: hidden;&quot;&gt;&lt;IMG SRC=&quot;https://pagead2.googlesyndication.com/pagead/gen_204?id=xbid&amp;dbm_b=AKAmf-CUwGnZu-_Vnsz7dWOQxW-uAvg3IOM4nhZ_vUz3qSoME0-YwK8c5TPEibMFAvftfROEHcMxfNpuC3gnoe5rBdfQrDXmOK9uS4cd57yKZR1nSe77tOs&quot; BORDER=0 WIDTH=1 HEIGHT=1 ALT=&quot;&quot; STYLE=&quot;display:none&quot;&gt;&lt;/DIV&gt;&lt;iframe src=&quot;https://googleads.g.doubleclick.net/xbbe/pixel?d=CNXcRBDzx1UYqpzfKjAB&amp;v=APEucNUBP9K-vG8GclCPNqcWY3CKlDbP8sZ9HBNnTsVdfJPqoNVtZwXacOGyQUXo6lI5Ly2KT8x4&quot; style=&quot;display:none&quot;&gt;&lt;/iframe&gt;&lt;div&gt;&lt;div style=&quot;position:relative; display:inline-block;&quot;&gt;&lt;div class=&quot;GoogleActiveViewClass&quot; id=&quot;DfaVisibilityIdentifier_3621641142&quot;&gt;&lt;script&gt;(function(){var h=this,k=function(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}};var l=Array.prototype.forEach?function(a,b){Array.prototype.forEach.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=&quot;string&quot;==typeof a?a.split(&quot;&quot;):a,e=0;e&lt;c;e++)e in d&amp;&amp;b.call(void 0,d[e],e,a)},m=Array.prototype.map?function(a,b){return Array.prototype.map.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=Array(c),e=&quot;string&quot;==typeof a?a.split(&quot;&quot;):a,f=0;f&lt;c;f++)f in e&amp;&amp;(d[f]=b.call(void 0,e[f],f,a));return d},p=Array.prototype.reduce?function(a,b,c){return Array.prototype.reduce.call(a,b,c)}:function(a,b,c){var d=c;l(a,function(c,f){d=b.call(void 0,d,c,f,a)});return d},q=function(a){for(var b=[],c=0;c&lt;a;c++)b[c]=&quot;&quot;;return b};var r=function(a){r[&quot; &quot;](a);return a};r[&quot; &quot;]=function(){};var t=function(a,b){if(a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&amp;&amp;b.call(void 0,a[c],c,a)},u=/https?:\/\/[^\/]+/,v=function(a){return(a=u.exec(a))&amp;&amp;a[0]||&quot;&quot;};var w=/^https?:\/\/(\w|-)+\.cdn\.ampproject\.(net|org)(\?|\/|$)/,x=function(a,b,c){this.i=a;this.j=b;this.g=c},y=function(a,b){this.url=a;this.h=!!b;this.depth=null},A=function(a){a=a||z();for(var b=new y(h.location.href,!1),c=null,d=a.length-1,e=d;0&lt;=e;--e){var f=a[e];!c&amp;&amp;w.test(f.url)&amp;&amp;(c=f);if(f.url&amp;&amp;!f.h){b=f;break}}e=null;f=a.length&amp;&amp;a[d].url;0!=b.depth&amp;&amp;f&amp;&amp;(e=a[d]);return new x(b,e,c)},z=function(){var a=h,b=[],c=null;do{var d=a;try{var e;if(e=!!d&amp;&amp;null!=d.location.href)b:{try{r(d.foo);e=!0;break b}catch(n){}e=!1}var f=e}catch(n){f=!1}if(f){var g=d.location.href;c=d.document&amp;&amp;d.document.referrer||null}else g=c,c=null;b.push(new y(g||&quot;&quot;));try{a=d.parent}catch(n){a=null}}while(a&amp;&amp;d!=a);a=0;for(d=b.length-1;a&lt;=d;++a)b[a].depth=d-a;d=h;if(d.location&amp;&amp;d.location.ancestorOrigins&amp;&amp;d.location.ancestorOrigins.length==b.length-1)for(a=1;a&lt;b.length;++a)g=b[a],g.url||(g.url=d.location.ancestorOrigins[a-1]||&quot;&quot;,g.h=!0);return b};var C=function(a,b,c,d,e){var f=[];t(a,function(a,n){(a=B(a,b,c,d,e))&amp;&amp;f.push(n+&quot;=&quot;+a)});return f.join(b)},B=function(a,b,c,d,e){if(null==a)return&quot;&quot;;b=b||&quot;&amp;&quot;;c=c||&quot;,$&quot;;&quot;string&quot;==typeof c&amp;&amp;(c=c.split(&quot;&quot;));if(a instanceof Array){if(d=d||0,d&lt;c.length){for(var f=[],g=0;g&lt;a.length;g++)f.push(B(a[g],b,c,d+1,e));return f.join(c[d])}}else if(&quot;object&quot;==typeof a)return e=e||0,2&gt;e?encodeURIComponent(C(a,b,c,d,e+1)):&quot;...&quot;;return encodeURIComponent(String(a))};var D=function(a,b){this.g=a;this.depth=b},F=function(){var a=z(),b=Math.max(a.length-1,0),c=A(a);a=c.i;var d=c.j,e=c.g,f=[];c=function(a,b){return null==a?b:a};e&amp;&amp;f.push(new D([e.url,e.h?2:0],c(e.depth,1)));d&amp;&amp;d!=e&amp;&amp;f.push(new D([d.url,2],0));a.url&amp;&amp;a!=e&amp;&amp;f.push(new D([a.url,0],c(a.depth,b)));var g=m(f,function(a,b){return f.slice(0,f.length-b)});!a.url||(e||d)&amp;&amp;a!=e||(d=v(a.url))&amp;&amp;g.push([new D([d,1],c(a.depth,b))]);g.push([]);return m(g,k(E,b))},E=function(a,b){var c=p(b,function(a,b){return Math.max(a,b.depth)},-1),d=q(c+2);d[0]=a;l(b,function(a){return d[a.depth+1]=a.g});return d},G=function(){var a=F();return m(a,function(a){return B(a)})};var H=function(a){try{var b=G();b.pop();for(var c=2083-a.length-5,d=0;d&lt;b.length;d++){var e=encodeURIComponent(b[d]);if(e.length&lt;=c)return a+&quot;&amp;rfl=&quot;+e}return 0&lt;b.length?a+&quot;&amp;rfl=&quot;+encodeURIComponent(b[0]):a}catch(f){}return a},I=[&quot;rfl&quot;],J=h;I[0]in J||!J.execScript||J.execScript(&quot;var &quot;+I[0]);for(var K;I.length&amp;&amp;(K=I.shift());){var L;if(L=!I.length)L=void 0!==H;L?J[K]=H:J[K]&amp;&amp;J[K]!==Object.prototype[K]?J=J[K]:J=J[K]={}};}).call(this);&lt;/script&gt;&lt;script&gt;var url = &#39;https://googleads.g.doubleclick.net/dbm/ad?dbm_c=AKAmf-BLq6CELrzSsYGlLzKXLJtK4x-h0i3QohZDpeuerDyohV34VbPcR3jDts7l3u2QppqRcDvy&amp;dbm_d=AKAmf-AiB9w_WTJBNMxdHS7_z1SF3ro3QRkG24Do6enbFDnMtVpIiC7Rvh9mY2y0vgrnBtzQKjsXpBvY8hEDRmceJKfopzfyFhbqpypSCNz6dQuMufxHV3kysZu2tBniQtlP3FBtfGIPeWL5t6dF_wG63_DFtCbf4E0TlBdVRZ4eUSuY7HRiZgeYVgf8S_ygsF_3pDYUx1YlB7sBxhpLPA56MZZd6sIYxFMHAhtklfp4MGrO_BL5yNqP7OfkfTPFcCGDPT4EDzS8qmv6mBpPkSfIaRgSfNjpquMUUM4YbopEV304rixUzNmn6QNMioo-qU0eZ3pFsRMDUsWi_vuA-zo9TzFvhxUQrLfbGRRSCH2YrE-_voh36QylQT-rYeQP3-AK-ao12LOSyWaiDM_nQmIoBUhOo5DYmWoMyFf7zXvpgcsHBiYaAhvof9ecWnlLcD0ayqm06zHPKP2IMzhnyt-E6H_jGt9LPvt8F2xliDSlXRzjAlAzi4hujbRMAvlkrulwR3nxHpgRboVerc9rgZviYQ4NDmfI6Ge2qYV9b8CANK-3ESrwrhqx_N7yPplm55AaujFxdfOkTohtw4nAo3Bnp5tsdz8K_r4AbjVoM7QuaIKM6fOlFDiE7WioyRZ8WFtJRyX1VpXZOZKxqjV0Oo3ydElJbWufHnaYAMKbakv_orLiifja6jBD6OACpJhplwZ11JaY88WT2PJAHhQ43e5jjUYlAQ2N_1SWW9OyCJ3u6w0EqPbAVtxTjHNiwVQzwwti-UHm0LQ9fdo0UfqsdOvO90OcqBpwZ1i8jcqk2afrTD032W0xZp7AlgBWPV5_v1x7lfleHzHTH80xATeAN29Ue2Fo8XCza2BaFO8AIUIwLlJGMdAkyeQ3V7a9SU9pOTRkz-GKOBp0duC-zh-O5J3LBRRp936tBCIBdYymZ6HOqq0b69tBO0v3Ft7gtwy5Pi8RnU8aeUXzjkjZqU8nnAbmhU1P1s3Er9MHGnOk54lHCHZpqnanDPjRut6PE41-cj2MBkDvl5UmF5XSpL6voH1pJrNOLq7yvcUUIqTie4WaowavmcDSyZoX7jaAoM6Y8BkHIgbSe_PNRUosMUo18zch9zFo5iTDRdS2LbBkl_le_rlT42OQhW_eWGjaAi8kWKLT7P1Q8j4taf8tg6nClidbsKqrk4Trbvmy72LCvKmMSS58Nfz_-OUa_kpe06o8vHTWkLoAFT0HLSoqlIJofiBdt0IjynIDrg3fgzJMQyhA3v1AVUiVq2hdbhYwWA7Ux9SD-H8qv3r0sBwunS1MBJ4_V2i6-zyRWhUSDl5CiTyaCeBc92_Squb640EHt05SEuqC0xDBtznl1qpOjzlPm6fUsFFeTBjWv5iTLyeZ544SiGJOiTX4oVdH53DjpgJzbugGUYPbSK0qMrM_A8byaYABHNPMNrBsApjMMQ5i7SBRB6rIcLMa0F02hXw-zmH2Vr7lnvn1qT0KPbYjGSEOcBF7NM6qUQ3wAS9xSAkkHL2WKCcAmxL2Au0GUNjbeujsjYm1CidbvhIRQJ_cV8d_xYz-HqMz-Ai41kjV0VMKvhMpD5dELOdxUiOvnbucDMErlwu27_Y7_sYC6czNUt1ZCqfm9HX_ATl83BQAp77xn2TILle8fA1BAaO6pNjNzx_olHDcKuBRtQ_OGKNb-J0KBHtjiP6OAcDgUZE9_eRmO5IY0vnHvRtjOI1lZbkFDheMf62HhrjfFntjRpCeSsxU_-HCioFQtTz0WD1TJ2CE9gEdt1JN1p9OkeypPQ9hE2Y_E2z4EK0QBBKZxewiLY4k2uLaP5SZeIGQrsDLSfkyTgOeW20Z0NikpGlES4IlAAbrWHUahiiDCgw6xDOVv1tXvlswpicBmn-oGfnWyVGXezdhhC7TacIST9tOoWytlbw6sJ-knmO7tLyz9tWN2viHQnDoeSU_plIMvvYuVm8e7fOOwdkK1L9LPEMYyR6E4_eMRnot6G7-pdC6Jc9KZG9ab9yk-xXkulJK0xpAsv_0qSEtREl1jJEeqqMEYlB1ZKZmSrTUvwBnNtcp8maCSXm53pnPN0kcUicoFA&amp;cid=CAASEuRoh96g0RHAnzVBCDocfkTPuw&#39;;document.write(&#39;&lt;script src=&quot;&#39; + (window.rfl ? window.rfl(url) : url) + &#39;&quot;&gt;&lt;/s&#39; + &#39;cript&gt;&#39;);&lt;/script&gt;&lt;ins class=&#39;dcmads&#39; style=&#39;display:inline-block;width:300px;height:250px&#39;
+    data-dcm-placement=&#39;N572608.3144922AMNET-MEDIAMATH-S/B20570909.211970899&#39;
+    data-dcm-rendering-mode=&#39;script&#39;
+    data-dcm-https-only
+    data-dcm-resettable-device-id=&#39;&#39;
+    data-dcm-click-tracker=&#39;https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjstzG9Gbwn482lbjpBKQ6DXcIHfo2NobIsrvbwVriCniti1ZbvcmOKg6u33Tucoa9bkOSLkr6z9u8Il8cb0KUmd-ESdBK5pSmgJWv6r5fnyY-db4Jp5PMv41c_EzMiqBIV-dx3bNygZ8VoJU2DL6dpVDrcWNPSNlc2Ee-ZLRHsntTjyk5MVAO46uHbjwaloxhPRmgxpyLqSMx1CiGQZHXvhLodhLkeMDB1_mObPwixfgWZpKpclPJHZaVfFLr7TaDsVWeiD72hmUtQOXE8zh1uaHXGHIMg&amp;sig=Cg0ArKJSzMX6hcUPjfDvEAE&amp;urlfix=1&amp;adurl=https://googleads.g.doubleclick.net/dbm/clk%3Fsa%3DL%26ai%3DCrYoqLCJTWrqhDMGv3gPLg73IDoOp2ONP86Pk1c8Gu6iMgcgLEAEg-NrFV2CRBMgBCakCC92VFB8wtD6oAwGqBNoBT9BSajq_jonU3ElveUbgzwEJ3ORfFvtZt44jqBxRqxa_OFHGLm0lPahsDhq_-E6Ci4c2ytvuDcgYrn5BIYoid4vy3if5t0wEZz8C54LqJsJwXTUVmdLdBsYSMepmZM0GMfEGnh8Fj6B5bKlFELQymuuFXUfVENcpuI2kC7Bai6JxZX-XaEY820NLyPjIJl6XZg-_QnxmUzlAC3bgi_zuPdTR3ndJhCNNX3U3tUZcSL8XTvEwtA3uWE1HKl0VyN3-wVboi0-fUz-xjEiHDbfDvOt57R7S8S8yW1_gBAOQBgGgBk2AB5yKl2KoB6a-G9gHANIIBwiAIRABGAGACgPIE9CDrQLQEwDYEwM%26num%3D1%26cid%3DCAASEuRoh96g0RHAnzVBCDocfkTPuw%26sig%3DAOD64_3BfaaMKaryfIm5aD3STUxA-S6vZg%26client%3Dca-pub-6605123123518520%26dbm_c%3DAKAmf-DDvx3gLMNrhox24Ce4sMA9ZF7SAPp6DrGRZjmR4Wxo47_9Dut3lp3TBNUjMjMSO2Oc1M__%26dbm_d%3DAKAmf-B7cuwgzXsFjEsnwjxoArAB4ek8-D7cOkDmYyOnQz-fcC06Z-UiuknRLYoqBA9ry3XNBdLte5C0lpSDDhv-Qrpl4sL6xK2BAc7TglgGL1ImDe-iuNXjEwv3jQ8owQJAprS2k9U-gPfRR021dO-8NWikqZgQHC0YHuJY_FSxTClZW7myLkp412JAbEIj--EJTR7V3_1LYjIpEv8La4VLnb7DICcGkrHDwV_6nisewdVqUwwaiYzoYktiUXdQA8equ7a7Gam1%26adurl%3D&#39;
+    data-dcm-app-id=&#39;&#39;&gt;
+  &lt;script src=&#39;https://fw.adsafeprotected.com/rjss/www.googletagservices.com/134718/21201778/dcm/dcmads.js?adsafe_preview=${IS_PREVIEW}&#39;&gt;&lt;/script&gt;
+&lt;/ins&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20180102/r20110914/client/ext/m_window_focus_non_hydra.js&quot; async&gt;&lt;/script&gt;&lt;script&gt;function initWindowFocus() {window[&#39;window_focus_for_click&#39;] =wfocusnhinit(&quot;https://googleads.g.doubleclick.net/pagead/conversion/?ai\x3dCrYoqLCJTWrqhDMGv3gPLg73IDoOp2ONP86Pk1c8Gu6iMgcgLEAEg-NrFV2CRBMgBCakCC92VFB8wtD6oAwGqBNoBT9BSajq_jonU3ElveUbgzwEJ3ORfFvtZt44jqBxRqxa_OFHGLm0lPahsDhq_-E6Ci4c2ytvuDcgYrn5BIYoid4vy3if5t0wEZz8C54LqJsJwXTUVmdLdBsYSMepmZM0GMfEGnh8Fj6B5bKlFELQymuuFXUfVENcpuI2kC7Bai6JxZX-XaEY820NLyPjIJl6XZg-_QnxmUzlAC3bgi_zuPdTR3ndJhCNNX3U3tUZcSL8XTvEwtA3uWE1HKl0VyN3-wVboi0-fUz-xjEiHDbfDvOt57R7S8S8yW1_gBAOQBgGgBk2AB5yKl2KoB6a-G9gHANIIBwiAIRABGAGACgPIE9CDrQLQEwDYEwM\x26sigh\x3dbgcdK6OMf84&quot;,&quot;LCJTWueYC8zV3gPQ57WYBw&quot;,&quot;CLrnu6Hwx9gCFcGXdwody0EP6Q&quot;,true,false,false,0);}if (window.wfocusnhinit) {initWindowFocus();} else {window[&#39;google_wf_async&#39;] = initWindowFocus;}&lt;/script&gt;&lt;script src=&quot;https://tpc.googlesyndication.com/pagead/js/r20180102/r20180102/activeview/osd_listener.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;osdlfm(-1,&#39;&#39;,&#39;BAwrvLCJTWrqhDMGv3gPLg73IDgDzo-TVzwYAABABOAHIAQngBAOgBk3SCAUIgCEQAQ,BwgWILCJTWoGCCdGogAfF4ZXQBu-S6JNFAAAAEAEgic7ISTgAWJvVhPWCBGCRBLIBEXN0YWNrb3ZlcmZsb3cuY29tugEJZ2ZwX2ltYWdlyAEJ2gFaaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTkwODY3MS9jb21wbGV4aXR5LWNvbXBhcmlzb25zLWJldHdlZW4tZGF0YS1zdHJ1Y3R1cmVzmAKSIsACAuACAOoCLi8yNDg0MjQxNzcvc3RhY2tvdmVyZmxvdy5jb20vc2IvcXVlc3Rpb24tcGFnZXP4AvTRHpADmgiYA6QDqAMB0ASQTuAEAdIFBhCPud_vEJAGAaAGO9gHAOAHC_IHAiAB0ggHCIAhEAEYAQ&#39;,&#39;&#39;,228937067,true,&#39;ud\x3d1\x26la\x3d0\x26alp\x3dai\x26alh\x3d247617328\x26&#39;,3,&#39;CAASEuRoh96g0RHAnzVBCDocfkTPuw&#39;,&#39;//pagead2.googlesyndication.com/activeview?avi\x3dBAwrvLCJTWrqhDMGv3gPLg73IDgDzo-TVzwYAABABOAHIAQngBAOgBk3SCAUIgCEQAQ,BwgWILCJTWoGCCdGogAfF4ZXQBu-S6JNFAAAAEAEgic7ISTgAWJvVhPWCBGCRBLIBEXN0YWNrb3ZlcmZsb3cuY29tugEJZ2ZwX2ltYWdlyAEJ2gFaaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTkwODY3MS9jb21wbGV4aXR5LWNvbXBhcmlzb25zLWJldHdlZW4tZGF0YS1zdHJ1Y3R1cmVzmAKSIsACAuACAOoCLi8yNDg0MjQxNzcvc3RhY2tvdmVyZmxvdy5jb20vc2IvcXVlc3Rpb24tcGFnZXP4AvTRHpADmgiYA6QDqAMB0ASQTuAEAdIFBhCPud_vEJAGAaAGO9gHAOAHC_IHAiAB0ggHCIAhEAEYAQ\x26cid\x3dCAASEuRoh96g0RHAnzVBCDocfkTPuw&#39;);&lt;/script&gt;&lt;img src=&quot;//www.google.com/ads/measurement/l?ebcid=ALh7CaS_tI0-Cal7JAOBtJPqdnoFJP0c3Ld6b5O6NbC2vPx-o8nxv0B9OgxGsg0hfWZrTqJGTbgs-V3Yj9irD7hoil2BPxiVBQ&quot; style=&quot;display:none;&quot;&gt;&lt;/img&gt;&lt;script&gt;if (window.top &amp;&amp; window.top.postMessage) {window.top.postMessage(&#39;{&quot;googMsgType&quot;:&quot;adpnt&quot;}&#39;,&#39;*&#39;);}&lt;/script&gt;&lt;script&gt;tick(&#39;lb&#39;)&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;{&quot;uid&quot;:3,&quot;hostPeerName&quot;:&quot;https://stackoverflow.com&quot;,&quot;initialGeometry&quot;:&quot;{\&quot;windowCoords_t\&quot;:0,\&quot;windowCoords_r\&quot;:1366,\&quot;windowCoords_b\&quot;:728,\&quot;windowCoords_l\&quot;:0,\&quot;frameCoords_t\&quot;:495.5,\&quot;frameCoords_r\&quot;:1204.5,\&quot;frameCoords_b\&quot;:745.5,\&quot;frameCoords_l\&quot;:904.5,\&quot;styleZIndex\&quot;:\&quot;auto\&quot;,\&quot;allowedExpansion_t\&quot;:495.5,\&quot;allowedExpansion_r\&quot;:144.5,\&quot;allowedExpansion_b\&quot;:0,\&quot;allowedExpansion_l\&quot;:904.5,\&quot;xInView\&quot;:1,\&quot;yInView\&quot;:0.47}&quot;,&quot;permissions&quot;:&quot;{\&quot;expandByOverlay\&quot;:true,\&quot;expandByPush\&quot;:false,\&quot;readCookie\&quot;:false,\&quot;writeCookie\&quot;:false}&quot;,&quot;metadata&quot;:&quot;{\&quot;shared\&quot;:{\&quot;sf_ver\&quot;:\&quot;1-0-14\&quot;,\&quot;ck_on\&quot;:1,\&quot;flash_ver\&quot;:\&quot;0\&quot;}}&quot;,&quot;reportCreativeGeometry&quot;:false,&quot;isDifferentSourceWindow&quot;:false,&quot;goog_safeframe_hlt&quot;:{}}" scrolling="no" marginwidth="0" marginheight="0" width="300" height="250" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+            <div id="hireme"></div>
+<script>;window.clc=window.clc||{},window.clc.init=window.clc.init||function(a){var b=window,c=b.document;try{if("function"!=typeof[].indexOf||!window.addEventListener||!a.allowed)return;var d=new RegExp(a.allowed);if(!d.test(location.hostname))return;if(b.clc.options)for(var e in b.clc.options)a[e]=b.clc.options[e];b.clc.cmd="undefined"==typeof b.clc.cmd?[]:b.clc.cmd,b.clc.autoload=b.clc.autoload||function(){"function"==typeof b.clc.load?b.clc.load():b.clc.cmd.push(function(a){a.load()})};var f=a.wv;if(c.hidden&&f)return void c.addEventListener("visibilitychange",function b(){c.hidden||(window.clc.init(a),c.removeEventListener("visibilitychange",b))});b.clc.options=a,a.al&&b.clc.autoload();var g=/Trident/i.test(navigator.userAgent)?a.lib.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,".ie$1.js$2"):a.lib,h=c.createElement("script");h.async=!0,h.src=g,c.body.appendChild(h)}catch(a){}},window.clc.loadDisplayAds=window.clc.loadDisplayAds||function(){function a(b){b.style.height=b.style.maxHeight=b.style.minHeight="auto",b.style.display="IFRAME"===b.tagName?"none":"block",[].forEach.call(b.children,a)}function b(a){new Image().src="https://"+e+"/stalled.gif?"+a}var c=window,d=c.document,e="clc.stackoverflow.com",f={slots:{lb:[[728,90]],mlb:[[728,90]],sb:[[300,250],[300,600]],"tag-sponsorship":[[730,135]]},ids:{"dfp-tlb":"lb","dfp-mlb":"mlb","dfp-tsb":"sb","dfp-tag":"tag-sponsorship","clc-tlb":"lb","clc-mlb":"mlb","clc-tsb":"sb"}},g=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?"tag-pages":"question-pages",h=location.hostname;/^clc\./.test(location.hostname)&&(h="test/dev.stackoverflow.com");var i=[4385506061,4386578282,4386579572];return function(e){var j=(e&&0<e.length?e:Object.keys(f.ids)).map(function(a){return d.getElementById(a)}).filter(function(a){return!!a&&/^\s*$/.test(a.innerHTML)}).map(function(a){return a.id});if(0!==j.length){c.googletag=c.googletag||{},c.googletag.cmd=c.googletag.cmd||[],c.googletag.cmd.push(function(){var e=c.googletag,k=d.createElement("div");k.className="adsbox",k.id="clc-abd",k.style.position="absolute",k.style.pointerEvents="none",k.innerHTML="&nbsp;",d.body.appendChild(k);var l=e.pubads();l.enableSingleRequest(),l.addEventListener("slotRenderEnded",function(c){var e=c.serviceName,f=c.slot,g=c.lineItemId;try{var h=f.getSlotElementId(),j=[];h||j.push("id=0");var k=d.getElementById(h);if(!h||k?k.hasAttribute("data-clc-stalled")&&j.push("st=1"):j.push("el=0"),0!==j.length)return void b(j.join("&"));-1===i.indexOf(g)?k.setAttribute("data-clc-prefilled","true"):a(k),k.setAttribute("data-clc-ready","true")}catch(a){var l=d.getElementById("dfp-tsb")||d.getElementById("clc-tsb");l&&l.setAttribute("data-clc-ready","true"),b("e=1")}});var m=c.dfp_targeting||{};m&&Object.keys(m).forEach(function(a){l.setTargeting(a,m[a])});for(var n=0,o=j;n<o.length;n++){var p=o[n],q=f.ids[p],r=f.slots[q],s="/"+"248424177"+"/"+h+"/"+q+"/"+g,t=e.defineSlot(s,r,p);("tag-sponsorship"===q||"sb"==q)&&t.setCollapseEmptyDiv(!0,!0),t.addService(l),!1}e.enableServices();for(var p,u=0,v=j;u<v.length;u++)p=v[u],e.display(p)});var k=d.createElement("script");k.async=!0,k.src="https://www.googletagservices.com/tag/js/gpt.js",document.body.appendChild(k)}}}(),window.clc.init.call(null, {"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=d6d5b5b197b2","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=b18b3a2258df","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"ga":false});</script>            <script>
+window.clc_request='AsNPmR9sVtUIRJe3AL8oWgACAAAAAgAAAAMuAAAAfHBlcmZvcm1hbmNlfGRhdGEtc3RydWN0dXJlc3xjb21wYXJpc29ufGJpZy1vfABeBO_3Lz9D-Siy';                    clc.autoload();
+                var dfp_targeting={Registered:['true'],'so-tag':['performance','data-structures','comparison','big-o']};                                    clc.loadDisplayAds();
+            </script>
+            
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/110259?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">536</div></a><a href="https://stackoverflow.com/questions/110259/which-python-memory-profiler-is-recommended?rq=1" class="question-hyperlink">Which Python memory profiler is recommended?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/252703?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2336</div></a><a href="https://stackoverflow.com/questions/252703/difference-between-append-vs-extend-list-methods-in-python?rq=1" class="question-hyperlink">Difference between append vs. extend list methods in Python</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/500607?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes large">797</div></a><a href="https://stackoverflow.com/questions/500607/what-are-the-lesser-known-but-useful-data-structures?rq=1" class="question-hyperlink">What are the lesser known but useful data structures?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1139160?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">690</div></a><a href="https://stackoverflow.com/questions/1139160/when-should-i-use-cross-apply-over-inner-join?rq=1" class="question-hyperlink">When should I use Cross Apply over Inner Join?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1251636?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">710</div></a><a href="https://stackoverflow.com/questions/1251636/what-do-clustered-and-non-clustered-index-actually-mean?rq=1" class="question-hyperlink">What do Clustered and Non clustered index actually mean?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1361340?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">617</div></a><a href="https://stackoverflow.com/questions/1361340/how-to-insert-if-not-exists-in-mysql?rq=1" class="question-hyperlink">How to 'insert if not exists' in MySQL?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1711631?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2415</div></a><a href="https://stackoverflow.com/questions/1711631/improve-insert-per-second-performance-of-sqlite?rq=1" class="question-hyperlink">Improve INSERT-per-second performance of SQLite?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1986896?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2583</div></a><a href="https://stackoverflow.com/questions/1986896/what-is-the-difference-between-call-and-apply?rq=1" class="question-hyperlink">What is the difference between call and apply?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/2473989?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">268</div></a><a href="https://stackoverflow.com/questions/2473989/list-of-big-o-for-php-functions?rq=1" class="question-hyperlink">List of Big-O for PHP functions</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/40718116?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">3</div></a><a href="https://stackoverflow.com/questions/40718116/complexity-of-different-operations-on-different-data-structures-according-to-the?rq=1" class="question-hyperlink">Complexity of different operations on different data structures according to the Big-O notation</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-softwareengineering" title="Software Engineering Stack Exchange"></div><a href="https://softwareengineering.stackexchange.com/questions/363517/how-and-why-did-modern-web-application-frameworks-evolve-to-decouple-url-routes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How and why did modern web application frameworks evolve to decouple URL routes from the file system?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/101709/what-is-the-smallest-geological-change-possible-to-make-human-evolution-untracea" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the smallest geological change possible to make human evolution untraceable?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-hinduism" title="Hinduism Stack Exchange"></div><a href="https://hinduism.stackexchange.com/questions/23271/were-the-sons-of-draupadi-incarnations-of-vishwedevas" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:567 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Were the sons of Draupadi incarnations of Vishwedevas?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-photo" title="Photography Stack Exchange"></div><a href="https://photo.stackexchange.com/questions/95593/is-it-worth-trying-to-process-film-shot-in-1989-fall-of-the-berlin-wall" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:61 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it worth trying to process film shot in 1989? (Fall of the Berlin Wall)
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/101698/advisor-pushing-for-dead-end-topics" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Advisor pushing for dead end topics
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-japanese" title="Japanese Language Stack Exchange"></div><a href="https://japanese.stackexchange.com/questions/55750/what-does-the-phrase-%e8%bf%94%e3%81%99%e5%88%80-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:257 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does the phrase "返す刀" mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-apple" title="Ask Different"></div><a href="https://apple.stackexchange.com/questions/311534/how-to-add-ringtones-for-iphone-x" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:118 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to Add Ringtones for iPhone X
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/107945/united-airlines-joined-my-first-name-and-middle-name-on-boarding-pass-how-to-co" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    United Airlines joined my first name and middle name on boarding pass. How to correct this?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/48143268/java-tagged-union-sum-types" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Java tagged union / sum types
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="https://chemistry.stackexchange.com/questions/88510/what-does-to-the-left-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does “To the left” mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/348680/strange-5v-power-supply-in-crock-pot-controller" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Strange 5V power supply in crock-pot controller
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/152701/help-pannenkoek-count-a-presses" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Help pannenkoek count A presses
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/27325/why-do-mauritius-passport-holders-have-such-easy-visa-access-to-so-many-countrie" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do Mauritius passport holders have such easy visa access to so many countries?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-retrocomputing" title="Retrocomputing Stack Exchange"></div><a href="https://retrocomputing.stackexchange.com/questions/5341/how-did-people-use-ed" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:648 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How did people use ed?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/409312/how-can-i-use-rotate-inside-a-defined-tikz-command" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I use rotate inside a defined TikZ command?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/42764/why-did-lbj-a-lifelong-segregationist-champion-and-sign-the-1964-civil-rights" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did LBJ, a lifelong segregationist, champion and sign the 1964 Civil Rights Bill?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="https://puzzling.stackexchange.com/questions/58889/nine-seven-gibberish-then-what" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Nine, Seven, Gibberish, then what?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/409249/add-blank-empty-page-after-every-page-automatically" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Add blank/empty page after every page automatically
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/101442/bare-minimum-tech-for-spaceworthy-vessel" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Bare Minimum Tech for Spaceworthy Vessel
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/27282/why-shouldnt-bbc-have-to-register-as-a-foreign-agent" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why shouldn't BBC have to register as a foreign agent?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-gamedev" title="Game Development Stack Exchange"></div><a href="https://gamedev.stackexchange.com/questions/152824/how-can-i-create-a-see-behind-wall-effect" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:53 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I create a "see behind wall" effect?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-hinduism" title="Hinduism Stack Exchange"></div><a href="https://hinduism.stackexchange.com/questions/23260/how-do-you-know-death-is-near-for-a-person-as-per-scriptures-is-there-any-refer" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:567 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do you know death is near for a person as per scriptures? Is there any reference?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/178375/when-did-snape-join-the-hogwarts-staff" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When did Snape join the Hogwarts staff?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="https://movies.stackexchange.com/questions/84503/why-does-the-talk-show-host-always-sit-on-the-right" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does the talk show host always sit on the right?
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="show-more js-show-more js-gps-track" data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+        </div>
+    <div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/5908671" title="feed of this question and its answers">
+            <svg aria-hidden="true" class="svg-icon iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"></path></svg>
+            question feed
+        </a>
+    </div>
+</div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/5908671/ivc/2c8c');});</script>
+<noscript>&lt;div&gt;&lt;img src="/posts/5908671/ivc/2c8c" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+    <script>
+        $('#wmd-input').one("keypress", function() {
+            $.ajax({
+                url: '/accounts/email-settings-form',
+                cache: false,
+                success: function(data) {
+                    $('#submit-button').parent().prepend(data);
+                }
+            });
+        });
+
+    </script>
+
+        </div>
+    </div><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/clc.min.js.download"></script><script async="" src="./performance - Complexity Comparisons Between Data Structures - Stack Overflow_files/gpt.js.download"></script>
+
+    <footer id="footer" class="s-footer js-footer" role="contentinfo">
+        <div class="-container">
+            <div class="g-row">
+                    <div class="-logo">
+
+                        <a href="https://stackoverflow.com/"><svg aria-hidden="true" class="svg-icon native iconLogo" width="150" height="30" viewBox="0 0 150 30"><g><path d="M33.9 18.6l-1.7-.2c-1.3-.1-1.9-.6-1.9-1.6 0-1.1.8-1.8 2.4-1.8 1.1 0 2.1.3 2.8.8l1-1c-1-.8-2.3-1.1-3.8-1.1-2.3 0-3.9 1.2-3.9 3.1 0 1.8 1.1 2.7 3.2 2.9l1.8.2c1.2.1 1.8.6 1.8 1.6 0 1.3-1.1 1.9-2.8 1.9-1.3 0-2.5-.3-3.3-1.2l-1 1c1.2 1.1 2.6 1.5 4.4 1.5 2.6 0 4.3-1.2 4.3-3.2-.2-2-1.5-2.7-3.3-2.9zm13.3-4.8c-1.7 0-2.8.3-3.7 1.5l1 1c.6-.9 1.3-1.2 2.7-1.2 1.9 0 2.7.8 2.7 2.3v1h-3.2c-2.4 0-3.7 1.2-3.7 3.1 0 .8.3 1.6.8 2.2.7.7 1.5 1 3 1 1.4 0 2.2-.3 3.1-1.1v1h1.6v-7.2c-.1-2.4-1.5-3.6-4.3-3.6zm2.7 7c0 .9-.2 1.5-.5 1.8-.7.6-1.5.7-2.4.7-1.7 0-2.4-.6-2.4-1.8 0-1.2.8-1.9 2.4-1.9h3l-.1 1.2zm7.6-5.6c1 0 1.6.3 2.4 1.2l1-1c-1.1-1.2-2-1.6-3.5-1.6-2.7 0-4.7 1.8-4.7 5.5 0 3.6 2 5.5 4.7 5.5 1.5 0 2.4-.4 3.5-1.6l-1.1-1c-.8.9-1.4 1.2-2.4 1.2s-1.9-.4-2.5-1.2c-.5-.7-.7-1.5-.7-2.9 0-1.3.2-2.2.7-2.9.7-.8 1.6-1.2 2.6-1.2zm13.4-1.3H69l-4.8 4.7V9.1h-1.6v15.4h1.6v-3.9l1.9-1.9 3.6 5.8h1.9l-4.4-6.9 3.7-3.7zm7.3-.33c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.7-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7.1 1.2 0 2.2-.6 2.7zm10.8-8.2l-2.2 6.9-2.3-6.9h-2.9l4.1 11.1h2.2l4.1-11.1h-3zm7.6-.1c-2.9 0-4.8 2-4.8 5.7 0 4.5 2.5 5.7 5.1 5.7 2 0 3.1-.6 4.2-1.7l-1.7-1.6c-.7.7-1.3 1-2.5 1-1.6 0-2.4-1-2.4-2.5h6.9v-1.2c0-3.2-1.7-5.4-4.8-5.4zm-2.1 4.6c0-.5.1-.8.3-1.2.3-.7.9-1.2 1.9-1.2.9 0 1.6.5 1.9 1.2.2.4.2.7.3 1.2h-4.4zm11-3.4v-1.1h-2.7v11.1h2.8v-6.7c0-1.4.9-2 1.8-2 .7 0 1 .2 1.5.7l2.1-2.1c-.8-.8-1.5-1-2.6-1-1.3-.1-2.3.4-2.9 1.1zm6.3-2.3v12.3h2.8v-8.8h2v-2.1h-2v-1.2c0-.6.3-1 1-1h1.1v-2.3h-1.6c-2.3 0-3.3 1.6-3.3 3.1zm16.2 1.1c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.8-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7 0 1.2 0 2.2-.6 2.7zm16.5-8.2l-1.8 6.9-2.3-6.9h-2l-2.3 6.9-1.8-6.9H134l3.4 11.1h2.3l2.3-7 2.3 7h2.3l3.4-11.1h-2.9zm-25.1 7.7V9.27h-2.8v12.3c0 1.6 1 3.2 3.2 3.2h1.6v-2.3h-1c-.7 0-1-.4-1-1.1zM41.3 15.6l1.4-1.4h-3v-3.5h-1.6v11.1c0 1.6.9 2.9 2.7 2.9h1.1v-1.3h-.8c-1 0-1.5-.6-1.5-1.6v-6.1h1.7v-.1z" fill="#222426"></path><path fill="#BCBBBB" d="M21 27v-8h3v11H0V19h3v8z"></path><path d="M5.4 19.1l13.56 1.96.17-2.38-13.26-2.55-.47 2.97zm1.8-6.8l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm3.4-5.9l10.2 8.5 1.7-2-10.2-8.5-1.7 2zM17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zM5 25h14v-3H5v3z" fill="#F48024"></path></g></svg></a>
+                    </div>
+                
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="https://stackoverflow.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick="StackExchange.switchMobile(&quot;on&quot;)" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com/?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-business-category" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Stack Overflow<br> Business</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Ads</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/enterprise?utm_source=so-footer&amp;utm_medium=referral&amp;utm_campaign=brand-activation&amp;utm_term=sotob2b-footer-enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                        </ul>
+                    </nav>
+                <nav class="-nav js-category _visible" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackexchange.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackexchange.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="-network g-row">
+                    <a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="-back-trigger js-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"></path></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com/">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/questions/5908671/complexity-comparisons-between-data-structures#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <nav class="-nav js-category" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Português</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="programadores y profesionales de la informática">Stack Overflow en español</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 26 })">
+                        <strong>
+                            more (26)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 26 })">
+                        <strong>
+                            more (16)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 26 })">
+                        <strong>
+                            more (32)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="scientists, academics, teachers and students">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 0, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </nav>
+                <div class="-copyright g-row jc-end">
+                    <div class="g-column jc-sp-between">
+                        <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                            <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                            <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                            <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                        </ul>
+
+                        <div>
+                            <p>
+site design / logo © 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license" class="-link">cc by-sa 3.0</a>
+                    with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license" class="-link">attribution required</a>.
+                                <span id="svnrev">rev&nbsp;2018.1.5.28293</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    </div>
+    </footer>
+
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled
+            &lt;img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;
+        &lt;/div&gt;
+    </noscript>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1', {'userId': '12031812' });
+                ga('set', 'dimension1', '12031812');
+                ga('set', 'dimension2', '|performance|data-structures|comparison|big-o|');
+            
+            StackExchange.ready(function () {
+                StackExchange.ga.init();
+            });
+            ga('send', 'pageview');
+            
+                    
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+    </script>
+        
+    
+    
+</body></html>

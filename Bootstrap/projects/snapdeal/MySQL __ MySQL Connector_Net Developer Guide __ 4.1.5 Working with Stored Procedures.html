@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html -->
+<html lang="en" class="svg js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!--[if IE ]>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Language" content="en">
+
+    <title>MySQL :: MySQL Connector/Net Developer Guide :: 4.1.5 Working with Stored Procedures</title>
+    <link rel="stylesheet" media="all" href="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/main-20170712.min.css">
+            <link rel="stylesheet" media="all" href="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/docs-20170712.min.css">
+    
+    
+    <link rel="stylesheet" media="print" href="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/print-20170712.min.css">
+
+    
+    
+    
+    
+            <link rel="contents" href="https://dev.mysql.com/doc/connector-net/en/index.html" title="MySQL Connector/Net Developer Guide">
+<link rel="start" href="https://dev.mysql.com/doc/connector-net/en/index.html" title="MySQL Connector/Net Developer Guide">
+<link rel="prev" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-parameters.html" title="4.1.4 Working with Parameters">
+<link rel="next" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-asp-roles.html?ff=nopfpls" title="4.2 Tutorial: MySQL Connector/Net ASP.NET Membership and Role Provider">
+<link rel="up" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-intro.html" title="4.1 Tutorial: An Introduction to Connector/Net Programming">
+
+    
+    <link rel="shortcut icon" href="https://labs.mysql.com/common/themes/sakila/favicon.ico">
+    <script>(function(H){ H.className=H.className.replace(/\bno-js\b/,'js') })(document.documentElement)</script>
+    <script src="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/site-20171215.min.js.download"></script>
+
+    
+    
+    
+    <!--[if lt IE 9]>
+        <script src="https://labs.mysql.com/common/js/polyfills/html5shiv-printshiv-3.7.2.min.js"></script>
+        <script src="https://labs.mysql.com/common/js/polyfills/respond-1.4.2.min.js"></script>
+    <![endif]-->
+        <!--[if IE 9]>
+        <style>#docs-sidebar-toc { box-sizing: content-box; }</style>
+    <![endif]-->
+    </head>
+
+<body class="no-sidebar full-page dev has-sticky-toc">
+<div class="page-wrapper">
+    <header>
+
+                        <a href="https://dev.mysql.com/" title="MySQL" id="l1-home-link"></a>
+        
+        <div id="l1-nav-container">
+            <div id="l1-line1">
+                <div id="l1-auth-links">
+                    <a href="https://www.mysql.com/about/contact/"><b>Contact MySQL</b></a>
+                    <span id="l1-contact-separator">&nbsp;|&nbsp;</span>
+                    <span id="l1-contact-separator-br"><br></span>
+                                             <a href="https://dev.mysql.com/auth/login/?dest=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Fconnector-net%2Fen%2Fconnector-net-tutorials-stored-procedures.html">Login</a> &nbsp;|&nbsp;
+                         <a href="https://dev.mysql.com/auth/register/">Register</a>
+                                    </div>
+                <div id="l1-lhs">
+                    <div id="l1-slogan">
+                        The world's most popular open source database
+                    </div>
+                    <div id="l1-search-box">
+                        <form id="l1-search-form" method="get" action="https://www.oracle.com/search/results">
+                        <input type="hidden" name="cat" value="mysql">
+                        <input type="hidden" name="Ntk" value="SI-ALL5">
+                        <input id="l1-search-input" type="search" class="icon-search" placeholder="Search" name="Ntt">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="l1-line2">
+                <div class="social-icons">
+                    <a title="Join us on Facebook" href="http://www.facebook.com/mysql"><span class="icon-facebook"></span></a>
+                    <a title="Follow us on Twitter" href="https://twitter.com/#!/mysql"><span class="icon-twitter"></span></a>
+                    <a title="Follow us on LinkedIn" href="https://www.linkedin.com/company-beta/165081/"><span class="icon-linkedin"></span></a>
+                    <a title="Join Google+ to follow MySQL" href="https://plus.google.com/+mysql"><span class="icon-google-plus"></span></a>
+                    <a title="Visit our YouTube channel" href="http://www.youtube.com/mysqlchannel"><span class="icon-youtube"></span></a>
+                </div>
+                <ul id="l1-nav">
+                    <li>
+                        <a href="https://www.mysql.com/"><!-- <span class="icon-sakila"></span>  -->MySQL.com</a>
+                    </li><li>
+                        <a href="https://www.mysql.com/downloads/"><!-- <span class="icon-download-thin"></span>  -->Downloads</a>
+                    </li><li class="active">
+                        <a href="https://dev.mysql.com/doc/"><!-- <span class="icon-books"></span>  -->Documentation</a>
+                    </li><li>
+                        <a href="https://dev.mysql.com/"><!-- <span class="icon-code"></span>  -->Developer Zone</a>
+                    </li>                </ul>
+            </div>
+        </div>
+        <div id="sub-header">
+            <div id="l2-nav-container">
+                <div id="l2-nav-toggle">
+                    <span class="icon-three-bars"></span>
+                </div>
+                                                                                        <a class="button nav-button-3" href="https://dev.mysql.com/"><span class="icon-code"></span> Developer Zone</a>
+                                                                                                                                    <a class="button nav-button-2" href="https://www.mysql.com/downloads/"><span class="icon-download-thin"></span> Downloads</a>
+                                                                                                <a class="button nav-button-1" href="https://www.mysql.com/"><span class="icon-sakila"></span> MySQL.com</a>
+                                                                        <div id="l2-search-toggle">
+                    <span class="icon-search"></span>
+                </div>
+                <div id="l2-site-icon">
+                                                                                                                                                                                                    <span class="icon-books"></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                <div id="l1-section-title">
+                    <span id="l1-section-label">
+                        <a href="https://dev.mysql.com/doc/">Documentation</a>
+                    </span>
+                </div>
+                <nav>
+                    
+
+<ul id="l2-nav">
+            	<li class=""><a href="https://dev.mysql.com/doc/refman/en/">MySQL Server</a>
+    			</li>
+	        	<li class=""><a href="https://dev.mysql.com/doc/index-enterprise.html">MySQL Enterprise</a>
+    			</li>
+	        	<li class=""><a href="https://dev.mysql.com/doc/workbench/en/">Workbench</a>
+    			</li>
+	        	<li class=""><a href="https://dev.mysql.com/doc/en/mysql-innodb-cluster-userguide.html">InnoDB Cluster</a>
+    			</li>
+	        	<li class=""><a href="https://dev.mysql.com/doc/index-cluster.html">MySQL NDB Cluster</a>
+    			</li>
+	        	<li class="active"><a class="active " href="https://dev.mysql.com/doc/index-connectors.html">Connectors</a>
+    			</li>
+	        	<li class=" last"><a href="https://dev.mysql.com/doc/index-other.html">More</a>
+    			</li>
+	                        <li class="other-section"><a href="https://www.mysql.com/">MySQL.com</a></li>
+                            <li class="other-section"><a href="https://www.mysql.com/downloads/">Downloads</a></li>
+                                        <li class="other-section"><a href="https://dev.mysql.com/">Developer Zone</a></li>
+            </ul>
+                </nav>
+            </div>
+            <div id="l3-search-container"></div>
+            <div id="top-orange"><span id="section-nav">Section Menu: &nbsp; </span></div>
+        </div>
+    </header>
+    <div id="page">
+                        <div role="main" id="main">
+
+            
+                
+            
+<div>
+    <div id="docs-sidebar-toc" class="sticky" style="max-height: 613px; overflow-y: auto;">
+    <div id="docs-toc-inner">
+        <div class="docs-sidebar-header" id="docs-nav-header">
+            <a class="docs-show-hide-nav" id="docs-hide-nav" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html" title="Hide Sidebar"><span class="icon-arrow-small-left"></span></a>
+            <div class="docs-nav-links">
+                                    
+    <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-parameters.html" title="Previous: Working with Parameters"><span class="icon-chevron-left"></span></a>
+<a href="https://dev.mysql.com/doc/connector-net/en/index.html" title="Start"><span class="icon-book-open"></span></a>
+        <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-intro.html" title="Up: Tutorial: An Introduction to Connector/Net Programming"><span class="icon-chevron-up"></span></a>
+    <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-asp-roles.html" title="Next: Tutorial: MySQL Connector/Net ASP.NET Membership and Role Provider"><span class="icon-chevron-right"></span></a>
+                            </div>
+        </div>
+                    
+<div id="docs-sidebar-search-container">
+    <div id="docs-sidebar-search-box">
+        <form method="get" action="https://dev.mysql.com/doc/search/">
+            <input type="hidden" name="d" id="d" value="31">
+            <input type="hidden" name="p" id="p" value="1">
+            <input type="text" name="q" id="q" value="Search this Manual" style="color: #bbb;" onfocus="if(this.value == &#39;Search this Manual&#39;) {this.value=&#39;&#39;;this.style.color=&#39;#555&#39;;}" onblur="if(this.value == &#39;&#39;) {this.value=&#39;Search this Manual&#39;;this.style.color=&#39;#bbb&#39;;}">
+
+            <button class="docs-sidebar-search-btn" title="Search" type="submit">
+                <span class="icon-search"></span>
+            </button>
+        </form>
+    </div>
+</div>
+                <div class="docs-sidebar-nav">
+            <a class="docs-icon-home" href="https://dev.mysql.com/doc/"><span class="icon-home"></span>Documentation Home</a><hr>
+            <div class="docs-sidebar-mtitle">MySQL Connector/Net Developer Guide</div>
+            <nav class="doctoc" id="doc-31">
+                                    
+    <ul>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/preface.html">Preface and Legal Notices</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-introduction.html">Introduction to MySQL Connector/Net</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-versions.html">Connector/Net Versions</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable " href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-right"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-installation.html">Connector/Net Installation</a></div></div>                        <div class="docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable  loaded" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-down"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials.html">Connector/Net Tutorials</a></div></div>                        <div class="docs-submenu">
+                                    
+    <ul>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable  loaded" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-down"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-intro.html">Tutorial: An Introduction to Connector/Net Programming</a></div></div>                        <div class="docs-submenu">
+                                    
+    <ul>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-connection.html">The MySqlConnection Object</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-sql-command.html">The MySqlCommand Object</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-data-adapter.html">Working with Decoupled Data</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-parameters.html">Working with Parameters</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link current"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html">Working with Stored Procedures</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-asp-roles.html">Tutorial: MySQL Connector/Net ASP.NET Membership and Role Provider</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-asp-provider-profile.html">Tutorial: MySQL Connector/Net ASP.NET Profile Provider</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-web-personalization-provider.html">Tutorial: Web Parts Personalization Provider</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable  loaded" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-right"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-simple-membership-tutorial.html">Tutorial: Simple Membership Web Provider</a></div></div>                        <div class="docs-submenu hidden">
+                                    
+    <ul>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-simple-membership-tutorial-requirements.html">Requirements</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-simple-membership-tutorial-creating.html">Creating and Configuring a New Project</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-simple-membership-tutorial-oauth.html">Adding OAuth Authentication to a Project</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-entity-framework-winform-data-source.html">Tutorial: Using an Entity Framework Entity as a Windows Forms Data
+    Source</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-entity-framework-databinding-linq-entities.html">Tutorial: Data Binding in ASP.NET Using LINQ on Entities</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-efmodel-ddl.html">Tutorial: Generating MySQL DDL from an Entity Framework Model</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-document-store.html">Tutorial: Accessing JSON Documents with MySQL Connector/Net</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-ssl.html">Tutorial: Using SSL with MySQL Connector/Net</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable  loaded" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-right"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-mysqlscript.html">Tutorial: Using MySqlScript</a></div></div>                        <div class="docs-submenu hidden">
+                                    
+    <ul>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-mysqlscript-delimiter.html">Using Delimiters with MySqlScript</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable " href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-right"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-programming.html">Connector/Net Programming</a></div></div>                        <div class="docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-connection-options.html">Connector/Net Connection-String Options Reference</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-rt.html">Connector/Net for Windows Store</a></div></div>                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable " href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-right"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-entity-framework.html">Connector/Net for Entity Framework</a></div></div>                        <div class="docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable " href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-right"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-ref.html">Connector/Net API Reference</a></div></div>                        <div class="docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><a class="expandable " href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-chevron-right"></span></a></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-support.html">Connector/Net Support</a></div></div>                        <div class="docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class="docs-sidebar-nav-icon"><span class="icon-dot"></span></div><div class="docs-sidebar-nav-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-faq.html">Connector/Net FAQ</a></div></div>                    </li>
+        </ul>
+                            </nav>
+        </div>
+
+        
+<a class="docs-sidebar-section" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-related"></span>
+    <span class="text">Related Documentation</span></a>
+<div class="docs-sidebar-accordian open">
+    <div class="text">
+        <a href="https://dev.mysql.com/doc/relnotes/connector-net/en/">MySQL Connector/Net Release Notes</a><br>
+        </div>
+</div>
+
+    <a class="docs-sidebar-section" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-download-thin"></span>
+        <span class="text">
+            Download
+                            this Manual
+                    </span>
+    </a>
+    <div class="docs-sidebar-accordian open">
+        <div class="text">
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.pdf">PDF (US Ltr)</a>
+            - 2.6Mb<br>
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.a4.pdf">PDF (A4)</a>
+            - 2.6Mb<br>
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.html-chapter.tar.gz">HTML Download (TGZ)</a>
+            - 1.5Mb<br>
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.html-chapter.zip">HTML Download (Zip)</a>
+            - 1.5Mb<br>
+                    </div>
+    </div>
+
+
+        <br><span id="wkr" style="display: inline-block;"><br></span>
+    </div>
+    </div>
+
+    <div id="docs-main" class="has-toc">
+    <div id="docs-main-inner">
+
+        
+        <div id="docs-show-nav" class="left hidden" style="margin-right: 15px;">
+            <a class="docs-show-hide-nav" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html" title="Show Sidebar"><span class="icon-arrow-small-right"></span></a>
+        </div>
+
+                        <div id="docs-breadcrumbs">
+            <a href="https://dev.mysql.com/doc/connector-net/en/">MySQL Connector/Net Developer Guide</a> &nbsp;/&nbsp;
+                            <span id="breadcrumbs-link"><a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html" id="show-breadcrumbs">...</a> &nbsp;/&nbsp;</span>
+                <span class="hidden" id="hidden-breadcrumbs">
+                                                        <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials.html">Connector/Net Tutorials</a> &nbsp;/&nbsp;
+                                                            <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-intro.html">Tutorial: An Introduction to Connector/Net Programming</a> &nbsp;/&nbsp;
+                                                                                        </span>
+                                        Working with Stored Procedures
+                                    </div>
+        
+        <div id="docs-body">
+        
+<div class="section">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="connector-net-tutorials-stored-procedures"></a>4.1.5&nbsp;Working with Stored Procedures</h3>
+
+</div>
+
+</div>
+
+</div>
+<a class="indexterm" name="idm140226488676368"></a><p>
+      This section illustrates how to work with stored procedures.
+      Putting database-intensive operations into stored procedures lets
+      you define an API for your database application. You can reuse
+      this API across multiple applications and multiple programming
+      languages. This technique avoids duplicating database code, saving
+      time and effort when you make updates due to schema changes, tune
+      the performance of queries, or add new database operations for
+      logging, security, and so on. Before working through this
+      tutorial, familiarize yourself with the
+      <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html" target="_top"><code class="literal">CREATE PROCEDURE</code></a> and
+      <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/create-function.html" target="_top"><code class="literal">CREATE FUNCTION</code></a> statements that
+      create different kinds of stored routines.
+    </p><p>
+      For the purposes of this tutorial, you will create a simple stored
+      procedure to see how it can be called from Connector/Net. In the
+      MySQL Client program, connect to the <code class="literal">world</code>
+      database and enter the following stored procedure:
+    </p><div class="copytoclipboard-wrapper" style="position: relative;"><pre class="programlisting line-numbers  language-sql"><div class="docs-select-all right" id="sa27672532" style="display: block;"><div class="copy-help left">Press CTRL+C to copy</div> <div class="right"><button class="clipboard-btn" title="Copy to Clipboard"><span class="icon-clipboard"></span></button></div></div><code class=" language-sql"><span class="token keyword">DELIMITER</span> <span class="token comment" spellcheck="true">//</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> country_hos
+<span class="token punctuation">(</span><span class="token keyword">IN</span> con <span class="token datatype">CHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">BEGIN</span>
+  <span class="token keyword">SELECT</span> <span class="token keyword">Name</span><span class="token punctuation">,</span> HeadOfState <span class="token keyword">FROM</span> Country
+  <span class="token keyword">WHERE</span> Continent <span class="token operator">=</span> con<span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token comment" spellcheck="true">//</span>
+<span class="token keyword">DELIMITER</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><p>
+      Test that the stored procedure works as expected by typing the
+      following into the <span class="command"><strong>mysql</strong></span> command interpreter:
+    </p><div class="copytoclipboard-wrapper" style="position: relative;"><pre class="programlisting line-numbers one-line language-sql"><div class="docs-select-all right" id="sa54511828"><div class="copy-help left">Press CTRL+C to copy</div> <div class="right"><button class="clipboard-btn" title="Copy to Clipboard"><span class="icon-clipboard"></span></button></div></div><code class=" language-sql"><span class="token keyword">CALL</span> country_hos<span class="token punctuation">(</span><span class="token string">'Europe'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+
+<div class="admon-title">
+Note
+</div>
+<p>
+        The stored routine takes a single parameter, which is the
+        continent to restrict your search to.
+</p>
+</div>
+<p>
+      Having confirmed that the stored procedure is present and correct,
+      you can see how to access it from Connector/Net.
+    </p><p>
+      Calling a stored procedure from your Connector/Net application is
+      similar to techniques you have seen earlier in this tutorial. A
+      <code class="literal">MySqlCommand</code> object is created, but rather than
+      taking an SQL query as a parameter, it takes the name of the
+      stored procedure to call. Set the <code class="literal">MySqlCommand</code>
+      object to the type of stored procedure, as shown by the following
+      code snippet:
+    </p><div class="copytoclipboard-wrapper" style="position: relative;"><pre class="programlisting line-numbers  language-csharp"><div class="docs-select-all right" id="sa11328796"><div class="copy-help left">Press CTRL+C to copy</div> <div class="right"><button class="clipboard-btn" title="Copy to Clipboard"><span class="icon-clipboard"></span></button></div></div><code class=" language-csharp"><span class="token keyword">string</span> rtn <span class="token operator">=</span> <span class="token string">"country_hos"</span><span class="token punctuation">;</span>
+MySqlCommand cmd <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MySqlCommand</span><span class="token punctuation">(</span>rtn<span class="token punctuation">,</span> conn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+cmd<span class="token punctuation">.</span>CommandType <span class="token operator">=</span> CommandType<span class="token punctuation">.</span>StoredProcedure<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div><p>
+      In this case, the stored procedure requires you to pass a
+      parameter. This can be achieved using the techniques seen in the
+      previous section on parameters,
+      <a class="xref" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-parameters.html" title="4.1.4 Working with Parameters">Section&nbsp;4.1.4, “Working with Parameters”</a>, as shown in
+      the following code snippet:
+    </p><div class="copytoclipboard-wrapper" style="position: relative;"><pre class="programlisting line-numbers one-line language-csharp"><div class="docs-select-all right" id="sa15756829"><div class="copy-help left">Press CTRL+C to copy</div> <div class="right"><button class="clipboard-btn" title="Copy to Clipboard"><span class="icon-clipboard"></span></button></div></div><code class=" language-csharp">cmd<span class="token punctuation">.</span>Parameters<span class="token punctuation">.</span><span class="token function">AddWithValue</span><span class="token punctuation">(</span><span class="token string">"@con"</span><span class="token punctuation">,</span> <span class="token string">"Europe"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><p>
+      The value of the parameter <code class="literal">@con</code> could more
+      realistically have come from a user input control, but for
+      simplicity it is set as a static string in this example.
+    </p><p>
+      At this point, everything is set up and you can call the routine
+      using techniques also learned in earlier sections. In this case,
+      the <code class="literal">ExecuteReader</code> method of the
+      <code class="literal">MySqlCommand</code> object is used.
+    </p><p>
+      Complete working code for the stored procedure example is shown
+      below:
+    </p><div class="copytoclipboard-wrapper" style="position: relative;"><pre class="programlisting line-numbers  language-csharp"><div class="docs-select-all right" id="sa968064"><div class="copy-help left">Press CTRL+C to copy</div> <div class="right"><button class="clipboard-btn" title="Copy to Clipboard"><span class="icon-clipboard"></span></button></div></div><code class=" language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
+
+<span class="token keyword">using</span> MySql<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
+<span class="token keyword">using</span> MySql<span class="token punctuation">.</span>Data<span class="token punctuation">.</span>MySqlClient<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Tutorial6</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">string</span> connStr <span class="token operator">=</span> <span class="token string">"server=localhost;user=root;database=world;port=3306;password=******"</span><span class="token punctuation">;</span>
+        MySqlConnection conn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MySqlConnection</span><span class="token punctuation">(</span>connStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Connecting to MySQL..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            conn<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">string</span> rtn <span class="token operator">=</span> <span class="token string">"country_hos"</span><span class="token punctuation">;</span>
+            MySqlCommand cmd <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MySqlCommand</span><span class="token punctuation">(</span>rtn<span class="token punctuation">,</span> conn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cmd<span class="token punctuation">.</span>CommandType <span class="token operator">=</span> CommandType<span class="token punctuation">.</span>StoredProcedure<span class="token punctuation">;</span>
+
+            cmd<span class="token punctuation">.</span>Parameters<span class="token punctuation">.</span><span class="token function">AddWithValue</span><span class="token punctuation">(</span><span class="token string">"@con"</span><span class="token punctuation">,</span> <span class="token string">"Europe"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            MySqlDataReader rdr <span class="token operator">=</span> cmd<span class="token punctuation">.</span><span class="token function">ExecuteReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>rdr<span class="token punctuation">.</span><span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>rdr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" --- "</span> <span class="token operator">+</span> rdr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            rdr<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>ex<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        conn<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Done."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><p>
+      In this section, you have seen how to call a stored procedure from
+      Connector/Net. For the moment, this concludes our introductory
+      tutorial on programming with Connector/Net.
+</p>
+</div>
+
+<br>
+        </div>
+
+                <div id="docs-in-page-nav-container">
+            <div id="docs-in-page-nav">
+                
+    <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-parameters.html" title="Previous: Working with Parameters"><span class="icon-chevron-left"></span> PREV</a> &nbsp;
+<a href="https://dev.mysql.com/doc/connector-net/en/index.html" title="Start"> HOME</a> &nbsp;
+        <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-intro.html" title="Up: Tutorial: An Introduction to Connector/Net Programming"> UP</a> &nbsp;
+    <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-asp-roles.html" title="Next: Tutorial: MySQL Connector/Net ASP.NET Membership and Role Provider">NEXT <span class="icon-chevron-right"></span></a>
+            </div>
+        </div>
+        
+         <div id="docs-body-extra">
+             
+<a class="docs-sidebar-section" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-related"></span>
+    <span class="text">Related Documentation</span></a>
+<div class="docs-sidebar-accordian">
+    <div class="text">
+        <a href="https://dev.mysql.com/doc/relnotes/connector-net/en/">MySQL Connector/Net Release Notes</a><br>
+        </div>
+</div>
+
+    <a class="docs-sidebar-section" href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html"><span class="icon-download-thin"></span>
+        <span class="text">
+            Download
+                            this Manual
+                    </span>
+    </a>
+    <div class="docs-sidebar-accordian">
+        <div class="text">
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.pdf">PDF (US Ltr)</a>
+            - 2.6Mb<br>
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.a4.pdf">PDF (A4)</a>
+            - 2.6Mb<br>
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.html-chapter.tar.gz">HTML Download (TGZ)</a>
+            - 1.5Mb<br>
+                        <a href="https://downloads.mysql.com/docs/connector-net-en.html-chapter.zip">HTML Download (Zip)</a>
+            - 1.5Mb<br>
+                    </div>
+    </div>
+
+         </div>
+
+                     
+<div id="docs-comments">
+    <div class="docs-comments-header"><span class="icon-bubbles"></span> User Comments</div>
+
+    <div id="comment-listing">
+    
+    </div>
+
+        <div class="docs-comment-disclaimer">
+        <a href="https://dev.mysql.com/auth/register/?dest=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Fconnector-net%2Fen%2Fconnector-net-tutorials-stored-procedures.html%3Facf%3D1%23add-comment" class="docs-comment-btn right">Sign Up</a>
+        <a href="https://dev.mysql.com/auth/login/?dest=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Fconnector-net%2Fen%2Fconnector-net-tutorials-stored-procedures.html%3Facf%3D1%23add-comment" class="docs-comment-btn right">Login</a>
+        You must be logged in to post a comment.
+    </div>
+    </div>
+              </div>
+     </div>
+
+</div>
+
+<script>
+$(function() {
+    var doc = new $.doc({ 'mobile': $.browser.mobile, 'docId': 12, 'highlight': true });
+});
+</script>
+    
+
+            
+        </div>
+    </div>
+
+    <footer class="collapsed">
+        <div id="footer-bottom">
+                                    <div id="footer-collapse">
+                <a href="https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-stored-procedures.html" id="expand-footer" title="Expand Footer"><span class="icon-plus-square"></span></a>
+            </div>
+                        <div class="footer-contact">
+                <div id="footer-contact-icon" style="display: none;">
+                    <span class="icon-call-phone"></span>
+                </div>
+                <div id="footer-contact-numbers" style="display: none;">
+                    <strong>Contact MySQL Sales</strong><br>
+                    USA/Canada: +1-866-221-0634 &nbsp;
+                    (<a href="https://www.mysql.com/about/contact/phone/">More Countries »</a>)
+                </div>
+                <div id="footer-contact-copyright" style="display: inline-block;">
+                    <a href="http://www.oracle.com/"><span class="oracle-logo"></span></a>
+                    &nbsp; © 2018, Oracle Corporation and/or its affiliates
+                </div>
+            </div>
+            <div class="social-icons">
+                <a title="Join us on Facebook" href="http://www.facebook.com/mysql"><span class="icon-facebook-square"></span></a>
+                <a title="Follow us on Twitter" href="https://twitter.com/#!/mysql"><span class="icon-twitter-square"></span></a>
+                <a title="Follow us on LinkedIn" href="https://www.linkedin.com/company-beta/165081/"><span class="icon-linkedin-square"></span></a>
+                <a title="Join Google+ to follow MySQL" href="https://plus.google.com/+mysql"><span class="icon-google-plus-square"></span></a>
+                <a title="Visit our YouTube channel" href="http://www.youtube.com/mysqlchannel"><span class="icon-youtube-square"></span></a>
+            </div>
+            <br class="clear">
+        </div>
+        <div id="footer-links">
+
+            <div id="footer-nav"></div>
+
+            <div class="links">
+                <ul>
+                    <li class="top"><a href="https://www.mysql.com/products/">Products</a></li>
+                    <li><a href="https://www.mysql.com/cloud/">Oracle MySQL Cloud Service</a></li>
+                    <li><a href="https://www.mysql.com/products/enterprise/">MySQL Enterprise Edition</a></li>
+                    <li><a href="https://www.mysql.com/products/standard/">MySQL Standard Edition</a></li>
+                    <li><a href="https://www.mysql.com/products/classic/">MySQL Classic Edition</a></li>
+                    <li><a href="https://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></li>
+                    <li><a href="https://www.mysql.com/oem/">MySQL Embedded (OEM/ISV)</a></li>
+                </ul>
+            </div>
+
+            <div class="links">
+                <ul>
+                    <li class="top"><a href="https://www.mysql.com/services/">Services</a></li>
+                    <li><a href="https://www.mysql.com/training/">Training</a></li>
+                    <li><a href="https://www.mysql.com/certification/">Certification</a></li>
+                    <li><a href="https://www.mysql.com/consulting/">Consulting</a></li>
+                    <li><a href="https://www.mysql.com/support/">Support</a></li>
+                </ul>
+            </div>
+
+            <div class="links">
+                <ul>
+                    <li class="top"><a href="https://dev.mysql.com/downloads/">Downloads</a></li>
+                    <li><a href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a></li>
+                    <li><a href="https://dev.mysql.com/downloads/cluster/">MySQL NDB Cluster</a></li>
+                    <li><a href="https://dev.mysql.com/downloads/shell/">MySQL Shell</a></li>
+                    <li><a href="https://dev.mysql.com/downloads/router/">MySQL Router</a></li>
+                    <li><a href="https://dev.mysql.com/downloads/workbench/">MySQL Workbench</a></li>
+                </ul>
+            </div>
+
+            <div class="links">
+                <ul>
+                    <li class="top"><a href="https://dev.mysql.com/doc/">Documentation</a></li>
+                    <li><a href="https://dev.mysql.com/doc/refman/en/">MySQL Reference Manual</a></li>
+                    <li><a href="https://dev.mysql.com/doc/workbench/en/">MySQL Workbench</a></li>
+                    <li><a href="https://dev.mysql.com/doc/index-cluster.html">MySQL NDB Cluster</a></li>
+                    <li><a href="https://dev.mysql.com/doc/index-connectors.html">MySQL Connectors</a></li>
+                    <li><a href="https://dev.mysql.com/doc/#topic">Topic Guides</a></li>
+                </ul>
+            </div>
+
+            <div class="links">
+                <ul>
+                    <li class="top"><a href="https://www.mysql.com/about/">About MySQL</a></li>
+                    <li><a href="https://www.mysql.com/about/contact/">Contact Us</a></li>
+                                                            <li><a href="https://www.mysql.com/buy-mysql/">How to Buy</a></li>
+                    <li><a href="https://www.mysql.com/partners/">Partners</a></li>
+                    <li><a href="https://www.mysql.com/about/jobs/">Job Opportunities</a></li>
+                    <li><a href="https://www.mysql.com/sitemap.html">Site Map</a></li>
+                </ul>
+            </div>
+
+            
+            <div id="footer-logo">
+                <a href="http://www.oracle.com/"><span class="oracle-logo"></span></a>
+                &nbsp; © 2018, Oracle Corporation and/or its affiliates
+                <div class="footer-legal-links">
+                    <a href="https://www.mysql.com/about/legal/">Legal Policies</a> |
+                    <a href="http://www.oracle.com/us/legal/privacy/index.htm">Your Privacy Rights</a> |
+                    <a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a> |
+                    <a href="http://www.oracle.com/us/legal/third-party-trademarks/index.html">Trademark Policy</a> |
+                    <a href="http://www.oracle.com/technetwork/community/oca-486395.html">Contributor Agreement</a> |
+                    <div id="teconsent" style="display: inline-block" consent="null"><script async="async" type="text/javascript" src="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/notice" crossorigin="" id="truste_0.21764369186082377"></script><script async="async" type="text/javascript" crossorigin="" src="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/get"></script><a id="icon-id006817562759788753" tabindex="0" role="button" lang="en" style="cursor: pointer;">Cookie Preferences</a></div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</div>
+
+        <script src="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/s_code_remote.js.download"></script><script type="text/javascript" src="./MySQL __ MySQL Connector_Net Developer Guide __ 4.1.5 Working with Stored Procedures_files/metrics_group1.js.download"></script>
+
+        
+
+
+
+</body></html>
